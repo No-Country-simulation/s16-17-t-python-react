@@ -3,3 +3,5 @@ django-filter 24.2
 djangorestframework 3.15.2
 markdown 3.6
 django-cors-headers 4.4.0
+djangorestframework-simplejwt 5.3.1 
+pyjwt 2.8.0
