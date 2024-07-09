@@ -1,12 +1,7 @@
 import './App.css'
 
 function App() {
-
-  return (
-    <>
-      Hola
-    </>
-  )
+	return <>Hola</>
 }
 
 export default App
