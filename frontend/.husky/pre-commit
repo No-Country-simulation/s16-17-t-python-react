@@ -1,0 +1,7 @@
+# Husky works with the .git folder in root repository
+# So, we need to enter in frontend folder first
+# To run the commands
+
+cd frontend 
+npm run prettier
+npm run lint
