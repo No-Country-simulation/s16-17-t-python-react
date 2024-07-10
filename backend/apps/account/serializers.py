@@ -54,6 +54,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
         user.save()
         
         if "first_name" in validated_data:
-            user.profile.full_name = validated_data['first_name']
+            user.profile.first_name = validated_data['first_name']
             user.profile.save()
             
+        return user
