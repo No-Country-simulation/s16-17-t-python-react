@@ -11,6 +11,9 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
     
+    def __str__(self):
+        return self.username
+    
     def profile(self):
         profile = Profile.objects.get(user = self)
 
@@ -19,7 +22,11 @@ class Profile(models.Model):
         first_name = models.CharField(max_length =50)
         last_name = models.CharField(max_length = 50)
         bio = models.CharField(max_length = 1000)
+        image = models.ImageField(default="default.jpg", upload_to="user_images")
         verified = models.BooleanField(default = False)
+        def __str__(self):
+            return self.first_name + " " + self.last_name
+        
         
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
