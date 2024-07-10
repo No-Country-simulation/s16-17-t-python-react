@@ -143,6 +143,8 @@ REST_FRAMEWORK = {
     )
 }
 
+AUTH_USER_MODEL = 'account.User'
+
 # JWTAuthentication
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=50),
