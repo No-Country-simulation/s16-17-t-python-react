@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+    margin-top: 7.5rem;
+}
+
+.containerBanner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.buttonFirst {
+    height: 40px;
+    width: 90%;
+}
+
+.textLink {
+    text-decoration: none;
+    color: #6E9E30;
+}
+
+.textLink:hover {
+    text-decoration: solid;
+}
+
+.listButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
