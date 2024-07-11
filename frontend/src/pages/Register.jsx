@@ -1,33 +1,36 @@
 /* eslint-disable arrow-body-style */
 
 import "../App.css"
+import styles from "./Register.module.css"
+import background_gen from "../assets/img/background_gen.png"
+import { Button } from "@mui/material";
 
-import { RegNav, FormInput } from "../components";
+/* import { RegNav } from "../components"; */
+
+const { container, containerBanner, buttonFirst, textLink, listButton } = styles;
 
 export const Register = () => {
     return (
         <>
-            <div className="">
-                <RegNav />
+        <div className={container}>
+            <div className={containerBanner}>
+                <img src={background_gen} alt="" />
+                <h2>Bienvenido</h2>
             </div>
-            <div className="">
-                <h1>Empecemos</h1>
-                <p>Completa el formulario para crear tu cuenta</p>
-
-                <ul>
-                    <li>
-                        <FormInput label="Nombre completo" type="text"/>
-                        <span>Invalido</span>
-                    </li>
-                    <li>
-                        <FormInput label="Correo Electrónico" type="email"/>
-                        <span>Su correo no es válido</span>
-                    </li>
-                </ul>
-
-                <button>Siguiente</button>
-                <button>Registrarme con Google</button>
+            <div className={listButton}>
+                <Button variant="contained" className={buttonFirst}>Registrarse</Button>
+                <hr />
+                <Button variant="contained" className={buttonFirst}>Registrarme con Google</Button>
+                <p>Al registrarme, acepto los 
+                    <a href="#" className={textLink}>
+                        Términos de uso
+                        </a> y la <a href="#" className={textLink}>
+                         Política de privacidad
+                            </a> de la empresa.
+                        </p>
             </div>
+            
+        </div>
         </>
         
     );
