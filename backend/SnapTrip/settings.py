@@ -197,3 +197,13 @@ SPECTACULAR_SETTINGS = {
     'SERVE_INCLUDE_SCHEMA': False,
     # OTHER SETTINGS
 }
+
+# Email settings MailTrap
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '8dd13c7c528050'
+EMAIL_HOST_PASSWORD = '4b0903b39b5f01'
+EMAIL_PORT = '2525'
+DEFAULT_FROM_EMAIL = 'info@snaptrip.com'
+MAILTRAP_TOKEN = '1737283c460daa3f24f237bf23a38c8c'
+DOMAIN= "http://localhost:8000"
