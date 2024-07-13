@@ -6,10 +6,10 @@ export const routes = [
 	{
 		path: 'register',
 		element: <RegisterComponente />,
-		errorElement: <ErrorPage />
+		errorElement: <ErrorPage />,
 	},
 	{
-		path: "/",
-		element: <Home />
-	}
+		path: '/',
+		element: <Home />,
+	},
 ]
