@@ -14,15 +14,10 @@ const { container, containerBanner, buttonFirst, textLink, listButton } = styles
 
 export const Register = () => {
 
-    const [load, setload] = useState(false)
     const Nav = useNavigate()
 
     const Waiting = () => {
-        setTimeout(() => {
-            setload(true)
             Nav("/register")
-            setload(false)
-        }, 500);
     }
 
     return (
