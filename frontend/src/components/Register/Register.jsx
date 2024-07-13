@@ -47,9 +47,9 @@ export const RegisterComponente = () => {
 	const [confirmPassword, setConfirmPassword] = useState('')
 	const [error, setError] = useState('')
 	// estos estados todavia no funcionan automaticamente, pero si manualmente
-	const [showButtonRegister, setActiveButtonRegister] = useState(false)
-	const [ValidPasswordIcon, setValidPasswordIcon] = useState(false)
-	const [correctCharactert, setcorrectCharactert] = useState(false)
+	const [showButtonRegister, setActiveButtonRegister] = useState(true)
+	const [ValidPasswordIcon, setValidPasswordIcon] = useState(true)
+	const [correctCharactert, setcorrectCharactert] = useState(true)
 	const handleClickShowPassword = () => setShowPassword((show) => !show)
 	const handleClickShowConfirmPassword = () =>
 		setShowConfirmPassword((show) => !show)
