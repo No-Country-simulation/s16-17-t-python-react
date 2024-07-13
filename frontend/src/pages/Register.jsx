@@ -22,11 +22,7 @@ export const Register = () => {
 
     return (
         <>
-            {
-                load ?
-                    <LoaderComponent />
-                    // <h1>Cargando...</h1>
-                    :
+           
                     <div className={container}>
                         <div className={containerBanner}>
                             <img src={background_gen} alt="" />
@@ -48,7 +44,6 @@ export const Register = () => {
                         </div>
 
                     </div>
-            }
         </>
 
     );
