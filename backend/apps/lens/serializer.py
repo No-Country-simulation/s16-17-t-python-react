@@ -5,4 +5,4 @@ class LenSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Lens
-        fields = ['lens_name', 'lens_model', 'brand', 'aperture', 'focal_length']
+        fields = ['id','lens_name', 'lens_model', 'brand', 'aperture', 'focal_length']
