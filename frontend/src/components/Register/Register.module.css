@@ -1,0 +1,20 @@
+.section_form {
+	margin: 0 1rem;
+}
+.div_iconSuccesPassword {
+	display: flex;
+	height: 40px;
+	align-items: center;
+	opacity: 60%;
+}
+.form_password {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	justify-content: center;
+}
+/* Testeo de funcionamiento componente material ui */
+.formstyles:focus {
+	color: rgb(72, 183, 13);
+	background-color: #54c032;
+}

@@ -4,6 +4,7 @@
     align-items: center;
     padding: 0 1rem;
     margin-top: 7.5rem;
+
 }
 
 .containerBanner {
@@ -16,6 +17,7 @@
 .buttonFirst {
     height: 40px;
     width: 90%;
+    background-color: #25a015;
 }
 
 .textLink {
