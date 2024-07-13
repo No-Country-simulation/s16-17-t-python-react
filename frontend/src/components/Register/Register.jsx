@@ -46,8 +46,10 @@ export const RegisterComponente = () => {
 	const [password, setPassword] = useState('')
 	const [confirmPassword, setConfirmPassword] = useState('')
 	const [error, setError] = useState('')
-	const [showButtonRegister, setshowButtonRegister] = useState(false)
+	// estos estados todavia no funcionan automaticamente, pero si manualmente
+	const [showButtonRegister, setActiveButtonRegister] = useState(false)
 	const [ValidPasswordIcon, setValidPasswordIcon] = useState(false)
+	const [correctCharactert, setcorrectCharactert] = useState(false)
 	const handleClickShowPassword = () => setShowPassword((show) => !show)
 	const handleClickShowConfirmPassword = () =>
 		setShowConfirmPassword((show) => !show)
@@ -99,6 +101,8 @@ export const RegisterComponente = () => {
 			)
 			toast.error("Fallo en el registro")
 			return
+		} else {
+			setActiveButtonRegister(true)
 		}
 
 		const hasUpperCase = /[A-Z]/.test(password)
@@ -111,20 +115,35 @@ export const RegisterComponente = () => {
 			setError(
 				'La contraseña debe contener mayúsculas, minúsculas, números y caracteres especiales.'
 			)
+			setActiveButtonRegister(false)
 			return
+		} else {
+			setValidPasswordIcon(true)
+			setcorrectCharactert(true)
+			setActiveButtonRegister(true)
+			console.log({
+				showButton: showButtonRegister,
+				validPassword:
+					ValidPasswordIcon,
+				goodCharacters:
+					correctCharactert
+			})
 		}
+
 
 		if (password !== confirmPassword) {
 			toast.error("Fallo en el registro")
 			setError('Las contraseñas no coinciden.')
+			setActiveButtonRegister(false)
 			return
 		} else {
-			setValidPasswordIcon(true)
+			setActiveButtonRegister(true)
 		}
 
+		// setValidPasswordIcon(true)
+		// setActiveButtonRegister(true)
 		// Aquí iría el código para registrar al usuario si el correo electrónico está disponible.
 		console.log('Registrando usuario:', { name, email, username })
-		setshowButtonRegister(true)
 		setError('')
 		// Reiniciar el formulario
 		setName('')
@@ -133,14 +152,54 @@ export const RegisterComponente = () => {
 		setPassword('')
 		setConfirmPassword('')
 		toast.success('Registro exitosa!')
+
 		// toast.error('Registro erroneo')
 
 	}
-	const { section_form, div_iconSuccesPassword, form_password , formstyles} = styles
+	const { section_form,
+		div_iconSuccesPassword,
+		form_password,
+		formstyles,
+		div__button_password,
+		div_button_password_styles_nice,
+		div_button_password_styles_none,
+		section_title,
+		section_title_b,
+		section_div_title,
+		div_title_p
+	} = styles
 
+	// const correctCharPassword = [
+	// 	{	
+	// 		id: 1,
+	// 		bool: false,
+	// 		firts: "minimo 8 caracteres"
+	// 	},
+	// 	{	
+	// 		id: 2,
+	// 		bool: false,
+	// 		firts: "minimo 1 mayuscula"
+	// 	},
+	// 	{	
+	// 		id: 3,
+	// 		bool: false,
+	// 		firts: "minimo 8 caracteres"
+	// 	},
+	// 	{	
+	// 		id: 4,
+	// 		bool: false,
+	// 		firts: "minimo 8 caracteres"
+	// 	},
+	// ]
 	return (
 		<>
-			<h2>Registro de usuario</h2>
+			<section className={section_title}>
+				<div className={section_div_title}>
+
+					<p className={section_title_b}>Empecemos</p>
+					<p className={div_title_p}>Completá el form para crear tu cuenta.</p>
+				</div>
+			</section>
 			<section className={section_form}	>
 
 				<TextField
@@ -177,7 +236,9 @@ export const RegisterComponente = () => {
 						// sx={{ w: '100%' }}
 						variant="outlined"
 						fullWidth
+						color='success'
 						margin="normal"
+
 					>
 						<InputLabel htmlFor="outlined-adornment-password">
 							Contraseña
@@ -185,6 +246,7 @@ export const RegisterComponente = () => {
 						<OutlinedInput
 							id="outlined-adornment-password"
 							type={showPassword ? 'text' : 'password'}
+
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
 							endAdornment={
@@ -211,13 +273,20 @@ export const RegisterComponente = () => {
 								Valida
 							</div>
 						}
+
+						<div className={div__button_password}>
+							<button className={`${!correctCharactert ? div_button_password_styles_none : div_button_password_styles_nice}  `}	>
+							</button>
+							<p>minimo 8 caracteres</p>
+						</div>
 					</FormControl>
 					<FormControl
-					className={formstyles}
+						className={formstyles}
 						// sx={{ m: 1, width: '100%' }}
 						variant="outlined"
 						fullWidth
 						margin="normal"
+
 					>
 						<InputLabel htmlFor="outlined-adornment-confirm-password">
 							Repetir contraseña
