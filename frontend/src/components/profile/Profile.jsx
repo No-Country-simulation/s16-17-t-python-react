@@ -10,7 +10,6 @@ import Divider from '@mui/material/Divider'
 import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import Tooltip from '@mui/material/Tooltip'
-import PersonAdd from '@mui/icons-material/PersonAdd'
 import Settings from '@mui/icons-material/Settings'
 import Logout from '@mui/icons-material/Logout'
 
@@ -32,11 +31,11 @@ export const Profile = () => {
 					textAlign: 'center',
 				}}
 			>
-				<Tooltip title="Account settings">
+				<Tooltip title="Configuración de Perfil">
 					<IconButton
 						onClick={handleClick}
 						size="small"
-						sx={{ ml: 2 }}
+						sx={{ ml: 0, p: 0 }}
 						aria-controls={open ? 'account-menu' : undefined}
 						aria-haspopup="true"
 						aria-expanded={open ? 'true' : undefined}

@@ -14,9 +14,9 @@ import MenuItem from '@mui/material/MenuItem'
 import logo from '../../assets/img/logo_green.svg'
 import { NavLink } from 'react-router-dom'
 import { Profile } from '../profile/Profile'
+import { SearchBar } from './SearchBar'
 
 const pages = ['Descubrir', 'Nosotros', 'Servicios', 'Contacto']
-const settings = ['Perfil', 'Cerrar sesión']
 
 export const NavBar = () => {
 	const [anchorElNav, setAnchorElNav] = React.useState(null)
@@ -41,85 +41,93 @@ export const NavBar = () => {
 		<AppBar position="static" sx={{ backgroundColor: '#fff' }}>
 			<Container maxWidth="xl">
 				<Toolbar disableGutters>
-					<NavLink to="/" className="hidden md:flex mr-2 flex-nowrap">
-						<img src={logo} alt="" />
-					</NavLink>
-					<Box
-						sx={{
-							flexGrow: 1,
-							display: { xs: 'flex', md: 'none' },
-						}}
-					>
-						<IconButton
-							aria-label="account of current user"
-							aria-controls="menu-appbar"
-							aria-haspopup="true"
-							onClick={handleOpenNavMenu}
-							color="inherit"
-						>
-							<MenuIcon sx={{ color: '#313031' }} />
-						</IconButton>
-
-						<Menu
-							id="menu-appbar"
-							anchorEl={anchorElNav}
-							anchorOrigin={{
-								vertical: 'bottom',
-								horizontal: 'left',
-							}}
-							keepMounted
-							transformOrigin={{
-								vertical: 'top',
-								horizontal: 'left',
-							}}
-							open={Boolean(anchorElNav)}
-							onClose={handleCloseNavMenu}
+					<Box sx={{
+						flexGrow: 1,
+						display: 'flex',
+						alignItems: 'center'}}>
+						<Box
 							sx={{
-								display: { xs: 'block', md: 'none' },
+								flexGrow: 1,
+								display: { xs: 'flex', md: 'none' },
 							}}
 						>
+							<IconButton
+								aria-label="account of current user"
+								aria-controls="menu-appbar"
+								aria-haspopup="true"
+								onClick={handleOpenNavMenu}
+								color="inherit"
+							>
+								<MenuIcon sx={{ color: '#313031' }} />
+							</IconButton>
+							<NavLink to="/" className="hidden md:flex mr-2 flex-nowrap">
+									<img src={logo} alt="" />
+							</NavLink>
+							<Menu
+								id="menu-appbar"
+								anchorEl={anchorElNav}
+								anchorOrigin={{
+									vertical: 'bottom',
+									horizontal: 'left',
+								}}
+								keepMounted
+								transformOrigin={{
+									vertical: 'top',
+									horizontal: 'left',
+								}}
+								open={Boolean(anchorElNav)}
+								onClose={handleCloseNavMenu}
+								sx={{
+									display: { xs: 'block', md: 'none' },
+								}}
+							>
+								
+								{pages.map((page) => (
+									<MenuItem
+										key={page}
+										onClick={handleCloseNavMenu}
+									>
+										<Typography textAlign="center">
+											{page}
+										</Typography>
+									</MenuItem>
+								))}
+							</Menu>
+						</Box>
+						<NavLink
+							to="/"
+							className="flex md:hidden mr-1 flex-nowrap flex-grow"
+						>
+							<img
+								src={logo}
+								alt=""
+								className="mr-2 flex md:hidden"
+							/>
+						</NavLink>
+						<Box
+							sx={{
+								flexGrow: 1,
+								display: { xs: 'none', md: 'flex' },
+							}}
+						>
+							
 							{pages.map((page) => (
-								<MenuItem
+								<Button
 									key={page}
 									onClick={handleCloseNavMenu}
+									sx={{ color: '#313031', display: 'block', px: 1, py: 0 }}
 								>
-									<Typography textAlign="center">
-										{page}
-									</Typography>
-								</MenuItem>
+									{page}
+								</Button>
 							))}
-						</Menu>
-					</Box>
-					<NavLink
-						to="/"
-						className="flex md:hidden mr-1 flex-nowrap flex-grow"
-					>
-						<img
-							src={logo}
-							alt=""
-							className="mr-2 flex md:hidden"
-						/>
-					</NavLink>
-					<Box
-						sx={{
-							flexGrow: 1,
-							display: { xs: 'none', md: 'flex' },
-						}}
-					>
-						{pages.map((page) => (
-							<Button
-								key={page}
-								onClick={handleCloseNavMenu}
-								sx={{ color: '#313031', display: 'block' }}
-							>
-								{page}
-							</Button>
-						))}
-					</Box>
+						</Box>
 
-					<Box sx={{ flexGrow: 0 }}>
-						<Profile />
+						<Box sx={{ flexGrow: 0 }}>
+						<SearchBar />
+							<Profile />
+						</Box>
 					</Box>
+					
 				</Toolbar>
 			</Container>
 		</AppBar>
