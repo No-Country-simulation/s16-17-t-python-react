@@ -12,8 +12,10 @@ import Typography from '@mui/material/Typography'
 import Tooltip from '@mui/material/Tooltip'
 import Settings from '@mui/icons-material/Settings'
 import Logout from '@mui/icons-material/Logout'
+import useUserStore from '../../store/store'
 
 export const Profile = () => {
+	const { clearUser } = useUserStore();
 	const [anchorEl, setAnchorEl] = React.useState(null)
 	const open = Boolean(anchorEl)
 	const handleClick = (event) => {
@@ -90,7 +92,7 @@ export const Profile = () => {
 					</ListItemIcon>
 					Configuración
 				</MenuItem>
-				<MenuItem onClick={handleClose}>
+				<MenuItem onClick={clearUser}>
 					<ListItemIcon>
 						<Logout fontSize="small" />
 					</ListItemIcon>

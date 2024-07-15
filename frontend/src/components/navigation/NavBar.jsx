@@ -16,12 +16,14 @@ import { NavLink } from 'react-router-dom'
 import { Profile } from '../profile/Profile'
 import { SearchBar } from './SearchBar'
 import { Stack } from '@mui/material'
+import useUserStore from '../../store/store'
 
 const pages = ['Descubrir', 'Nosotros', 'Servicios', 'Contacto']
 
 export const NavBar = () => {
 	const [anchorElNav, setAnchorElNav] = React.useState(null)
-	const [anchorElUser, setAnchorElUser] = React.useState(null)
+	const [anchorElUser, setAnchorElUser] = React.useState(null)  /* Confirmacion de uso */
+	const { user, setUser } = useUserStore();
 
 	const handleOpenNavMenu = (event) => {
 		setAnchorElNav(event.currentTarget)
@@ -36,6 +38,10 @@ export const NavBar = () => {
 
 	const handleCloseUserMenu = () => {
 		setAnchorElUser(null)
+	}
+
+	const handleLogin = () => {				/* Mi codigo de prueba para manejo de estado */
+		setUser({nombre: 'John Doe'})
 	}
 
 	return (
@@ -142,17 +148,15 @@ export const NavBar = () => {
 							}}
 						>
 							<SearchBar />
-							<Box sx={{ display: 'flex' }}>
-								<Profile />
-							</Box>
-							<Box sx={{ display: 'none' }}>
-								<NavLink className="text-black">
+							{ user ? <Profile /> : <Box sx={{ display: 'flex', gap: '20px' }}>
+								<NavLink to="#" className="text-black" onClick={handleLogin}>   {/* Se el repite codigo para la prueba en ambos botones */}
 									Iniciar Sesion
 								</NavLink>
-								<NavLink className="text-black">
+								<NavLink to="#" className="text-black" onClick={handleLogin}>
 									Registrarse
 								</NavLink>
 							</Box>
+							}
 						</Stack>
 					</Box>
 				</Toolbar>
