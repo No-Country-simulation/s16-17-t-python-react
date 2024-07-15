@@ -40,12 +40,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+<<<<<<< HEAD
     'rest_framework_simplejwt',
     'rest_framework_swagger',
     'drf_spectacular',
     
     # SnapTrip apps
     'apps.account',
+=======
+    'apps.events'
+>>>>>>> 8c183b528c01d0e453c0c5414bc7f42342607390
     
 ]
 
