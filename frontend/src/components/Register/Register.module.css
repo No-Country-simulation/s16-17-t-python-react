@@ -20,24 +20,23 @@
 	background-color: #54c032;
 	
 }
+.div_button_password_styles_nice{
+	height: 10px;
+	width: 10px;
+	border-radius: 100%;
+	background-color: rgb(72, 183, 13);
+}
+.div_button_password_styles_none{
+	height: 10px;
+	width: 10px;
+	border-radius: 100%;
+	background-color: rgba(73, 183, 13, 0);
+	
+}
 .div__button_password{
 	padding:0 5px;
 	display: flex;
-	align-items: center;
-	gap: 5px;
-	.div_button_password_styles_nice{
-		height: 10px;
-		width: 10px;
-		border-radius: 100%;
-		background-color: rgb(72, 183, 13);
-	}
-	.div_button_password_styles_none{
-		height: 10px;
-		width: 10px;
-		border-radius: 100%;
-		background-color: rgba(73, 183, 13, 0);
-		
-	}
+	flex-direction: column;
 }
 .section_title{
 	height: 19vh;
@@ -63,6 +62,7 @@
 	justify-content: flex-start;
 	color: white;
 }
+
 .div_title_p{
 	min-width: 400px;
 	color: #959595;

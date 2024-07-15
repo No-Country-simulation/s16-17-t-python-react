@@ -47,9 +47,15 @@ export const RegisterComponente = () => {
 	const [confirmPassword, setConfirmPassword] = useState('')
 	const [error, setError] = useState('')
 	// estos estados todavia no funcionan automaticamente, pero si manualmente
-	const [showButtonRegister, setActiveButtonRegister] = useState(true)
-	const [ValidPasswordIcon, setValidPasswordIcon] = useState(true)
-	const [correctCharactert, setcorrectCharactert] = useState(true)
+	const [ActiveButtonRegister, setActiveButtonRegister] = useState(false)
+
+	const [PasswordHas8char, setPasswordHas8char] = useState(false)
+	const [MatchPassword, setMatchPassword] = useState(false)
+	const [PasswordHasNumbers, setPasswordHasNumbers] = useState(false)
+	const [PasswordHasUpperCase, setPasswordUpperCase] = useState(false)
+	const [PasswordHasLowercase, setPasswordHasLowercase] = useState(false)
+	const [PasswordHasSpecialChar, setPasswordHasSpecialChar] = useState(false)
+	const [correctCharactert, setcorrectCharactert] = useState(false)
 	const handleClickShowPassword = () => setShowPassword((show) => !show)
 	const handleClickShowConfirmPassword = () =>
 		setShowConfirmPassword((show) => !show)
@@ -58,6 +64,12 @@ export const RegisterComponente = () => {
 		event.preventDefault()
 	}
 
+
+
+	const hasUpperCase = /[A-Z]/.test(password)
+	const hasLowerCase = /[a-z]/.test(password)
+	const hasNumbers = /\d/.test(password)
+	const hasNonalphas = /\W/.test(password)
 
 	const handleRegister = async () => {
 		if (name.trim() === '') {
@@ -105,43 +117,44 @@ export const RegisterComponente = () => {
 			setActiveButtonRegister(true)
 		}
 
-		const hasUpperCase = /[A-Z]/.test(password)
-		const hasLowerCase = /[a-z]/.test(password)
-		const hasNumbers = /\d/.test(password)
-		const hasNonalphas = /\W/.test(password)
+
 
 		if (!hasUpperCase || !hasLowerCase || !hasNumbers || !hasNonalphas) {
 			toast.error("Fallo en el registro")
-			setError(
-				'La contraseña debe contener mayúsculas, minúsculas, números y caracteres especiales.'
-			)
-			setActiveButtonRegister(false)
+			setError('La contraseña debe contener mayúsculas, minúsculas, números y caracteres especiales.')
 			return
 		} else {
-			setValidPasswordIcon(true)
-			setcorrectCharactert(true)
-			setActiveButtonRegister(true)
-			console.log({
-				showButton: showButtonRegister,
-				validPassword:
-					ValidPasswordIcon,
-				goodCharacters:
-					correctCharactert
-			})
 		}
 
 
 		if (password !== confirmPassword) {
 			toast.error("Fallo en el registro")
 			setError('Las contraseñas no coinciden.')
-			setActiveButtonRegister(false)
 			return
 		} else {
+			setcorrectCharactert(true)
+			setActiveButtonRegister(true)
+			// console.log({ showButton: showButtonRegister, validPassword: ValidPasswordIcon, goodCharacters: correctCharactert })
 			setActiveButtonRegister(true)
 		}
+		if (hasUpperCase) {
+			console.log("está entrando mayusculas")
+			setPasswordUpperCase(true)
+		}
+		if (hasNumbers) {
+			setPasswordHasNumbers(true)
+		}
+		if (hasLowerCase) {
+			setPasswordHasLowercase(true)
+		}
+		if (hasNonalphas) {
+			setPasswordHasSpecialChar(true)
+		}
+		if (confirmPassword) {
+			setMatchPassword(true)
 
-		// setValidPasswordIcon(true)
-		// setActiveButtonRegister(true)
+		}
+
 		// Aquí iría el código para registrar al usuario si el correo electrónico está disponible.
 		console.log('Registrando usuario:', { name, email, username })
 		setError('')
@@ -153,9 +166,30 @@ export const RegisterComponente = () => {
 		setConfirmPassword('')
 		toast.success('Registro exitosa!')
 
-		// toast.error('Registro erroneo')
 
 	}
+
+	const handleValidationPassword = (e) => {
+		if (e.length >= MIN_PASSWORD_LENGTH) {
+			setPasswordHas8char(true)
+			setActiveButtonRegister(true)
+		}
+
+		// Se está validando si los valores del input "repetir contraseña" coinciden exactamente con los valores del input contraseña de arriba
+		// confirmPassword === hasUpperCase
+		// 	&& confirmPassword === hasNumbers
+		// 	&& confirmPassword === hasLowerCase
+		// 	&& confirmPassword === hasNonalphas
+		// 	&& confirmPassword === hasNonalphas
+		// ?  : null
+
+		if (hasUpperCase) {
+			// console.log("Tiene")
+			// setMatchPassword(true)
+		}
+	}
+	
+
 	const { section_form,
 		div_iconSuccesPassword,
 		form_password,
@@ -166,31 +200,11 @@ export const RegisterComponente = () => {
 		section_title,
 		section_title_b,
 		section_div_title,
-		div_title_p
+		div_title_p,
+		passwordValid_focus
 	} = styles
 
-	// const correctCharPassword = [
-	// 	{	
-	// 		id: 1,
-	// 		bool: false,
-	// 		firts: "minimo 8 caracteres"
-	// 	},
-	// 	{	
-	// 		id: 2,
-	// 		bool: false,
-	// 		firts: "minimo 1 mayuscula"
-	// 	},
-	// 	{	
-	// 		id: 3,
-	// 		bool: false,
-	// 		firts: "minimo 8 caracteres"
-	// 	},
-	// 	{	
-	// 		id: 4,
-	// 		bool: false,
-	// 		firts: "minimo 8 caracteres"
-	// 	},
-	// ]
+
 	return (
 		<>
 			<section className={section_title}>
@@ -233,20 +247,25 @@ export const RegisterComponente = () => {
 
 					<FormControl
 						className={formstyles}
-						// sx={{ w: '100%' }}
+						sx={{ w: '100%' }}
 						variant="outlined"
 						fullWidth
+						value={password}
+						onChange={(e) => handleValidationPassword(e.target.value)}
 						color='success'
 						margin="normal"
 
 					>
+						{/* <div className={`${passwordValid_focus} `}	>
+						</div> */}
+						
 						<InputLabel htmlFor="outlined-adornment-password">
 							Contraseña
 						</InputLabel>
 						<OutlinedInput
 							id="outlined-adornment-password"
 							type={showPassword ? 'text' : 'password'}
-
+							
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
 							endAdornment={
@@ -265,20 +284,49 @@ export const RegisterComponente = () => {
 							}
 							label="Password"
 						/>
+						
 						{
-							ValidPasswordIcon &&
-							<div className={div_iconSuccesPassword}>
+							MatchPassword ?
+								<div className={div_iconSuccesPassword}>
 
-								<CheckCircleIcon color='success' />
-								Valida
-							</div>
+									<CheckCircleIcon color='success' />
+									Contraseña Valida
+								</div>
+								:
+								<div className={div__button_password}>
+									<div className='flex flex-row items-center gap-3'	>
+										<button className={`${!PasswordHas8char ? div_button_password_styles_none : div_button_password_styles_nice}  `}	>
+										</button>
+										<p>minimo 8 caracteres</p>
+
+									</div>
+									<div className='flex flex-row items-center gap-3'	>
+										<button className={`${!PasswordHasUpperCase ? div_button_password_styles_none : div_button_password_styles_nice}  `}	>
+										</button>
+										<p>tiene mayusculas</p>
+
+									</div>
+									<div className='flex flex-row items-center gap-3'	>
+										<button className={`${!PasswordHasNumbers ? div_button_password_styles_none : div_button_password_styles_nice}  `}	>
+										</button>
+										<p>tiene un numero o varios</p>
+
+									</div>
+									<div className='flex flex-row items-center gap-3'	>
+										<button className={`${!PasswordHasLowercase ? div_button_password_styles_none : div_button_password_styles_nice}  `}	>
+										</button>
+										<p>tiene una minuscula o mas</p>
+
+									</div>
+									<div className='flex flex-row items-center gap-3'	>
+										<button className={`${!PasswordHasSpecialChar ? div_button_password_styles_none : div_button_password_styles_nice}  `}	>
+										</button>
+										<p>tiene caracteres especiales</p>
+
+									</div>
+								</div>
 						}
 
-						<div className={div__button_password}>
-							<button className={`${!correctCharactert ? div_button_password_styles_none : div_button_password_styles_nice}  `}	>
-							</button>
-							<p>minimo 8 caracteres</p>
-						</div>
 					</FormControl>
 					<FormControl
 						className={formstyles}
@@ -313,7 +361,7 @@ export const RegisterComponente = () => {
 							label="Confirm Password"
 						/>
 						{
-							ValidPasswordIcon &&
+							MatchPassword &&
 							<div className={div_iconSuccesPassword}>
 
 								<CheckCircleIcon color='success' />
@@ -323,7 +371,7 @@ export const RegisterComponente = () => {
 					</FormControl>
 				</div>
 				{
-					showButtonRegister === false ?
+					!ActiveButtonRegister ?
 						<Button
 							variant="contained"
 							color="primary"
