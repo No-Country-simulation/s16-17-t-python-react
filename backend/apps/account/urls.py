@@ -8,5 +8,6 @@ urlpatterns = [
     path('register/', views.RegisterView.as_view(), name='register'),
     path("verify-email/", views.VerifyEmailView.as_view(), name="verify-email"),
     path('dashboard/', views.dashboard, name='dashboard'),
+    path('profile/', views.ProfileView.as_view(), name='profile'),
     # path('', views.view_all_routes, name='all_routes'),
 ]

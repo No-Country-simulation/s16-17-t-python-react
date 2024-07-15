@@ -1,4 +1,4 @@
-from .models import User
+from .models import User, Profile, SocialNetworks
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth import get_user_model
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
@@ -9,7 +9,7 @@ User = get_user_model()
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'email']
+        fields = ['id', 'email']
         
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
@@ -23,7 +23,10 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['bio'] = user.profile.bio
         token['image'] = str(user.profile.image)
         token['verified'] = user.profile.verified
-        
+        token['level'] = user.profile.level
+        token['location'] = user.profile.location
+        token['birth_day'] = user.profile.birth_day
+                
         return token
     
 class RegistrationSerializer(serializers.ModelSerializer):
@@ -43,49 +46,18 @@ class RegistrationSerializer(serializers.ModelSerializer):
         validated_data.pop("confirm_password")
         user = User.objects.create_user(**validated_data, is_active=False)
         return user
-    
-# class RegistrationSerializer(serializers.ModelSerializer):
-#     password = serializers.CharField(write_only = True, required = True, validators = [validate_password])
-#     password2 = serializers.CharField(write_only = True, required = True)
-    
-#     class Meta:
-#         model = User
-#         fields = ['email', 'username', 'password', 'password2']
-    
-#     # Method to validate the password
-#     def validate(self, attrs):
-#         if attrs['password'] != attrs['password2']:
-#             raise serializers.ValidationError(
-#                 {'password': 'Las contraseñas no coinciden'}
-#             )
+  
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = [
+            "username", 
+            "first_name", 
+            "last_name",
+            "birth_date",
+            "location", 
+            "level",
+            "bio",
+            "image",
+        ]
         
-#         return attrs
-    
-#     def create(self, validated_data):
-#         validated_data.pop("password2")
-#         user = User.objects.create_user(**validated_data, is_active=False)
-#         return user
-    
-    
-    # def create(self, validated_data):
-    #     user = User.objects.create_user(
-    #         email = validated_data['email'],
-    #         username = validated_data.get('username'),
-    #         password = validated_data.get('password'),
-    #     )
-    #     return user
-        
-        
-        
-        # user = User.objects.create(
-        #     username = validated_data['username'],
-        #     email = validated_data['email'],
-        # )
-        
-        # user.set_password(validated_data['password'])
-        # user.save()
-        
-        # if "first_name" in validated_data:
-        #     user.profile.first_name = validated_data['first_name']
-        #     user.profile.save()
-            

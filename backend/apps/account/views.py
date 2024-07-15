@@ -4,7 +4,7 @@ import string
 
 # app imports
 from .models import User
-from .serializers import MyTokenObtainPairSerializer, RegistrationSerializer
+from .serializers import MyTokenObtainPairSerializer, RegistrationSerializer, ProfileSerializer
 from .utils import send_verify_registration_email
 
 # rest_framework imports
@@ -44,6 +44,10 @@ class RegisterView(generics.CreateAPIView):
             )
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+class ProfileView(generics.GenericAPIView):
+    serializer_class = ProfileSerializer
+    permission_classes = [IsAuthenticated]
     
     
     
