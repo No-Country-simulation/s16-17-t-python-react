@@ -152,10 +152,10 @@ export const NavBar = () => {
 							<SearchBar />
 							{user ?
 								<Profile />
-							:	<Box sx={{ display: 'flex', gap: '20px' }}>
+							:	<Box sx={{ display: {sm: 'flex', xs: 'none'}, gap: '20px', alignItems: 'center' }}>
 									<NavLink
 										to="#"
-										className="text-black"
+										className="text-primaryText font-semibold"
 										onClick={handleLogin}
 									>
 										{' '}
@@ -164,10 +164,13 @@ export const NavBar = () => {
 									</NavLink>
 									<NavLink
 										to="#"
-										className="text-black"
+										className="text-white bg-bgButton h-10 w-36 
+										rounded-full flex items-center justify-center 
+										text-base font-medium leading-5 tracking-wide 
+										hover:bg-hoverBtn transition duration-300"
 										onClick={handleLogin}
 									>
-										Registrarse
+										Registrarme
 									</NavLink>
 								</Box>
 							}
