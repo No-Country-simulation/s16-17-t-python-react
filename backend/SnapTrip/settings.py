@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
 <<<<<<< HEAD
+<<<<<<< HEAD
     'rest_framework_simplejwt',
     'rest_framework_swagger',
     'drf_spectacular',
@@ -50,6 +51,10 @@ INSTALLED_APPS = [
 =======
     'apps.events'
 >>>>>>> 8c183b528c01d0e453c0c5414bc7f42342607390
+=======
+    'apps.camera',
+    'apps.lens',
+>>>>>>> 19664ab5ec3913255ba683773bbeb6ce9110905c
     
 ]
 

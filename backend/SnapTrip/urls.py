@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 <<<<<<< HEAD
+<<<<<<< HEAD
 from django.urls import path, include
 
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
@@ -34,5 +35,13 @@ from django.urls import path, re_path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('events/', include('apps.events.urls'))
+=======
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('cameras/', include('apps.camera.urls')),
+    path('lens/', include('apps.lens.urls')),
+>>>>>>> 19664ab5ec3913255ba683773bbeb6ce9110905c
 ]
 >>>>>>> 8c183b528c01d0e453c0c5414bc7f42342607390
