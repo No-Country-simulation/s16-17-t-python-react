@@ -152,7 +152,13 @@ export const NavBar = () => {
 							<SearchBar />
 							{user ?
 								<Profile />
-							:	<Box sx={{ display: {sm: 'flex', xs: 'none'}, gap: '20px', alignItems: 'center' }}>
+							:	<Box
+									sx={{
+										display: { sm: 'flex', xs: 'none' },
+										gap: '20px',
+										alignItems: 'center',
+									}}
+								>
 									<NavLink
 										to="#"
 										className="text-primaryText font-semibold"
