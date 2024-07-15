@@ -15,6 +15,7 @@ import logo from '../../assets/img/logo_green.svg'
 import { NavLink } from 'react-router-dom'
 import { Profile } from '../profile/Profile'
 import { SearchBar } from './SearchBar'
+import { Stack } from '@mui/material'
 
 const pages = ['Descubrir', 'Nosotros', 'Servicios', 'Contacto']
 
@@ -41,10 +42,19 @@ export const NavBar = () => {
 		<AppBar position="static" sx={{ backgroundColor: '#fff' }}>
 			<Container maxWidth="xl">
 				<Toolbar disableGutters>
-					<Box sx={{
-						flexGrow: 1,
-						display: 'flex',
-						alignItems: 'center'}}>
+					<Box
+						sx={{
+							flexGrow: 1,
+							display: 'flex',
+							alignItems: 'center',
+						}}
+					>
+						<NavLink
+								to="/"
+								className="hidden md:flex mr-2 flex-nowrap"
+							>
+								<img src={logo} alt="" />
+						</NavLink>
 						<Box
 							sx={{
 								flexGrow: 1,
@@ -60,9 +70,6 @@ export const NavBar = () => {
 							>
 								<MenuIcon sx={{ color: '#313031' }} />
 							</IconButton>
-							<NavLink to="/" className="hidden md:flex mr-2 flex-nowrap">
-									<img src={logo} alt="" />
-							</NavLink>
 							<Menu
 								id="menu-appbar"
 								anchorEl={anchorElNav}
@@ -81,7 +88,6 @@ export const NavBar = () => {
 									display: { xs: 'block', md: 'none' },
 								}}
 							>
-								
 								{pages.map((page) => (
 									<MenuItem
 										key={page}
@@ -110,24 +116,34 @@ export const NavBar = () => {
 								display: { xs: 'none', md: 'flex' },
 							}}
 						>
-							
 							{pages.map((page) => (
 								<Button
 									key={page}
 									onClick={handleCloseNavMenu}
-									sx={{ color: '#313031', display: 'block', px: 1, py: 0 }}
+									sx={{
+										color: '#313031',
+										display: 'block',
+										px: 1,
+										py: 0,
+									}}
 								>
 									{page}
 								</Button>
 							))}
 						</Box>
 
-						<Box sx={{ flexGrow: 0 }}>
-						<SearchBar />
-							<Profile />
-						</Box>
+						<Stack direction='row' sx={{ flexGrow: 0, display: 'flex', gap: '20px', alignItems: 'center' }}>
+							<SearchBar />
+							<Box sx={{display: 'flex'}}>
+								<Profile />
+							</Box>
+							<Box sx={{display: 'none'}}>
+								<NavLink className="text-black">Iniciar Sesion</NavLink>
+								<NavLink className="text-black">Registrarse</NavLink>
+							</Box>
+							
+						</Stack>
 					</Box>
-					
 				</Toolbar>
 			</Container>
 		</AppBar>

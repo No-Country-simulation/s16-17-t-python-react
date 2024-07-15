@@ -1,13 +1,13 @@
 .relative {
-    width: 3rem; 
-    height: 3rem;
-    transition: 0.5s;
+	width: 3rem;
+	height: 3rem;
+	transition: 0.5s;
 }
 
 .relative.active {
-    width: 20rem; 
-    height: 3rem; 
-    border-radius: 64px; 
-    background-color: #d3e6e038;
-    box-shadow: 10px 10px 14px -7px rgba(0,0,0,0.19);
+	width: 20rem;
+	height: 3rem;
+	border-radius: 64px;
+	background-color: #d3e6e038;
+	box-shadow: 10px 10px 14px -7px rgba(0, 0, 0, 0.19);
 }
