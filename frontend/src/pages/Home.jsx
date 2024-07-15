@@ -1,5 +1,7 @@
 /* eslint-disable arrow-body-style */
 
+/* Este es un componente de pruebas para el navbar, para la versión final pueden borrarlo de ser necesario!!! */
+
 import { NavBar } from '../components/navigation/NavBar'
 
 export const Home = () => {
