@@ -50,10 +50,10 @@ export const NavBar = () => {
 						}}
 					>
 						<NavLink
-								to="/"
-								className="hidden md:flex mr-2 flex-nowrap"
-							>
-								<img src={logo} alt="" />
+							to="/"
+							className="hidden md:flex mr-2 flex-nowrap"
+						>
+							<img src={logo} alt="" />
 						</NavLink>
 						<Box
 							sx={{
@@ -132,16 +132,27 @@ export const NavBar = () => {
 							))}
 						</Box>
 
-						<Stack direction='row' sx={{ flexGrow: 0, display: 'flex', gap: '20px', alignItems: 'center' }}>
+						<Stack
+							direction="row"
+							sx={{
+								flexGrow: 0,
+								display: 'flex',
+								gap: '20px',
+								alignItems: 'center',
+							}}
+						>
 							<SearchBar />
-							<Box sx={{display: 'flex'}}>
+							<Box sx={{ display: 'flex' }}>
 								<Profile />
 							</Box>
-							<Box sx={{display: 'none'}}>
-								<NavLink className="text-black">Iniciar Sesion</NavLink>
-								<NavLink className="text-black">Registrarse</NavLink>
+							<Box sx={{ display: 'none' }}>
+								<NavLink className="text-black">
+									Iniciar Sesion
+								</NavLink>
+								<NavLink className="text-black">
+									Registrarse
+								</NavLink>
 							</Box>
-							
 						</Stack>
 					</Box>
 				</Toolbar>
