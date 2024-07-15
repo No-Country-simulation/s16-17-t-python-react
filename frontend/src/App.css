@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
     margin: 0;
     padding: 0;
@@ -11,3 +12,13 @@ body {
 li {
     list-style: none;
 }
+=======
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+>>>>>>> 2c89f1e3e365682b8aa8aae647709f8ea82baf1d
