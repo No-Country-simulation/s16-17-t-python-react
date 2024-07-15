@@ -22,8 +22,9 @@ const pages = ['Descubrir', 'Nosotros', 'Servicios', 'Contacto']
 
 export const NavBar = () => {
 	const [anchorElNav, setAnchorElNav] = React.useState(null)
-	const [anchorElUser, setAnchorElUser] = React.useState(null)  /* Confirmacion de uso */
-	const { user, setUser } = useUserStore();
+	const [anchorElUser, setAnchorElUser] =
+		React.useState(null) /* Confirmacion de uso */
+	const { user, setUser } = useUserStore()
 
 	const handleOpenNavMenu = (event) => {
 		setAnchorElNav(event.currentTarget)
@@ -40,8 +41,9 @@ export const NavBar = () => {
 		setAnchorElUser(null)
 	}
 
-	const handleLogin = () => {				/* Mi codigo de prueba para manejo de estado */
-		setUser({nombre: 'John Doe'})
+	const handleLogin = () => {
+		/* Mi codigo de prueba para manejo de estado */
+		setUser({ nombre: 'John Doe' })
 	}
 
 	return (
@@ -148,14 +150,26 @@ export const NavBar = () => {
 							}}
 						>
 							<SearchBar />
-							{ user ? <Profile /> : <Box sx={{ display: 'flex', gap: '20px' }}>
-								<NavLink to="#" className="text-black" onClick={handleLogin}>   {/* Se el repite codigo para la prueba en ambos botones */}
-									Iniciar Sesion
-								</NavLink>
-								<NavLink to="#" className="text-black" onClick={handleLogin}>
-									Registrarse
-								</NavLink>
-							</Box>
+							{user ?
+								<Profile />
+							:	<Box sx={{ display: 'flex', gap: '20px' }}>
+									<NavLink
+										to="#"
+										className="text-black"
+										onClick={handleLogin}
+									>
+										{' '}
+										{/* Se el repite codigo para la prueba en ambos botones */}
+										Iniciar Sesion
+									</NavLink>
+									<NavLink
+										to="#"
+										className="text-black"
+										onClick={handleLogin}
+									>
+										Registrarse
+									</NavLink>
+								</Box>
 							}
 						</Stack>
 					</Box>

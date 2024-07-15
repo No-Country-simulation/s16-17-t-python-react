@@ -15,7 +15,7 @@ import Logout from '@mui/icons-material/Logout'
 import useUserStore from '../../store/store'
 
 export const Profile = () => {
-	const { clearUser } = useUserStore();
+	const { clearUser } = useUserStore()
 	const [anchorEl, setAnchorEl] = React.useState(null)
 	const open = Boolean(anchorEl)
 	const handleClick = (event) => {
