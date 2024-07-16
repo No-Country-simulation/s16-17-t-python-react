@@ -14,6 +14,8 @@ import validator from 'validator' // Importación de validator
 import { Toaster, toast } from 'sonner'
 import styles from '../register/Register.module.css'
 import useUserStore from '../../store/store'
+import { useNavigate } from 'react-router-dom'
+
 
 const MIN_PASSWORD_LENGTH = 8
 const MIN_USERNAME_LENGTH = 6
@@ -28,6 +30,10 @@ const checkEmailAvailability = async (email) => {
 	] // Estos son solo ejemplos.
 	return registeredEmails.includes(email)
 }
+
+
+
+
 const registeredUser = () => {
 	const userName = [
 		
@@ -43,7 +49,7 @@ const isValidEmail = (email) => validator.isEmail(email)
 
 export const RegisterComponente = () => {
 
-
+	const Nav = useNavigate()
 	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
 	const [username, setUsername] = useState('')
@@ -172,7 +178,9 @@ export const RegisterComponente = () => {
 		setConfirmPassword('')
 		toast.success('Registro exitosa!')
 
-
+		setTimeout(()=> {
+			Nav("/auth")
+		}, 1000)
 	}
 
 	const handleValidationPassword = (e) => {
