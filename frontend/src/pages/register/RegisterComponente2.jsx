@@ -171,7 +171,7 @@ export const RegisterComponente = () => {
 		const MILISECONDS = 1000
 
 		setTimeout(() => {
-			Nav('/auth')
+			// Nav('/')
 		}, MILISECONDS)
 	}
 
@@ -217,6 +217,7 @@ export const RegisterComponente = () => {
 	} = styles
 
 	const User = useUserStore((state) => state.user)
+	
 	return (
 		<>
 			<section className={section_title}>
