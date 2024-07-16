@@ -1,11 +1,11 @@
 from django.core.mail import EmailMessage
-from .models import User
+from .models import Account
 from django.conf import settings
 
 def send_verify_registration_email(user_id, otp):
     url = f'{settings.DOMAIN}/account/verify-email/?uid={user_id}&otp={otp}'
     subject = 'Verificación de correo electrónico SnapTrip'
-    user = User.objects.get(id=user_id)
+    user = Account.objects.get(id=user_id)
     email_body = f"""
             {url}
         """
