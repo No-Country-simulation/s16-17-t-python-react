@@ -1,15 +1,10 @@
 import React from 'react'
-import { RegisterComponente } from './components/Register/Register'
-import { Home, Login } from './pages'
+import { Login } from './pages'
 
 export const routes = [
 	{
 		path: '/',
-		element: <Home />,
-	},
-	{
-		path: '/register',
-		element: <RegisterComponente />,
+		element: <h1>Hola</h1>,
 	},
 	{
 		path: '/login',
