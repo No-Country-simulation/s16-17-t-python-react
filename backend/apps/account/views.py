@@ -21,6 +21,7 @@ class MyTokenObtainPairView(TokenObtainPairView):
     
 
 class AccountCreateView(generics.CreateAPIView):
+    '''Create a new account'''
     queryset = Account.objects.all()
     serializer_class = RegisterSerializer
     permission_classes = [AllowAny]
@@ -33,6 +34,7 @@ class AccountCreateView(generics.CreateAPIView):
 
 
 class AccountDeleteView(generics.DestroyAPIView):
+    '''Delete an Account'''
     queryset = Account.objects.all()
     permission_classes = [IsAuthenticated]
 
@@ -41,6 +43,7 @@ class AccountDeleteView(generics.DestroyAPIView):
 
 
 class ProfileView(generics.RetrieveUpdateAPIView):
+    '''Detail, update and partial update profile'''
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     permission_classes = [IsAuthenticated]
@@ -50,6 +53,7 @@ class ProfileView(generics.RetrieveUpdateAPIView):
 
 
 class VerifyEmailView(APIView):
+    '''Verify the email address of an account'''
     def get(self, request):
         user_id = request.GET.get("uid")
         one_time_password = request.GET.get("otp")

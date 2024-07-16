@@ -195,7 +195,7 @@ SIMPLE_JWT = {
 SPECTACULAR_SETTINGS = {
     'TITLE': 'SnapTrip',
     'DESCRIPTION': 'Prepara tus viajes fotograficos, crea eventos, sube tus fotos y comparte tus momentos',
-    # 'SERVE_INCLUDE_SCHEMA': False,
+    'SERVE_INCLUDE_SCHEMA': False,
     # OTHER SETTINGS
 }
 
