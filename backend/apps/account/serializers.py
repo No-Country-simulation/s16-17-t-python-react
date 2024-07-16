@@ -18,18 +18,18 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         
         token['first_name'] = user.profile.first_name
         token['last_name'] = user.profile.last_name
-        token['username'] = user.username
+        token['username'] = user.profile.username
         token['email'] = user.email
         token['bio'] = user.profile.bio
         token['image'] = str(user.profile.image)
         token['verified'] = user.profile.verified
         token['level'] = user.profile.level
         token['location'] = user.profile.location
-        token['birth_day'] = user.profile.birth_day
+        token['birth_date'] = user.profile.birth_date
                 
         return token
     
-class RegistrationSerializer(serializers.ModelSerializer):
+class RegisterSerializer(serializers.ModelSerializer):
     confirm_password = serializers.CharField(max_length=128, write_only=True)
 
     class Meta:
@@ -39,7 +39,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
         if data.get("password") != data.get("confirm_password"):
-            raise serializers.ValidationError("Passwords do not match.")
+            raise serializers.ValidationError("Las contraseñas no coninciden.")
         return data
 
     def create(self, validated_data):
@@ -48,9 +48,11 @@ class RegistrationSerializer(serializers.ModelSerializer):
         return user
   
 class ProfileSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
     class Meta:
         model = Profile
         fields = [
+            "user",
             "username", 
             "first_name", 
             "last_name",

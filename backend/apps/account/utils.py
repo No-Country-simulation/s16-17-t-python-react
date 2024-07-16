@@ -7,20 +7,7 @@ def send_verify_registration_email(user_id, otp):
     subject = 'Verificación de correo electrónico SnapTrip'
     user = User.objects.get(id=user_id)
     email_body = f"""
-            Hola,<br>
-            <br>
-            Gracias por registrarte en SnapTrip!<br>
-            <br>
-            Activa tu cuenta dando clic en el siguiente link:<br>
-            <br>
-            <a href="{url}" target="_blank">Activar cuenta</a><br>
-            <br>
-            Si el link no funciona, por favor visita el siguiente link URL:<br>
-            <br>
-            {url}<br>
-            <br>
-            Disfruta,<br>
-            SnapTrip Team
+            {url}
         """
     from_email = settings.DEFAULT_FROM_EMAIL
     send_email = EmailMessage(subject=subject, body=email_body, from_email=from_email, to=[user.email])
