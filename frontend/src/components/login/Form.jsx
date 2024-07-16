@@ -43,7 +43,7 @@ export const Form = () => {
 
 	return (
 		<>
-			<div className="flex flex-col gap-6 px-4 mt-11">
+			<div className="flex flex-col gap-6 px-4 md:px-44 mt-11">
 				{/* Email input */}
 				<CustomTextField
 					label="Email"
@@ -80,14 +80,14 @@ export const Form = () => {
 				</FormControl>
 			</div>
 
-			<div className="px-4">
+			<div className="px-4 md:px-44">
 				<p className="text-[#807D84] text-xs flex gap-1 mt-2">
 					¿Olvidaste tu contraseña?
 					<span className="text-[#6E9E30]">Recuperar</span>
 				</p>
 			</div>
 
-			<div className="p-8 flex justify-center">
+			<div className="p-8 md:px-48 flex justify-center">
 				<Button
 					disabled={disabled}
 					variant="contained"

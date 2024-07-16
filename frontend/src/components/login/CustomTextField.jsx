@@ -12,17 +12,17 @@ export const CustomTextField = ({
 	setShowPassword,
 	showPassword,
 }) => (
-		<div className="flex flex-col gap-2 justify-center">
-			<TextField
-				label={label}
-				type={type}
-				name={name}
-				value={value}
-				onChange={handleChange}
-				variant="outlined"
-				className=""
-			/>
-			{/* {icon ? (
+	<div className="flex flex-col gap-2 justify-center">
+		<TextField
+			label={label}
+			type={type}
+			name={name}
+			value={value}
+			onChange={handleChange}
+			variant="outlined"
+			className=""
+		/>
+		{/* {icon ? (
                 <span
                 className="absolute flex flex-start w-full"
                 onClick={() => setShowPassword(!showPassword)}
@@ -30,5 +30,5 @@ export const CustomTextField = ({
                 {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
               </span>
             ): null} */}
-		</div>
-	)
+	</div>
+)
