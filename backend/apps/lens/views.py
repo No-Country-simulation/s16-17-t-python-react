@@ -5,7 +5,7 @@ from apps.lens.models import Lens
 from apps.lens.serializer import LenSerializer
 
 from rest_framework.pagination import PageNumberPagination
-
+from rest_framework import filters
 # Create your views here.
 class PaginationLens(PageNumberPagination):
     page_size = 5
@@ -17,3 +17,6 @@ class LensViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.AllowAny]
     serializer_class = LenSerializer
     pagination_class = PaginationLens
+
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['lens_name', 'lens_model', 'brand', 'aperture', 'focal_length']
