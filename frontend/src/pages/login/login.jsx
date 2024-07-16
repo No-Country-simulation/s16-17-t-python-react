@@ -1,6 +1,6 @@
 import { Divider } from '@mui/material'
 import { Header, Form } from '../../components'
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
 export const Login = () => (
 	<div className="min-h-screen">
@@ -12,7 +12,9 @@ export const Login = () => (
 				<div className="px-8 flex justify-center">
 					<p className="text-[#807D84] text-xs flex gap-1 mt-2">
 						¿No tenés una cuenta?
-						<Link to='/register' className="text-[#6E9E30]">Registrarme</Link>
+						<Link to="/register" className="text-[#6E9E30]">
+							Registrarme
+						</Link>
 					</p>
 				</div>
 
