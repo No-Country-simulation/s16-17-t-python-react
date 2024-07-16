@@ -16,7 +16,7 @@ import styles from '../register/Register.module.css'
 import useUserStore from '../../store/store'
 import { useNavigate } from 'react-router-dom'
 
-
+// hola
 const MIN_PASSWORD_LENGTH = 8
 const MIN_USERNAME_LENGTH = 6
 const RESERVED_USERNAMES = ['admin', 'root', 'invitado']
