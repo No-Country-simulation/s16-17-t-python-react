@@ -20,7 +20,7 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    background-color: #25a015;
+    background-color: #6E9E30 !important;
 }
 
 .textLink {

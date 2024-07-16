@@ -13,6 +13,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import validator from 'validator' // Importación de validator
 import { Toaster, toast } from 'sonner'
 import styles from '../register/Register.module.css'
+import useUserStore from '../../store/store'
 
 const MIN_PASSWORD_LENGTH = 8
 const MIN_USERNAME_LENGTH = 6
@@ -26,6 +27,11 @@ const checkEmailAvailability = async (email) => {
 		'user3@example.com',
 	] // Estos son solo ejemplos.
 	return registeredEmails.includes(email)
+}
+const registeredUser = () => {
+	const userName = [
+		
+	]
 }
 
 const isValidUsername = (username) => {
@@ -173,6 +179,10 @@ export const RegisterComponente = () => {
 		if (e.length >= MIN_PASSWORD_LENGTH) {
 			setPasswordHas8char(true)
 			setActiveButtonRegister(true)
+			setPasswordUpperCase(true)
+			setPasswordHasLowercase(true)
+			setPasswordHasNumbers(true)
+			setPasswordHasSpecialChar(true)
 		}
 
 		// Se está validando si los valores del input "repetir contraseña" coinciden exactamente con los valores del input contraseña de arriba
@@ -201,10 +211,12 @@ export const RegisterComponente = () => {
 		section_title_b,
 		section_div_title,
 		div_title_p,
-		passwordValid_focus
+		passwordValid_focus,
+		button_register,
+		div_section_form
 	} = styles
 
-
+	const User = useUserStore(state => state.user)
 	return (
 		<>
 			<section className={section_title}>
@@ -214,6 +226,9 @@ export const RegisterComponente = () => {
 					<p className={div_title_p}>Completá el form para crear tu cuenta.</p>
 				</div>
 			</section>
+			<div className={div_section_form}>
+
+			
 			<section className={section_form}	>
 
 				<TextField
@@ -378,7 +393,7 @@ export const RegisterComponente = () => {
 							disabled
 							onClick={handleRegister}
 							fullWidth
-						>
+							>
 							Registrar
 						</Button>
 						:
@@ -386,6 +401,7 @@ export const RegisterComponente = () => {
 							variant="contained"
 							color="primary"
 							onClick={handleRegister}
+							className={button_register}
 							fullWidth
 						>
 							Registrar
@@ -400,6 +416,7 @@ export const RegisterComponente = () => {
 
 				<Toaster richColors position="bottom-center" />
 			</section>
+			</div>
 		</>
 	)
 }
