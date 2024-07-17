@@ -10,8 +10,11 @@ import {
 } from '@mui/material'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import Visibility from '@mui/icons-material/Visibility'
+import { useUserStoreTemp } from '../../store'
 
 export const Form = () => {
+	const { login } = useUserStoreTemp()
+
 	const [showPassword, setShowPassword] = useState(false)
 	const [disabled, setDisabled] = useState(true)
 	const [loginInfo, setLoginInfo] = useState({
@@ -103,6 +106,9 @@ export const Form = () => {
 							color: 'white',
 							bgcolor: '#b5cd98',
 						},
+					}}
+					onClick={() => {
+						login(loginInfo)
 					}}
 				>
 					Ingresar
