@@ -1,5 +1,5 @@
 import React from 'react'
-import { Login, RegisterComponente } from './pages'
+import { Login, RegisterComponente, AuthUser } from './pages'
 export const routes = [
 	{
 		path: '/',
@@ -12,5 +12,9 @@ export const routes = [
 	{
 		path: '/register',
 		element: <RegisterComponente />,
+	},
+	{
+		path: '/auth',
+		element: <AuthUser />,
 	},
 ]

@@ -171,7 +171,7 @@ export const RegisterComponente = () => {
 		const MILISECONDS = 1000
 
 		setTimeout(() => {
-			// Nav('/')
+			Nav('/auth')
 		}, MILISECONDS)
 	}
 
