@@ -217,7 +217,7 @@ export const RegisterComponente = () => {
 	} = styles
 
 	const User = useUserStore((state) => state.user)
-	
+
 	return (
 		<>
 			<section className={section_title}>
