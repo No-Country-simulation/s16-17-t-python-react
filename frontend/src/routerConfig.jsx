@@ -1,5 +1,6 @@
 import React from 'react'
 import { Login } from './pages'
+import { EditAccountPage } from './pages/Account/EditAccountPage'
 
 export const routes = [
 	{
@@ -9,5 +10,9 @@ export const routes = [
 	{
 		path: '/login',
 		element: <Login />,
+	},
+	{
+		path: '/profile/account',
+		element: <EditAccountPage />,
 	},
 ]
