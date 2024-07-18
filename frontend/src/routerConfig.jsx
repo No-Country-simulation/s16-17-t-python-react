@@ -1,9 +1,10 @@
 import React from 'react'
 import { Login, RegisterComponente } from './pages'
+import { NavBar } from './components'
 export const routes = [
 	{
 		path: '/',
-		element: <h1>Hola</h1>,
+		element: <NavBar />,
 	},
 	{
 		path: '/login',
