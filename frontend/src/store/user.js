@@ -1,9 +1,8 @@
 import { create } from 'zustand'
-console.log(import.meta.env.VITE_BACKEND_URL)
+import { errorToast, successToast } from '../utils/toast'
 
 export const useUserStoreTemp = create(() => ({
-	login: async (data) => {
-		console.log('Informacion del login', data)
+	login: async (data, navigate) => {
 		const response = await fetch(
 			`${import.meta.env.VITE_BACKEND_URL}/account/token/`,
 			{
@@ -14,7 +13,25 @@ export const useUserStoreTemp = create(() => ({
 				body: JSON.stringify(data),
 			}
 		)
+		const STATUS_OK = 200
+		if (response.status !== STATUS_OK) {
+			errorToast({
+				title: 'Algo salió mal.',
+				description: 'Por favor intentelo de nuevo.',
+			})
+			return
+		}
 		const body = await response.json()
 		localStorage.setItem('token', body.access)
+
+		successToast({
+			title: 'Inicio de sesión exitoso.',
+			description: 'Pronto será redirigido.',
+		})
+
+		const MILLISECONDS_TO_REDIRECT = 2000
+		setTimeout(() => {
+			navigate('/')
+		}, MILLISECONDS_TO_REDIRECT)
 	},
 }))

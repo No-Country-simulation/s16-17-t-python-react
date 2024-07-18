@@ -141,7 +141,7 @@ export const RegisterComponente = () => {
 			setActiveButtonRegister(true)
 		}
 		if (hasUpperCase) {
-			console.log('está entrando mayusculas')
+			// console.log('está entrando mayusculas')
 			setPasswordUpperCase(true)
 		}
 		if (hasNumbers) {
@@ -158,7 +158,7 @@ export const RegisterComponente = () => {
 		}
 
 		// Aquí iría el código para registrar al usuario si el correo electrónico está disponible.
-		console.log('Registrando usuario:', { name, email, username })
+		// console.log('Registrando usuario:', { name, email, username })
 		setError('')
 		// Reiniciar el formulario
 		setName('')
