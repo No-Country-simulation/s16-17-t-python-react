@@ -154,39 +154,41 @@ export const NavBar = () => {
 								<Profile />
 							:	<Box>
 									<Box
-									sx={{
-										display: { sm: 'flex', xs: 'none' },
-										gap: '20px',
-										alignItems: 'center',
-									}}
-								>
-									<NavLink
-										to="/login"
-										className="text-primaryText font-semibold"
-										onClick={handleLogin}
+										sx={{
+											display: { sm: 'flex', xs: 'none' },
+											gap: '20px',
+											alignItems: 'center',
+										}}
 									>
-										{/* Se el repite codigo para la prueba en ambos botones */}
-										Iniciar Sesion
-									</NavLink>
-									<NavLink
-										to="/register"
-										className="text-white bg-bgButton h-10 w-36 
+										<NavLink
+											to="/login"
+											className="text-primaryText font-semibold"
+											onClick={handleLogin}
+										>
+											{/* Se el repite codigo para la prueba en ambos botones */}
+											Iniciar Sesion
+										</NavLink>
+										<NavLink
+											to="/register"
+											className="text-white bg-bgButton h-10 w-36 
 										rounded-full flex items-center justify-center 
 										text-base font-medium leading-5 tracking-wide 
 										hover:bg-hoverBtn transition duration-300"
-										onClick={handleLogin}
-									>
-										Registrarme
-									</NavLink>
+											onClick={handleLogin}
+										>
+											Registrarme
+										</NavLink>
 									</Box>
 									<Box
-									sx={{
-										display: { sm: 'none', xs: 'flex' },
-										gap: '20px',
-										alignItems: 'center',
-									}}
+										sx={{
+											display: { sm: 'none', xs: 'flex' },
+											gap: '20px',
+											alignItems: 'center',
+										}}
 									>
-										<h1 className='text-black'>Hola mundo</h1>
+										<h1 className="text-black">
+											Hola mundo
+										</h1>
 									</Box>
 								</Box>
 							}
