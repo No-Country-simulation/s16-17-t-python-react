@@ -5,17 +5,11 @@ import Box from '@mui/material/Box'
 import Avatar from '@mui/material/Avatar'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import Divider from '@mui/material/Divider'
 import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
 import Tooltip from '@mui/material/Tooltip'
-import Settings from '@mui/icons-material/Settings'
-import Logout from '@mui/icons-material/Logout'
-import useUserStore from '../../store/store'
+import { NavLink } from 'react-router-dom'
 
-export const Profile = () => {
-	const { clearUser, user } = useUserStore()
+export const GuestProfile = () => {
 	const [anchorEl, setAnchorEl] = React.useState(null)
 	const open = Boolean(anchorEl)
 	const handleClick = (event) => {
@@ -33,7 +27,7 @@ export const Profile = () => {
 					textAlign: 'center',
 				}}
 			>
-				<Tooltip title="Configuración de Perfil">
+				<Tooltip title="Acceder">
 					<IconButton
 						onClick={handleClick}
 						size="small"
@@ -42,7 +36,10 @@ export const Profile = () => {
 						aria-haspopup="true"
 						aria-expanded={open ? 'true' : undefined}
 					>
-						<Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+						<Avatar 
+                        sx={{ width: 32, height: 32, border: 'none'}} 
+                        src='../../assets/img/guest-profile.svg'
+                        />
 					</IconButton>
 				</Tooltip>
 			</Box>
@@ -56,6 +53,8 @@ export const Profile = () => {
 					elevation: 0,
 					sx: {
 						overflow: 'visible',
+                        width: '140px',
+                        backgroundColor: '#F6FFF4',
 						filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
 						mt: 1.5,
 						'& .MuiAvatar-root': {
@@ -81,23 +80,26 @@ export const Profile = () => {
 				transformOrigin={{ horizontal: 'right', vertical: 'top' }}
 				anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
 			>
-				<MenuItem onClick={handleClose}>
-					<Avatar /> Perfil
-				</MenuItem>
-				<Typography className="px-2">usuario@example.com</Typography>
-				<Divider />
-				<MenuItem onClick={handleClose}>
-					<ListItemIcon>
-						<Settings fontSize="small" />
-					</ListItemIcon>
-					Configuración
-				</MenuItem>
-				<MenuItem onClick={clearUser}>
-					<ListItemIcon>
-						<Logout fontSize="small" />
-					</ListItemIcon>
-					Cerrar Sesión
-				</MenuItem>
+                <NavLink to='/login'>
+                    <MenuItem className='text-primaryText hover:text-white' sx={[{
+                        '&:hover': {
+                            backgroundColor: '#6E9E30',
+                            transition: '0.3s'
+                        }
+                    }]}>  
+                        Iniciar Sesion
+                    </MenuItem>
+                </NavLink>
+                <NavLink to='/register'>
+                    <MenuItem className='text-primaryText hover:text-white' sx={[{
+                        '&:hover': {
+                            backgroundColor: '#6E9E30',
+                            transition: '0.3s'
+                        }
+                    }]}>
+                        Registrarse
+                    </MenuItem>
+                </NavLink>
 			</Menu>
 		</React.Fragment>
 	)

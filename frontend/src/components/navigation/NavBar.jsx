@@ -17,6 +17,7 @@ import { Profile } from './Profile'
 import { SearchBar } from './SearchBar'
 import { Stack } from '@mui/material'
 import useUserStore from '../../store/store'
+import { GuestProfile } from './GuestProfile'
 
 const pages = ['Descubrir', 'Nosotros', 'Servicios', 'Contacto']
 
@@ -41,11 +42,6 @@ export const NavBar = () => {
 		setAnchorElUser(null)
 	}
 
-	const handleLogin = () => {
-		/* Mi codigo de prueba para manejo de estado */
-		setUser({ nombre: 'John Doe' })
-	}
-
 	return (
 		<AppBar position="static" sx={{ backgroundColor: '#fff' }}>
 			<Container maxWidth="xl">
@@ -61,7 +57,7 @@ export const NavBar = () => {
 							to="/"
 							className="hidden md:flex mr-2 flex-nowrap"
 						>
-							<img src={logo} alt="" />
+							<img src={logo} alt="Logo" />
 						</NavLink>
 						<Box
 							sx={{
@@ -130,10 +126,11 @@ export const NavBar = () => {
 									onClick={handleCloseNavMenu}
 									sx={{
 										color: '#313031',
-										display: 'block',
-										px: 1,
+										display: 'flex',
+										px: 2,
 										py: 0,
 									}}
+									className='h-full'
 								>
 									{page}
 								</Button>
@@ -163,7 +160,6 @@ export const NavBar = () => {
 										<NavLink
 											to="/login"
 											className="text-primaryText font-semibold"
-											onClick={handleLogin}
 										>
 											{/* Se el repite codigo para la prueba en ambos botones */}
 											Iniciar Sesion
@@ -174,7 +170,6 @@ export const NavBar = () => {
 										rounded-full flex items-center justify-center 
 										text-base font-medium leading-5 tracking-wide 
 										hover:bg-hoverBtn transition duration-300"
-											onClick={handleLogin}
 										>
 											Registrarme
 										</NavLink>
@@ -186,9 +181,8 @@ export const NavBar = () => {
 											alignItems: 'center',
 										}}
 									>
-										<h1 className="text-black">
-											Hola mundo
-										</h1>
+										<GuestProfile />
+										
 									</Box>
 								</Box>
 							}

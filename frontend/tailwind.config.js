@@ -13,7 +13,8 @@ module.exports = {
       extend: {
         colors: {
           primaryText: '#313031',
-          hoverBtn: '#163E32'
+          hoverBtn: '#163E32',
+          hoverLink: '#0D4937'
         },
         backgroundColor: {
           bgButton: '#6E9E30'
