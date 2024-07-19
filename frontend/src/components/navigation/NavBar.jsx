@@ -130,7 +130,7 @@ export const NavBar = () => {
 										px: 2,
 										py: 0,
 									}}
-									className='h-full'
+									className="h-full"
 								>
 									{page}
 								</Button>
@@ -182,7 +182,6 @@ export const NavBar = () => {
 										}}
 									>
 										<GuestProfile />
-										
 									</Box>
 								</Box>
 							}

@@ -36,10 +36,10 @@ export const GuestProfile = () => {
 						aria-haspopup="true"
 						aria-expanded={open ? 'true' : undefined}
 					>
-						<Avatar 
-                        sx={{ width: 32, height: 32, border: 'none'}} 
-                        src='../../assets/img/guest-profile.svg'
-                        />
+						<Avatar
+							sx={{ width: 32, height: 32, border: 'none' }}
+							src="../../assets/img/guest-profile.svg"
+						/>
 					</IconButton>
 				</Tooltip>
 			</Box>
@@ -53,8 +53,8 @@ export const GuestProfile = () => {
 					elevation: 0,
 					sx: {
 						overflow: 'visible',
-                        width: '140px',
-                        backgroundColor: '#F6FFF4',
+						width: '140px',
+						backgroundColor: '#F6FFF4',
 						filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
 						mt: 1.5,
 						'& .MuiAvatar-root': {
@@ -80,26 +80,36 @@ export const GuestProfile = () => {
 				transformOrigin={{ horizontal: 'right', vertical: 'top' }}
 				anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
 			>
-                <NavLink to='/login'>
-                    <MenuItem className='text-primaryText hover:text-white' sx={[{
-                        '&:hover': {
-                            backgroundColor: '#6E9E30',
-                            transition: '0.3s'
-                        }
-                    }]}>  
-                        Iniciar Sesion
-                    </MenuItem>
-                </NavLink>
-                <NavLink to='/register'>
-                    <MenuItem className='text-primaryText hover:text-white' sx={[{
-                        '&:hover': {
-                            backgroundColor: '#6E9E30',
-                            transition: '0.3s'
-                        }
-                    }]}>
-                        Registrarse
-                    </MenuItem>
-                </NavLink>
+				<NavLink to="/login">
+					<MenuItem
+						className="text-primaryText hover:text-white"
+						sx={[
+							{
+								'&:hover': {
+									backgroundColor: '#6E9E30',
+									transition: '0.3s',
+								},
+							},
+						]}
+					>
+						Iniciar Sesion
+					</MenuItem>
+				</NavLink>
+				<NavLink to="/register">
+					<MenuItem
+						className="text-primaryText hover:text-white"
+						sx={[
+							{
+								'&:hover': {
+									backgroundColor: '#6E9E30',
+									transition: '0.3s',
+								},
+							},
+						]}
+					>
+						Registrarse
+					</MenuItem>
+				</NavLink>
 			</Menu>
 		</React.Fragment>
 	)
