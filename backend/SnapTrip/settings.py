@@ -138,9 +138,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # cors Authorization
-CORS_ALLOWED_ORIGINS = [
-   
-]
+CORS_ALLOW_ALL_ORIGINS = True
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -149,7 +147,7 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
-AUTH_USER_MODEL = 'account.User'
+AUTH_USER_MODEL = 'account.Account'
 
 # JWTAuthentication
 SIMPLE_JWT = {
@@ -196,7 +194,6 @@ SIMPLE_JWT = {
 SPECTACULAR_SETTINGS = {
     'TITLE': 'SnapTrip',
     'DESCRIPTION': 'Prepara tus viajes fotograficos, crea eventos, sube tus fotos y comparte tus momentos',
-    'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
     # OTHER SETTINGS
 }

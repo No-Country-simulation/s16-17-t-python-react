@@ -9,7 +9,7 @@ import InputAdornment from '@mui/material/InputAdornment'
 import IconButton from '@mui/material/IconButton'
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import validator from 'validator' // Importación de validator
 import { Toaster, toast } from 'sonner'
 import styles from '../register/Register.module.css'
@@ -31,13 +31,8 @@ const checkEmailAvailability = async (email) => {
 	return registeredEmails.includes(email)
 }
 
-
-
-
 const registeredUser = () => {
-	const userName = [
-		
-	]
+	const userName = []
 }
 
 const isValidUsername = (username) => {
@@ -48,7 +43,6 @@ const isValidUsername = (username) => {
 const isValidEmail = (email) => validator.isEmail(email)
 
 export const RegisterComponente = () => {
-
 	const Nav = useNavigate()
 	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
@@ -76,8 +70,6 @@ export const RegisterComponente = () => {
 		event.preventDefault()
 	}
 
-
-
 	const hasUpperCase = /[A-Z]/.test(password)
 	const hasLowerCase = /[a-z]/.test(password)
 	const hasNumbers = /\d/.test(password)
@@ -86,7 +78,7 @@ export const RegisterComponente = () => {
 	const handleRegister = async () => {
 		if (name.trim() === '') {
 			setError('El nombre completo es obligatorio.')
-			toast.error("Fallo en el registro")
+			toast.error('Fallo en el registro')
 
 			return
 		}
@@ -95,7 +87,7 @@ export const RegisterComponente = () => {
 			setError(
 				`El nombre de usuario debe tener al menos ${MIN_USERNAME_LENGTH} caracteres.`
 			)
-			toast.error("Fallo en el registro")
+			toast.error('Fallo en el registro')
 			return
 		}
 
@@ -103,19 +95,19 @@ export const RegisterComponente = () => {
 			setError(
 				'El nombre de usuario contiene caracteres inválidos o es una palabra reservada.'
 			)
-			toast.error("Fallo en el registro")
+			toast.error('Fallo en el registro')
 			return
 		}
 
 		if (!isValidEmail(email)) {
 			setError('El correo electrónico no es válido.')
-			toast.error("Fallo en el registro")
+			toast.error('Fallo en el registro')
 			return
 		}
 
 		if (await checkEmailAvailability(email)) {
 			setError('El correo electrónico ya está registrado.')
-			toast.error("Fallo en el registro")
+			toast.error('Fallo en el registro')
 			return
 		}
 
@@ -123,24 +115,23 @@ export const RegisterComponente = () => {
 			setError(
 				`La contraseña debe tener al menos ${MIN_PASSWORD_LENGTH} caracteres.`
 			)
-			toast.error("Fallo en el registro")
+			toast.error('Fallo en el registro')
 			return
 		} else {
 			setActiveButtonRegister(true)
 		}
 
-
-
 		if (!hasUpperCase || !hasLowerCase || !hasNumbers || !hasNonalphas) {
-			toast.error("Fallo en el registro")
-			setError('La contraseña debe contener mayúsculas, minúsculas, números y caracteres especiales.')
+			toast.error('Fallo en el registro')
+			setError(
+				'La contraseña debe contener mayúsculas, minúsculas, números y caracteres especiales.'
+			)
 			return
 		} else {
 		}
 
-
 		if (password !== confirmPassword) {
-			toast.error("Fallo en el registro")
+			toast.error('Fallo en el registro')
 			setError('Las contraseñas no coinciden.')
 			return
 		} else {
@@ -150,7 +141,7 @@ export const RegisterComponente = () => {
 			setActiveButtonRegister(true)
 		}
 		if (hasUpperCase) {
-			console.log("está entrando mayusculas")
+			// console.log('está entrando mayusculas')
 			setPasswordUpperCase(true)
 		}
 		if (hasNumbers) {
@@ -164,11 +155,10 @@ export const RegisterComponente = () => {
 		}
 		if (confirmPassword) {
 			setMatchPassword(true)
-
 		}
 
 		// Aquí iría el código para registrar al usuario si el correo electrónico está disponible.
-		console.log('Registrando usuario:', { name, email, username })
+		// console.log('Registrando usuario:', { name, email, username })
 		setError('')
 		// Reiniciar el formulario
 		setName('')
@@ -178,9 +168,11 @@ export const RegisterComponente = () => {
 		setConfirmPassword('')
 		toast.success('Registro exitosa!')
 
-		setTimeout(()=> {
-			Nav("/auth")
-		}, 1000)
+		const MILISECONDS = 1000
+
+		setTimeout(() => {
+			// Nav('/')
+		}, MILISECONDS)
 	}
 
 	const handleValidationPassword = (e) => {
@@ -206,9 +198,9 @@ export const RegisterComponente = () => {
 			// setMatchPassword(true)
 		}
 	}
-	
 
-	const { section_form,
+	const {
+		section_form,
 		div_iconSuccesPassword,
 		form_password,
 		formstyles,
@@ -221,191 +213,188 @@ export const RegisterComponente = () => {
 		div_title_p,
 		passwordValid_focus,
 		button_register,
-		div_section_form
+		div_section_form,
 	} = styles
 
-	const User = useUserStore(state => state.user)
+	const User = useUserStore((state) => state.user)
+
 	return (
 		<>
 			<section className={section_title}>
 				<div className={section_div_title}>
-
 					<p className={section_title_b}>Empecemos</p>
-					<p className={div_title_p}>Completá el form para crear tu cuenta.</p>
+					<p className={div_title_p}>
+						Completá el form para crear tu cuenta.
+					</p>
 				</div>
 			</section>
 			<div className={div_section_form}>
-
-			
-			<section className={section_form}	>
-
-				<TextField
-					required
-					id="outlined-required-name"
-					label="Nombre completo"
-					value={name}
-					onChange={(e) => setName(e.target.value)}
-					fullWidth
-					margin="normal"
-				/>
-				<TextField
-					required
-					id="outlined-required-email"
-					label="Correo electrónico"
-					value={email}
-					onChange={(e) => setEmail(e.target.value)}
-					fullWidth
-					margin="normal"
-				/>
-				<TextField
-					required
-					id="outlined-required-username"
-					label="Nombre de usuario"
-					value={username}
-					onChange={(e) => setUsername(e.target.value)}
-					fullWidth
-					margin="normal"
-				/>
-				<div className={form_password}>
-
-					<FormControl
-						className={formstyles}
-						sx={{ w: '100%' }}
-						variant="outlined"
+				<section className={section_form}>
+					<TextField
+						required
+						id="outlined-required-name"
+						label="Nombre completo"
+						value={name}
+						onChange={(e) => setName(e.target.value)}
 						fullWidth
-						value={password}
-						onChange={(e) => handleValidationPassword(e.target.value)}
-						color='success'
 						margin="normal"
-
-					>
-						{/* <div className={`${passwordValid_focus} `}	>
-						</div> */}
-						
-						<InputLabel htmlFor="outlined-adornment-password">
-							Contraseña
-						</InputLabel>
-						<OutlinedInput
-							id="outlined-adornment-password"
-							type={showPassword ? 'text' : 'password'}
-							
+					/>
+					<TextField
+						required
+						id="outlined-required-email"
+						label="Correo electrónico"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+						fullWidth
+						margin="normal"
+					/>
+					<TextField
+						required
+						id="outlined-required-username"
+						label="Nombre de usuario"
+						value={username}
+						onChange={(e) => setUsername(e.target.value)}
+						fullWidth
+						margin="normal"
+					/>
+					<div className={form_password}>
+						<FormControl
+							className={formstyles}
+							sx={{ w: '100%' }}
+							variant="outlined"
+							fullWidth
 							value={password}
-							onChange={(e) => setPassword(e.target.value)}
-							endAdornment={
-								<InputAdornment position="end">
-									<IconButton
-										aria-label="toggle password visibility"
-										onClick={handleClickShowPassword}
-										onMouseDown={handleMouseDownPassword}
-										edge="end"
-									>
-										{showPassword ?
-											<VisibilityOff />
-											: <Visibility />}
-									</IconButton>
-								</InputAdornment>
+							onChange={(e) =>
+								handleValidationPassword(e.target.value)
 							}
-							label="Password"
-						/>
-						
-						{
-							MatchPassword ?
-								<div className={div_iconSuccesPassword}>
+							color="success"
+							margin="normal"
+						>
+							{/* <div className={`${passwordValid_focus} `}	>
+						</div> */}
 
-									<CheckCircleIcon color='success' />
+							<InputLabel htmlFor="outlined-adornment-password">
+								Contraseña
+							</InputLabel>
+							<OutlinedInput
+								id="outlined-adornment-password"
+								type={showPassword ? 'text' : 'password'}
+								value={password}
+								onChange={(e) => setPassword(e.target.value)}
+								endAdornment={
+									<InputAdornment position="end">
+										<IconButton
+											aria-label="toggle password visibility"
+											onClick={handleClickShowPassword}
+											onMouseDown={
+												handleMouseDownPassword
+											}
+											edge="end"
+										>
+											{showPassword ?
+												<VisibilityOff />
+											:	<Visibility />}
+										</IconButton>
+									</InputAdornment>
+								}
+								label="Password"
+							/>
+
+							{MatchPassword ?
+								<div className={div_iconSuccesPassword}>
+									<CheckCircleIcon color="success" />
 									Contraseña Valida
 								</div>
-								:
-								<div className={div__button_password}>
-									<div className='flex flex-row items-center gap-3'	>
-										<button className={`${!PasswordHas8char ? div_button_password_styles_none : div_button_password_styles_nice}  `}	>
-										</button>
+							:	<div className={div__button_password}>
+									<div className="flex flex-row items-center gap-3">
+										<button
+											className={`${!PasswordHas8char ? div_button_password_styles_none : div_button_password_styles_nice}  `}
+										></button>
 										<p>minimo 8 caracteres</p>
-
 									</div>
-									<div className='flex flex-row items-center gap-3'	>
-										<button className={`${!PasswordHasUpperCase ? div_button_password_styles_none : div_button_password_styles_nice}  `}	>
-										</button>
+									<div className="flex flex-row items-center gap-3">
+										<button
+											className={`${!PasswordHasUpperCase ? div_button_password_styles_none : div_button_password_styles_nice}  `}
+										></button>
 										<p>tiene mayusculas</p>
-
 									</div>
-									<div className='flex flex-row items-center gap-3'	>
-										<button className={`${!PasswordHasNumbers ? div_button_password_styles_none : div_button_password_styles_nice}  `}	>
-										</button>
+									<div className="flex flex-row items-center gap-3">
+										<button
+											className={`${!PasswordHasNumbers ? div_button_password_styles_none : div_button_password_styles_nice}  `}
+										></button>
 										<p>tiene un numero o varios</p>
-
 									</div>
-									<div className='flex flex-row items-center gap-3'	>
-										<button className={`${!PasswordHasLowercase ? div_button_password_styles_none : div_button_password_styles_nice}  `}	>
-										</button>
+									<div className="flex flex-row items-center gap-3">
+										<button
+											className={`${!PasswordHasLowercase ? div_button_password_styles_none : div_button_password_styles_nice}  `}
+										></button>
 										<p>tiene una minuscula o mas</p>
-
 									</div>
-									<div className='flex flex-row items-center gap-3'	>
-										<button className={`${!PasswordHasSpecialChar ? div_button_password_styles_none : div_button_password_styles_nice}  `}	>
-										</button>
+									<div className="flex flex-row items-center gap-3">
+										<button
+											className={`${!PasswordHasSpecialChar ? div_button_password_styles_none : div_button_password_styles_nice}  `}
+										></button>
 										<p>tiene caracteres especiales</p>
-
 									</div>
 								</div>
-						}
-
-					</FormControl>
-					<FormControl
-						className={formstyles}
-						// sx={{ m: 1, width: '100%' }}
-						variant="outlined"
-						fullWidth
-						margin="normal"
-
-					>
-						<InputLabel htmlFor="outlined-adornment-confirm-password">
-							Repetir contraseña
-						</InputLabel>
-						<OutlinedInput
-							id="outlined-adornment-confirm-password"
-							type={showConfirmPassword ? 'text' : 'password'}
-							value={confirmPassword}
-							onChange={(e) => setConfirmPassword(e.target.value)}
-							endAdornment={
-								<InputAdornment position="end">
-									<IconButton
-										aria-label="toggle confirm password visibility"
-										onClick={handleClickShowConfirmPassword}
-										onMouseDown={handleMouseDownPassword}
-										edge="end"
-									>
-										{showConfirmPassword ?
-											<VisibilityOff />
-											: <Visibility />}
-									</IconButton>
-								</InputAdornment>
 							}
-							label="Confirm Password"
-						/>
-						{
-							MatchPassword &&
-							<div className={div_iconSuccesPassword}>
-
-								<CheckCircleIcon color='success' />
-								Coindicen
-							</div>
-						}
-					</FormControl>
-				</div>
-				{
-					!ActiveButtonRegister ?
+						</FormControl>
+						<FormControl
+							className={formstyles}
+							// sx={{ m: 1, width: '100%' }}
+							variant="outlined"
+							fullWidth
+							margin="normal"
+						>
+							<InputLabel htmlFor="outlined-adornment-confirm-password">
+								Repetir contraseña
+							</InputLabel>
+							<OutlinedInput
+								id="outlined-adornment-confirm-password"
+								type={showConfirmPassword ? 'text' : 'password'}
+								value={confirmPassword}
+								onChange={(e) =>
+									setConfirmPassword(e.target.value)
+								}
+								endAdornment={
+									<InputAdornment position="end">
+										<IconButton
+											aria-label="toggle confirm password visibility"
+											onClick={
+												handleClickShowConfirmPassword
+											}
+											onMouseDown={
+												handleMouseDownPassword
+											}
+											edge="end"
+										>
+											{showConfirmPassword ?
+												<VisibilityOff />
+											:	<Visibility />}
+										</IconButton>
+									</InputAdornment>
+								}
+								label="Confirm Password"
+							/>
+							{MatchPassword && (
+								<div className={div_iconSuccesPassword}>
+									<CheckCircleIcon color="success" />
+									Coindicen
+								</div>
+							)}
+						</FormControl>
+					</div>
+					{!ActiveButtonRegister ?
 						<Button
 							variant="contained"
 							color="primary"
 							disabled
 							onClick={handleRegister}
 							fullWidth
-							>
+						>
 							Registrar
 						</Button>
-						:
-						<Button
+					:	<Button
 							variant="contained"
 							color="primary"
 							onClick={handleRegister}
@@ -414,16 +403,16 @@ export const RegisterComponente = () => {
 						>
 							Registrar
 						</Button>
-				}
+					}
 
-				{error && (
-					<Alert severity="error" style={{ marginTop: '20px' }}>
-						{error}
-					</Alert>
-				)}
+					{error && (
+						<Alert severity="error" style={{ marginTop: '20px' }}>
+							{error}
+						</Alert>
+					)}
 
-				<Toaster richColors position="bottom-center" />
-			</section>
+					<Toaster richColors position="bottom-center" />
+				</section>
 			</div>
 		</>
 	)
