@@ -1,6 +1,8 @@
 import React from 'react'
 import { Login, RegisterComponente } from './pages'
 import { NavBar } from './components'
+import { EditAccountPage } from './pages/Account/EditAccountPage'
+
 export const routes = [
 	{
 		path: '/',
@@ -13,5 +15,9 @@ export const routes = [
 	{
 		path: '/register',
 		element: <RegisterComponente />,
+	},
+	{
+		path: '/profile/account',
+		element: <EditAccountPage />,
 	},
 ]
