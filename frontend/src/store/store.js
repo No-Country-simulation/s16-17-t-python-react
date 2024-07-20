@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 
 const useUserStore = create((set) => ({
-	user: null,
+	user: 'John',
 	setUser: (user) =>
 		set({ user }) /* Estado para vincular con confirmación de usuario */,
 	clearUser: () => set({ user: null }),

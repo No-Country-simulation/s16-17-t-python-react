@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip'
 import Settings from '@mui/icons-material/Settings'
 import Logout from '@mui/icons-material/Logout'
 import useUserStore from '../../store/store'
+import { NavLink } from 'react-router-dom'
 
 export const Profile = () => {
 	const { clearUser, user } = useUserStore()
@@ -81,9 +82,12 @@ export const Profile = () => {
 				transformOrigin={{ horizontal: 'right', vertical: 'top' }}
 				anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
 			>
-				<MenuItem onClick={handleClose}>
-					<Avatar /> Perfil
-				</MenuItem>
+				<NavLink to='/profile/account'>
+					<MenuItem >
+						<Avatar /> Perfil
+					</MenuItem>
+				</NavLink>
+
 				<Typography className="px-2">usuario@example.com</Typography>
 				<Divider />
 				<MenuItem onClick={handleClose}>
