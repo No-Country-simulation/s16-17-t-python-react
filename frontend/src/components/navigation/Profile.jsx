@@ -82,8 +82,8 @@ export const Profile = () => {
 				transformOrigin={{ horizontal: 'right', vertical: 'top' }}
 				anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
 			>
-				<NavLink to='/profile/account'>
-					<MenuItem >
+				<NavLink to="/profile/account">
+					<MenuItem>
 						<Avatar /> Perfil
 					</MenuItem>
 				</NavLink>
