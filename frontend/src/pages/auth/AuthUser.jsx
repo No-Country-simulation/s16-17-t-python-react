@@ -1,15 +1,23 @@
 import { useEffect, useState } from 'react'
 import estilos from './style.module.css'
 import { useNavigate } from 'react-router-dom'
+import { useRegisterUser } from '../../store/store'
 
 const { loader, spinner, path } = estilos
 const usuariofalso = "santiagofotos@ejemplo.com"
 
 export const AuthUser = () => {
 	const Nav = useNavigate()
-	const [auth, setauth] = useState(false)
-	const [load, setload] = useState(false)
+	// const [auth, setauth] = useState(true)
+	// const [load, setload] = useState(false)
 
+	const { getUser, isLoad , GetVadilUser, AuthValid, ErrorGetValidUser} = useRegisterUser()
+
+	useEffect(() => {
+		getUser("http://127.0.0.1:8000/account/verify-email/?uid=6&")
+	}, [])
+	
+	console.log(GetVadilUser) 
 
 	const goToLogin = () => {
 
@@ -20,14 +28,14 @@ export const AuthUser = () => {
 
 	}
 
-	useEffect(() => {
-		setload(true)
-		setTimeout(() => {
+	// useEffect(() => {
+	// 	isLoad(true)
+	// 	setTimeout(() => {
 
-			setload(false)
-		}, 1000)
+	// 		isLoad(false)
+	// 	}, 1000)
 
-	}, [])
+	// }, [])
 
 	return (
 
@@ -36,7 +44,7 @@ export const AuthUser = () => {
 
 			</div>
 			{
-				!auth ?
+				!AuthValid ?
 					<div className='flex justify-center flex-col '>
 
 						<h2 className="flex justify-center text-[2rem]">Valida tu email</h2>
@@ -60,7 +68,7 @@ export const AuthUser = () => {
 				<img src="https://placehold.co/200x200" alt="" />
 			</div>
 			{
-				load &&
+				isLoad &&
 				<div className="flex justify-center pt-[2rem]">
 
 					<div className={loader}>
@@ -79,7 +87,7 @@ export const AuthUser = () => {
 
 			}
 			{
-				!load && !auth &&
+				!isLoad && !AuthValid &&
 				<div className='flex justify-center gap-[2rem] flex-col pt-[4rem]'>
 
 					<p className='flex justify-center text-4xl'>¿Ya te llegó el mail?</p>
@@ -88,7 +96,7 @@ export const AuthUser = () => {
 			}
 
 			{
-				auth &&
+				AuthValid &&
 				<>
 					<div className='flex justify-center gap-[2rem] flex-col pt-[4rem]'>
 
@@ -100,7 +108,12 @@ export const AuthUser = () => {
 					</div>
 				</>
 			}
-
+			{
+				<h2>Respuesta {JSON.stringify(GetVadilUser) }</h2>
+			}
+			{
+				ErrorGetValidUser && <h1>Hubo un error en la peticion</h1>
+			}
 		</section>
 	)
 }

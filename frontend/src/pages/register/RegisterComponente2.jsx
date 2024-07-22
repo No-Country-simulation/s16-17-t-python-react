@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import Alert from '@mui/material/Alert'
@@ -13,7 +13,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import validator from 'validator' // Importación de validator
 import { Toaster, toast } from 'sonner'
 import styles from '../register/Register.module.css'
-import useUserStore from '../../store/store'
+import { useRegisterUser } from '../../store/store'
 import { useNavigate } from 'react-router-dom'
 
 // hola
@@ -44,9 +44,9 @@ const isValidEmail = (email) => validator.isEmail(email)
 
 export const RegisterComponente = () => {
 	const Nav = useNavigate()
-	const [name, setName] = useState('')
+	// const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
-	const [username, setUsername] = useState('')
+	// const [username, setUsername] = useState('')
 	const [showPassword, setShowPassword] = useState(false)
 	const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 	const [password, setPassword] = useState('')
@@ -75,29 +75,36 @@ export const RegisterComponente = () => {
 	const hasNumbers = /\d/.test(password)
 	const hasNonalphas = /\W/.test(password)
 
+	const { setUser, resStatus } = useRegisterUser(state => ({
+		...state
+	}))
+
+
+
+
 	const handleRegister = async () => {
-		if (name.trim() === '') {
-			setError('El nombre completo es obligatorio.')
-			toast.error('Fallo en el registro')
+		// if (name.trim() === '') {
+		// 	setError('El nombre completo es obligatorio.')
+		// 	toast.error('Fallo en el registro')
 
-			return
-		}
+		// 	return
+		// }
 
-		if (username.length < MIN_USERNAME_LENGTH) {
-			setError(
-				`El nombre de usuario debe tener al menos ${MIN_USERNAME_LENGTH} caracteres.`
-			)
-			toast.error('Fallo en el registro')
-			return
-		}
+		// if (username.length < MIN_USERNAME_LENGTH) {
+		// 	setError(
+		// 		`El nombre de usuario debe tener al menos ${MIN_USERNAME_LENGTH} caracteres.`
+		// 	)
+		// 	toast.error('Fallo en el registro')
+		// 	return
+		// }
 
-		if (!isValidUsername(username)) {
-			setError(
-				'El nombre de usuario contiene caracteres inválidos o es una palabra reservada.'
-			)
-			toast.error('Fallo en el registro')
-			return
-		}
+		// if (!isValidUsername(username)) {
+		// 	setError(
+		// 		'El nombre de usuario contiene caracteres inválidos o es una palabra reservada.'
+		// 	)
+		// 	toast.error('Fallo en el registro')
+		// 	return
+		// }
 
 		if (!isValidEmail(email)) {
 			setError('El correo electrónico no es válido.')
@@ -137,7 +144,7 @@ export const RegisterComponente = () => {
 		} else {
 			setcorrectCharactert(true)
 			setActiveButtonRegister(true)
-			// console.log({ showButton: showButtonRegister, validPassword: ValidPasswordIcon, goodCharacters: correctCharactert })
+			
 			setActiveButtonRegister(true)
 		}
 		if (hasUpperCase) {
@@ -156,17 +163,29 @@ export const RegisterComponente = () => {
 		if (confirmPassword) {
 			setMatchPassword(true)
 		}
+		console.log("la peticion fue exitosa " + resStatus)
+		setUser('http://127.0.0.1:8000/account/register-user/', { email: email, password: password, confirm_password: confirmPassword })
 
 		// Aquí iría el código para registrar al usuario si el correo electrónico está disponible.
-		console.log('Registrando usuario:', { name, email, username })
+		console.log('Registrando usuario:', { password, email, confirmPassword })
 		setError('')
 		// Reiniciar el formulario
-		setName('')
+		// setName('')
 		setEmail('')
-		setUsername('')
 		setPassword('')
 		setConfirmPassword('')
-		toast.success('Registro exitosa!')
+
+
+
+		const PostValidUser = async () => {
+
+			if (resStatus === true) {
+				await toast.success('Cuenta creada con éxito')
+
+			} else {
+				await toast.error('Fallo en la creacion de la cuenta')
+			}
+		}
 
 		const MILISECONDS = 1000
 
@@ -185,13 +204,6 @@ export const RegisterComponente = () => {
 			setPasswordHasSpecialChar(true)
 		}
 
-		// Se está validando si los valores del input "repetir contraseña" coinciden exactamente con los valores del input contraseña de arriba
-		// confirmPassword === hasUpperCase
-		// 	&& confirmPassword === hasNumbers
-		// 	&& confirmPassword === hasLowerCase
-		// 	&& confirmPassword === hasNonalphas
-		// 	&& confirmPassword === hasNonalphas
-		// ?  : null
 
 		if (hasUpperCase) {
 			// console.log("Tiene")
@@ -216,8 +228,8 @@ export const RegisterComponente = () => {
 		div_section_form,
 	} = styles
 
-	const User = useUserStore((state) => state.user)
-	
+
+
 	return (
 		<>
 			<section className={section_title}>
@@ -229,8 +241,8 @@ export const RegisterComponente = () => {
 				</div>
 			</section>
 			<div className={div_section_form}>
-				<section className={section_form}>
-					<TextField
+				<form onSubmit={() => User()} className={section_form}>
+					{/* <TextField
 						required
 						id="outlined-required-name"
 						label="Nombre completo"
@@ -238,7 +250,7 @@ export const RegisterComponente = () => {
 						onChange={(e) => setName(e.target.value)}
 						fullWidth
 						margin="normal"
-					/>
+					/> */}
 					<TextField
 						required
 						id="outlined-required-email"
@@ -248,7 +260,7 @@ export const RegisterComponente = () => {
 						fullWidth
 						margin="normal"
 					/>
-					<TextField
+					{/* <TextField
 						required
 						id="outlined-required-username"
 						label="Nombre de usuario"
@@ -256,7 +268,7 @@ export const RegisterComponente = () => {
 						onChange={(e) => setUsername(e.target.value)}
 						fullWidth
 						margin="normal"
-					/>
+					/> */}
 					<div className={form_password}>
 						<FormControl
 							className={formstyles}
@@ -278,6 +290,7 @@ export const RegisterComponente = () => {
 							</InputLabel>
 							<OutlinedInput
 								id="outlined-adornment-password"
+								className={passwordValid_focus}
 								type={showPassword ? 'text' : 'password'}
 								value={password}
 								onChange={(e) => setPassword(e.target.value)}
@@ -293,7 +306,7 @@ export const RegisterComponente = () => {
 										>
 											{showPassword ?
 												<VisibilityOff />
-											:	<Visibility />}
+												: <Visibility />}
 										</IconButton>
 									</InputAdornment>
 								}
@@ -305,7 +318,7 @@ export const RegisterComponente = () => {
 									<CheckCircleIcon color="success" />
 									Contraseña Valida
 								</div>
-							:	<div className={div__button_password}>
+								: <div className={div__button_password}>
 									<div className="flex flex-row items-center gap-3">
 										<button
 											className={`${!PasswordHas8char ? div_button_password_styles_none : div_button_password_styles_nice}  `}
@@ -370,7 +383,7 @@ export const RegisterComponente = () => {
 										>
 											{showConfirmPassword ?
 												<VisibilityOff />
-											:	<Visibility />}
+												: <Visibility />}
 										</IconButton>
 									</InputAdornment>
 								}
@@ -389,12 +402,12 @@ export const RegisterComponente = () => {
 							variant="contained"
 							color="primary"
 							disabled
-							onClick={handleRegister}
+
 							fullWidth
 						>
 							Registrar
 						</Button>
-					:	<Button
+						: <Button
 							variant="contained"
 							color="primary"
 							onClick={handleRegister}
@@ -411,8 +424,19 @@ export const RegisterComponente = () => {
 						</Alert>
 					)}
 
+					{
+						resStatus === true &&
+						<>
+							<p>Usuario creado</p>
+						</>
+					}
+					{
+						resStatus === false &&
+
+						<p>Error al crear usuario</p>
+					}
 					<Toaster richColors position="bottom-center" />
-				</section>
+				</form>
 			</div>
 		</>
 	)
