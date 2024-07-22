@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     # SnapTrip apps
     'apps.account',
     'apps.camera',
-    'apps.lens'
+    'apps.lens',
+    'apps.photo',
     
     
 ]
