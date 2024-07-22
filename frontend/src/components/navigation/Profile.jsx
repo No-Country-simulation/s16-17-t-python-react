@@ -43,7 +43,7 @@ export const Profile = () => {
 						aria-haspopup="true"
 						aria-expanded={open ? 'true' : undefined}
 					>
-						<Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+						<Avatar sx={{ width: 32, height: 32 }} alt='Profile' src='/src/assets/img/profile_default.png'/>
 					</IconButton>
 				</Tooltip>
 			</Box>
@@ -82,9 +82,9 @@ export const Profile = () => {
 				transformOrigin={{ horizontal: 'right', vertical: 'top' }}
 				anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
 			>
-				<NavLink to="/profile/account">
+				<NavLink to="/profile">
 					<MenuItem>
-						<Avatar /> Perfil
+						<Avatar alt='Profile' src='/src/assets/img/profile_default.png'/> Perfil
 					</MenuItem>
 				</NavLink>
 
