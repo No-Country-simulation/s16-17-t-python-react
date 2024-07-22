@@ -1,6 +1,6 @@
 import { Badge } from '@mui/material'
-import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
-import { NavLink } from 'react-router-dom';
+import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline'
+import { NavLink } from 'react-router-dom'
 import Tooltip from '@mui/material/Tooltip'
 
 export const AccountPhotoProfile = () => (
@@ -9,12 +9,11 @@ export const AccountPhotoProfile = () => (
 		anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
 		badgeContent={
 			<div className="bg-bgButton rounded-[12px] w-[40px]  h-[40px] flex justify-center items-center">
-				<Tooltip title='Editar Perfil'>
-					<NavLink to='/account/edit'>
+				<Tooltip title="Editar Perfil">
+					<NavLink to="/account/edit">
 						<DriveFileRenameOutlineIcon className="text-[#FFF]" />
 					</NavLink>
 				</Tooltip>
-				
 			</div>
 		}
 	>

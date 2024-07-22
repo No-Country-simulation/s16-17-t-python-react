@@ -23,6 +23,6 @@ export const routes = [
 	},
 	{
 		path: '/account',
-		element: <Account />
-	}
+		element: <Account />,
+	},
 ]
