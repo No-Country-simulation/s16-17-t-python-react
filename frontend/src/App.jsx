@@ -11,6 +11,8 @@ function App() {
 					<AppRouter />
 				</Suspense>
 			</Router>
+
+			
 		</>
 	)
 }
