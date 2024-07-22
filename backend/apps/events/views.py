@@ -9,23 +9,26 @@ class EventViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
 
-    @action(detail=True, methods=['post'])
-    def attend(self, request, pk=None):
-        event = self.get_object()
-        user = request.user
-        attended = request.data.get('attended', False)
-
-        event_history, created = EventHistory.objects.get_or_create(
-            event=event,
-            account=user,
-            defaults={'attended': attended}
-        )
-
-        if not created:
-            event_history.attended = attended
-            event_history.save()
-
-        return Response({'status': 'attendance recorded', 'attended': event_history.attended})
+    def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        previous_attend = instance.attend
+        response = super().update(request, *args, **kwargs)
+        
+        # Comprobar si la instancia se actualizó correctamente
+        instance.refresh_from_db()
+        
+        if not previous_attend and instance.attend:
+            # Crear un registro en EventHistory si el usuario decide asistir
+            EventHistory.objects.get_or_create(
+                event=instance,
+                account=request.user,
+                attended=True
+            )
+        elif previous_attend and not instance.attend:
+            # Eliminar el registro en EventHistory si el usuario decide no asistir
+            EventHistory.objects.filter(event=instance, account=request.user).delete()
+        
+        return response
 
 class EventHistoryViewSet(viewsets.ModelViewSet):
     queryset = EventHistory.objects.all()

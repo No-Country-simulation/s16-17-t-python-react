@@ -11,6 +11,7 @@ class Event(models.Model):
     event_location = models.CharField(max_length=255)
     event_start = models.DateTimeField()
     event_end = models.DateTimeField()
+    attend = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
