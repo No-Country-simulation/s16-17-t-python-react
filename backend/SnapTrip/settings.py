@@ -51,6 +51,15 @@ INSTALLED_APPS = [
     'apps.events',
     'apps.album',
     
+    'rest_framework_simplejwt',
+    'rest_framework_swagger',
+    'drf_spectacular',
+    
+    # SnapTrip apps
+    'apps.account',
+    'apps.camera',
+    'apps.lens'
+    
     
 ]
 

@@ -1,0 +1,83 @@
+.div_section_form {
+	width: 100%;
+}
+.section_form {
+	margin: 0 1rem;
+	@media screen and (width > 900px) {
+		max-width: 500px;
+
+		margin: auto;
+	}
+}
+.div_iconSuccesPassword {
+	display: flex;
+	height: 40px;
+	align-items: center;
+	opacity: 60%;
+}
+.form_password {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 900px;
+	max-width: auto;
+	justify-content: center;
+}
+/* Testeo de funcionamiento componente material ui */
+.formstyles:focus {
+	color: rgb(72, 183, 13);
+	background-color: #54c032;
+}
+.div_button_password_styles_nice {
+	height: 10px;
+	width: 10px;
+	border-radius: 100%;
+	background-color: rgb(72, 183, 13);
+}
+.div_button_password_styles_none {
+	height: 10px;
+	width: 10px;
+	border-radius: 100%;
+	background-color: rgba(73, 183, 13, 0);
+}
+.div__button_password {
+	padding: 0 5px;
+	display: flex;
+	flex-direction: column;
+}
+.section_title {
+	height: 19vh;
+	display: grid;
+	place-content: center;
+	background-color: #163e32;
+	width: 100%;
+}
+.section_div_title {
+	position: relative;
+	top: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 1rem;
+	max-width: 500px;
+	max-width: auto;
+}
+.section_div_title > * {
+	width: 40vw;
+}
+.section_title_b {
+	display: flex;
+	font-size: 2.5rem;
+	justify-content: flex-start;
+	color: white;
+}
+
+.div_title_p {
+	min-width: 286px;
+
+	color: #959595;
+	font-size: 1rem;
+}
+.button_register {
+	background-color: #6e9e30 !important;
+}
