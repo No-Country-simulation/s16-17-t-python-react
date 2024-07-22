@@ -157,6 +157,9 @@ export const RegisterComponente = () => {
 		if (hasLowerCase) {
 			setPasswordHasLowercase(true)
 		}
+
+
+		
 		if (hasNonalphas) {
 			setPasswordHasSpecialChar(true)
 		}
