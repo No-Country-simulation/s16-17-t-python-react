@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import './App.css'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { AppRouter } from './router'
+import { Toaster } from 'sonner'
 
 function App() {
 	return (
@@ -11,8 +12,7 @@ function App() {
 					<AppRouter />
 				</Suspense>
 			</Router>
-
-			
+			<Toaster richColors position="bottom-center" />
 		</>
 	)
 }

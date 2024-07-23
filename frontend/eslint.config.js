@@ -15,6 +15,7 @@ export default [
 			curly: 'error',
 
 			// Without autofix
+			'no-console': 'error',
 			'no-alert': 'error',
 			'no-bitwise': 'error',
 			'no-empty-function': 'error',

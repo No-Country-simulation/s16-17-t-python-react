@@ -19,7 +19,6 @@ export const useRegisterUser = create((set) => ({
 	// Invalid request
 	setUser: async (endpoint, DataUser) => {
 		try {
-			
 			const req = await fetch(endpoint, {
 				method: 'POST',
 				headers: headerTypeJson,
@@ -57,3 +56,4 @@ export const useRegisterUser = create((set) => ({
 		}
 	},
 }))
+  
