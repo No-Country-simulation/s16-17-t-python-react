@@ -20,6 +20,7 @@ export const AccountCardProfile = () => {
 					alignItems: 'center',
 					py: '20px',
 					px: '10px',
+					maxWidth: '448px',
 				}}
 			>
 				<MoreVertIcon

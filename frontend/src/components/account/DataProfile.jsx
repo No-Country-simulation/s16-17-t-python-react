@@ -92,18 +92,38 @@ export const DataProfile = () => {
 							{selected === 'amateur' && <CheckIcon />} Amateur
 						</ToggleButton>
 					</ToggleButtonGroup>
+					<div className="flex flex-col">
+						<TextField
+							minRows={2}
+							variant="outlined"
+							label="Cuentanos un poco de ti..."
+							className="w-[100%] mt-[20px]"
+						/>
+						<p
+							className="text-xs 
+					text-validationText 
+					self-end"
+						>
+							Max 180 caracteres
+						</p>
+					</div>
 				</div>
-				<div>
-					<h2 className="text-[#313031] text-[20px] mb-3">
-						Contacto
-					</h2>
+				<div className="flex flex-col gap-5">
+					<h2 className="text-[#313031] text-[20px]">Contacto</h2>
 					<TextField
-						minRows={2}
+						id="outlined-basic"
+						label="Facebook"
 						variant="outlined"
-						label="Contanos un poco de vos..."
-						className="w-[100%] mt-[20px]"
+						className="w-[100%]"
+					/>
+					<TextField
+						id="outlined-basic"
+						label="Instagram"
+						variant="outlined"
+						className="w-[100%]"
 					/>
 				</div>
+
 				<div className="flex justify-end">
 					<Button
 						sx={{
