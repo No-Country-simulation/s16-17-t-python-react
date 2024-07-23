@@ -224,7 +224,7 @@ export const RegisterComponente = () => {
 				<div className={section_div_title}>
 					<p className={section_title_b}>Empecemos</p>
 					<p className={div_title_p}>
-						Completá el form para crear tu cuenta.
+						Completa el form para crear tu cuenta.
 					</p>
 				</div>
 			</section>
