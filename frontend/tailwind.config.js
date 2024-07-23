@@ -8,13 +8,14 @@ module.exports = {
       screens: {
         sm: '360px',
         md: '744px',
-        lg: '1440px'
+        lg: '1023px'
       },
       extend: {
         colors: {
           primaryText: '#313031',
           hoverBtn: '#163E32',
-          hoverLink: '#0D4937'
+          hoverLink: '#0D4937',
+          validationText: '#807D84'
         },
         backgroundColor: {
           bgButton: '#6E9E30'
