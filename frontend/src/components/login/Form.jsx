@@ -11,9 +11,11 @@ import {
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import Visibility from '@mui/icons-material/Visibility'
 import { useUserStoreTemp } from '../../store'
+import { useNavigate } from 'react-router-dom'
 
 export const Form = () => {
 	const { login } = useUserStoreTemp()
+	const navigate = useNavigate()
 
 	const [showPassword, setShowPassword] = useState(false)
 	const [disabled, setDisabled] = useState(true)
@@ -108,7 +110,7 @@ export const Form = () => {
 						},
 					}}
 					onClick={() => {
-						login(loginInfo)
+						login(loginInfo, navigate)
 					}}
 				>
 					Ingresar
