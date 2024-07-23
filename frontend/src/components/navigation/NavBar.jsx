@@ -17,7 +17,8 @@ import { Profile } from './Profile'
 import { SearchBar } from './SearchBar'
 import { Stack } from '@mui/material'
 import useUserStore from '../../store/store'
-import Galery from '../../pages/galery/Galery'
+import { GuestProfile } from './GuestProfile'
+
 const pages = ['Descubrir', 'Nosotros', 'Servicios', 'Contacto']
 
 export const NavBar = () => {
@@ -41,168 +42,153 @@ export const NavBar = () => {
 		setAnchorElUser(null)
 	}
 
-	const handleLogin = () => {
-		/* Mi codigo de prueba para manejo de estado */
-		setUser({ nombre: 'John Doe' })
-	}
-
 	return (
-		<>
-			<AppBar position="static" sx={{ backgroundColor: '#fff' }}>
-				<Container maxWidth="xl">
-					<Toolbar disableGutters>
+		<AppBar position="static" sx={{ backgroundColor: '#fff' }}>
+			<Container maxWidth="xl">
+				<Toolbar disableGutters>
+					<Box
+						sx={{
+							flexGrow: 1,
+							display: 'flex',
+							alignItems: 'center',
+						}}
+					>
+						<NavLink
+							to="/"
+							className="hidden md:flex mr-2 flex-nowrap"
+						>
+							<img src={logo} alt="Logo" />
+						</NavLink>
 						<Box
 							sx={{
 								flexGrow: 1,
-								display: 'flex',
-								alignItems: 'center',
+								display: { xs: 'flex', md: 'none' },
 							}}
 						>
-							<NavLink
-								to="/"
-								className="hidden md:flex mr-2 flex-nowrap"
+							<IconButton
+								aria-label="account of current user"
+								aria-controls="menu-appbar"
+								aria-haspopup="true"
+								onClick={handleOpenNavMenu}
+								color="inherit"
 							>
-								<img src={logo} alt="" />
-							</NavLink>
-							<Box
-								sx={{
-									flexGrow: 1,
-									display: { xs: 'flex', md: 'none' },
+								<MenuIcon sx={{ color: '#313031' }} />
+							</IconButton>
+							<Menu
+								id="menu-appbar"
+								anchorEl={anchorElNav}
+								anchorOrigin={{
+									vertical: 'bottom',
+									horizontal: 'left',
 								}}
-							>
-								<IconButton
-									aria-label="account of current user"
-									aria-controls="menu-appbar"
-									aria-haspopup="true"
-									onClick={handleOpenNavMenu}
-									color="inherit"
-								>
-									<MenuIcon sx={{ color: '#313031' }} />
-								</IconButton>
-								<Menu
-									id="menu-appbar"
-									anchorEl={anchorElNav}
-									anchorOrigin={{
-										vertical: 'bottom',
-										horizontal: 'left',
-									}}
-									keepMounted
-									transformOrigin={{
-										vertical: 'top',
-										horizontal: 'left',
-									}}
-									open={Boolean(anchorElNav)}
-									onClose={handleCloseNavMenu}
-									sx={{
-										display: { xs: 'block', md: 'none' },
-									}}
-								>
-									{pages.map((page) => (
-										<MenuItem
-											key={page}
-											onClick={handleCloseNavMenu}
-										>
-											<Typography textAlign="center">
-												{page}
-											</Typography>
-										</MenuItem>
-									))}
-								</Menu>
-							</Box>
-							<NavLink
-								to="/"
-								className="flex md:hidden mr-1 flex-nowrap flex-grow"
-							>
-								<img
-									src={logo}
-									alt=""
-									className="mr-2 flex md:hidden"
-								/>
-							</NavLink>
-							<Box
+								keepMounted
+								transformOrigin={{
+									vertical: 'top',
+									horizontal: 'left',
+								}}
+								open={Boolean(anchorElNav)}
+								onClose={handleCloseNavMenu}
 								sx={{
-									flexGrow: 1,
-									display: { xs: 'none', md: 'flex' },
+									display: { xs: 'block', md: 'none' },
 								}}
 							>
 								{pages.map((page) => (
-									<Button
+									<MenuItem
 										key={page}
 										onClick={handleCloseNavMenu}
+									>
+										<Typography textAlign="center">
+											{page}
+										</Typography>
+									</MenuItem>
+								))}
+							</Menu>
+						</Box>
+						<NavLink
+							to="/"
+							className="flex md:hidden mr-1 flex-nowrap flex-grow"
+						>
+							<img
+								src={logo}
+								alt=""
+								className="mr-2 flex md:hidden"
+							/>
+						</NavLink>
+						<Box
+							sx={{
+								flexGrow: 1,
+								display: { xs: 'none', md: 'flex' },
+							}}
+						>
+							{pages.map((page) => (
+								<Button
+									key={page}
+									onClick={handleCloseNavMenu}
+									sx={{
+										color: '#313031',
+										display: 'flex',
+										px: 2,
+										py: 0,
+									}}
+									className="h-full"
+								>
+									{page}
+								</Button>
+							))}
+						</Box>
+
+						<Stack
+							direction="row"
+							sx={{
+								flexGrow: 0,
+								display: 'flex',
+								gap: '20px',
+								alignItems: 'center',
+							}}
+						>
+							<SearchBar />
+							{user ?
+								<Profile />
+							:	<Box>
+									<Box
 										sx={{
-											color: '#313031',
-											display: 'block',
-											px: 1,
-											py: 0,
+											display: { sm: 'flex', xs: 'none' },
+											gap: '20px',
+											alignItems: 'center',
 										}}
 									>
-										{page}
-									</Button>
-								))}
-							</Box>
-
-							<Stack
-								direction="row"
-								sx={{
-									flexGrow: 0,
-									display: 'flex',
-									gap: '20px',
-									alignItems: 'center',
-								}}
-							>
-								<SearchBar />
-								{user ?
-									<Profile />
-									: <Box>
-										<Box
-											sx={{
-												display: { sm: 'flex', xs: 'none' },
-												gap: '20px',
-												alignItems: 'center',
-											}}
+										<NavLink
+											to="/login"
+											className="text-primaryText font-semibold"
 										>
-											<NavLink
-												to="/login"
-												className="text-primaryText font-semibold"
-												onClick={handleLogin}
-											>
-												{/* Se el repite codigo para la prueba en ambos botones */}
-												Iniciar Sesion
-											</NavLink>
-											<NavLink
-												to="/register"
-												className="text-white bg-bgButton h-10 w-36 
-											rounded-full flex items-center justify-center 
+											{/* Se el repite codigo para la prueba en ambos botones */}
+											Iniciar Sesion
+										</NavLink>
+										<NavLink
+											to="/register"
+											className="text-white bg-bgButton h-10 w-36 
+										rounded-full flex items-center justify-center 
 										text-base font-medium leading-5 tracking-wide 
 										hover:bg-hoverBtn transition duration-300"
-												onClick={handleLogin}
-											>
-												Registrarme
-											</NavLink>
-										</Box>
-										<Box
-											sx={{
-												display: { sm: 'none', xs: 'flex' },
-												gap: '20px',
-												alignItems: 'center',
-											}}
 										>
-											<h1 className="text-black">
-												Hola mundo
-											</h1>
-										</Box>
+											Registrarme
+										</NavLink>
 									</Box>
-								}
-							</Stack>
-						</Box>
-					</Toolbar>
-				</Container>
-			</AppBar>
-
-
-			<Galery />
-
-			
-		</>
+									<Box
+										sx={{
+											display: { sm: 'none', xs: 'flex' },
+											gap: '20px',
+											alignItems: 'center',
+										}}
+									>
+										<GuestProfile />
+									</Box>
+								</Box>
+							}
+						</Stack>
+					</Box>
+				</Toolbar>
+			</Container>
+		</AppBar>
 	)
 }
