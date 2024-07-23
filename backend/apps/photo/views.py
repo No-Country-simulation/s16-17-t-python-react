@@ -33,9 +33,9 @@ class PhotoLikeViewSet(viewsets.ModelViewSet):
     # Verifica si el usuario ya ha dado LIKE a la foto
     def create(self, request, *args, **kwargs):
         photo_id = request.data.get('photo')
-        # user_id = request.data.get('account')
-        # existing_like = PhotoLike.objects.filter(photo_id=photo_id, account_id=user_id).exists()
-        existing_like = PhotoLike.objects.filter(photo_id=photo_id).exists()
+        account_id = request.data.get('account')
+        existing_like = PhotoLike.objects.filter(photo_id=photo_id, account_id=account_id).exists()
+        # existing_like = PhotoLike.objects.filter(photo_id=photo_id).exists()
         if existing_like:
             return Response({'error': 'Ya le has dado me gusta a esta foto.'}, status=status.HTTP_400_BAD_REQUEST)
         return super().create(request, *args, **kwargs)
