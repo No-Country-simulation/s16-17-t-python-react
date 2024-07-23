@@ -1,6 +1,7 @@
 import React from 'react'
-import { Login, RegisterComponente } from './pages'
+import { Login, RegisterComponente, AuthUser,  } from './pages'
 import { NavBar } from './components'
+
 export const routes = [
 	{
 		path: '/',
@@ -18,4 +19,5 @@ export const routes = [
 		path: '/auth',
 		element: <AuthUser />,
 	},
+	
 ]

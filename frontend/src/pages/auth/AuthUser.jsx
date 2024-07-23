@@ -1,23 +1,21 @@
 import { useEffect, useState } from 'react'
 import estilos from './style.module.css'
 import { useNavigate } from 'react-router-dom'
-import { useRegisterUser } from '../../store/store'
+import { useRegisterUser} from '../../store/register'
 
 const { loader, spinner, path } = estilos
 const usuariofalso = "santiagofotos@ejemplo.com"
 
 export const AuthUser = () => {
 	const Nav = useNavigate()
-	// const [auth, setauth] = useState(true)
-	// const [load, setload] = useState(false)
 
-	const { getUser, isLoad , GetVadilUser, AuthValid, ErrorGetValidUser} = useRegisterUser()
+	const { getUser, isLoad , AuthValid} = useRegisterUser()
 
 	useEffect(() => {
 		getUser("http://127.0.0.1:8000/account/verify-email/?uid=6&")
 	}, [])
 	
-	console.log(GetVadilUser) 
+	// console.log(GetVadilUser) 
 
 	const goToLogin = () => {
 
@@ -28,15 +26,7 @@ export const AuthUser = () => {
 
 	}
 
-	// useEffect(() => {
-	// 	isLoad(true)
-	// 	setTimeout(() => {
-
-	// 		isLoad(false)
-	// 	}, 1000)
-
-	// }, [])
-
+	
 	return (
 
 		<section className="h-[40vh]">
@@ -108,12 +98,12 @@ export const AuthUser = () => {
 					</div>
 				</>
 			}
-			{
+			{/* {
 				<h2>Respuesta {JSON.stringify(GetVadilUser) }</h2>
 			}
 			{
 				ErrorGetValidUser && <h1>Hubo un error en la peticion</h1>
-			}
+			} */}
 		</section>
 	)
 }

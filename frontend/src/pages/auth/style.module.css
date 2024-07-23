@@ -8,8 +8,8 @@ html{
   }
   
   .spinner {
-    width: 250px;
-    height: 150px;
+    width: 140px;
+    height: 78px;
     position: relative;
     animation: rotation 0.75s linear infinite;
     border-radius: 100em;

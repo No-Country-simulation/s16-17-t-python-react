@@ -13,7 +13,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import validator from 'validator' // Importación de validator
 import { Toaster, toast } from 'sonner'
 import styles from '../register/Register.module.css'
-import { useRegisterUser } from '../../store/store'
+import useRegisterUser from '../../store/store'
 import { useNavigate } from 'react-router-dom'
 
 // hola
@@ -231,7 +231,7 @@ export const RegisterComponente = () => {
 		div_section_form,
 	} = styles
 
-	const User = useUserStore((state) => state.user)
+	const User = useRegisterUser((state) => state.user)
 
 	return (
 		<>

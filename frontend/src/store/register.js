@@ -11,7 +11,7 @@ export const useRegisterUser = create((set) => ({
 	dataReq: null,
 	errorReq: null,
 	isLoad: false,
-	AuthValid: false,
+	AuthValid: true,
 	ErrorGetValidUser: null,
 	GetVadilUser: [],
 	resStatus: false,
@@ -45,7 +45,7 @@ export const useRegisterUser = create((set) => ({
 			const ResUser = await ReqUser.json()
 			set({ GetVadilUser: ResUser, ErrorGetValidUser: null })
 
-			set({ AuthValid: 'Invalid request' ? false : true })
+			set({ AuthValid: true })
 		} catch (error) {
 			set({ AuthValid: false })
 			set({ isLoad: false })
@@ -56,4 +56,3 @@ export const useRegisterUser = create((set) => ({
 		}
 	},
 }))
-  
