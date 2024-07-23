@@ -4,7 +4,14 @@ import string
 
 # app imports
 from .models import Account, Profile
-from .serializers import MyTokenObtainPairSerializer, RegisterSerializer, ProfileSerializer
+from .serializers import (MyTokenObtainPairSerializer, 
+                          RegisterSerializer, 
+                          ProfileSerializer, 
+                          UpdateEmailSerializer, 
+                          UpdatePasswordSerializer
+                          )
+
+
 from .utils import send_verify_registration_email
 
 # rest_framework imports
@@ -50,6 +57,31 @@ class ProfileView(generics.RetrieveUpdateAPIView):
 
     def get_object(self):
         return Profile.objects.get(user=self.request.user)
+
+
+class UpdateEmailView(generics.UpdateAPIView):
+    queryset = Account.objects.all()
+    serializer_class = UpdateEmailSerializer
+    permission_classes = [IsAuthenticated]
+    
+    def get_object(self):
+        return self.request.user
+    
+class UpdatePasswordView(generics.UpdateAPIView):
+    serializer_class = UpdatePasswordSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user
+
+    def update(self, request, *args, **kwargs):
+        user = self.get_object()
+        serializer = self.get_serializer(data=request.data, context={'request': request})
+        if serializer.is_valid():
+            serializer.update(user, serializer.validated_data)
+            return Response({"detail": "Password updated successfully"}, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 class VerifyEmailView(APIView):
