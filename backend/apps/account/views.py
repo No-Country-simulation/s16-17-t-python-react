@@ -29,6 +29,7 @@ class MyTokenObtainPairView(TokenObtainPairView):
 
 class AccountCreateView(generics.CreateAPIView):
     '''Create a new account'''
+    
     queryset = Account.objects.all()
     serializer_class = RegisterSerializer
     permission_classes = [AllowAny]
@@ -42,6 +43,7 @@ class AccountCreateView(generics.CreateAPIView):
 
 class AccountDeleteView(generics.DestroyAPIView):
     '''Delete an Account'''
+    
     queryset = Account.objects.all()
     permission_classes = [IsAuthenticated]
 
@@ -51,6 +53,7 @@ class AccountDeleteView(generics.DestroyAPIView):
 
 class ProfileView(generics.RetrieveUpdateAPIView):
     '''Detail, update and partial update profile'''
+    
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     permission_classes = [IsAuthenticated]
@@ -60,6 +63,8 @@ class ProfileView(generics.RetrieveUpdateAPIView):
 
 
 class UpdateEmailView(generics.UpdateAPIView):
+    '''Update email account'''
+    
     queryset = Account.objects.all()
     serializer_class = UpdateEmailSerializer
     permission_classes = [IsAuthenticated]
@@ -68,6 +73,8 @@ class UpdateEmailView(generics.UpdateAPIView):
         return self.request.user
     
 class UpdatePasswordView(generics.UpdateAPIView):
+    '''Update password account'''
+    
     serializer_class = UpdatePasswordSerializer
     permission_classes = [IsAuthenticated]
 
@@ -129,6 +136,8 @@ class VerifyEmailView(APIView):
 # Following functions
 
 class FollowUserView(generics.GenericAPIView):
+    '''Follow a user by their username'''
+    
     permission_classes = [IsAuthenticated]
 
     def post(self, request, username):
@@ -141,6 +150,8 @@ class FollowUserView(generics.GenericAPIView):
             return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
 
 class UnfollowUserView(generics.GenericAPIView):
+    '''Unfollow a user by their username'''
+    
     permission_classes = [IsAuthenticated]
 
     def post(self, request, username):
@@ -154,6 +165,8 @@ class UnfollowUserView(generics.GenericAPIView):
             return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
         
 class UserFollowersListView(generics.ListAPIView):
+    '''Get a list of followers for a specific user by their username'''
+    
     serializer_class = ProfileSerializer
     permission_classes = [IsAuthenticated]
 
@@ -166,6 +179,8 @@ class UserFollowersListView(generics.ListAPIView):
             return Profile.objects.none()
 
 class UserFollowingListView(generics.ListAPIView):
+    '''Get a list of users a specific user is following by their username'''
+    
     serializer_class = ProfileSerializer
     permission_classes = [IsAuthenticated]
 
@@ -176,3 +191,23 @@ class UserFollowingListView(generics.ListAPIView):
             return profile.following.all()
         except Profile.DoesNotExist:
             return Profile.objects.none()
+        
+class MyFollowersListView(generics.ListAPIView):
+    '''Get a list of followers for the authenticated user'''
+    
+    serializer_class = ProfileSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        user_profile = self.request.user.profile
+        return user_profile.followers.all()
+    
+class MyFollowingListView(generics.ListAPIView):
+    '''Get a list of users the authenticated user is following'''
+    
+    serializer_class = ProfileSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        user_profile = self.request.user.profile
+        return user_profile.following.all()
