@@ -125,3 +125,54 @@ class VerifyEmailView(APIView):
                 },
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
+
+# Following functions
+
+class FollowUserView(generics.GenericAPIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, username):
+        try:
+            profile_to_follow = Profile.objects.get(username=username)
+            request.user.profile.following.add(profile_to_follow)
+            profile_to_follow.followers.add(request.user.profile)
+            return Response({"detail": f"You are now following {username}"}, status=status.HTTP_200_OK)
+        except Profile.DoesNotExist:
+            return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+
+class UnfollowUserView(generics.GenericAPIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, username):
+        try:
+            profile_to_unfollow = Profile.objects.get(username=username)
+            request.user.profile.following.remove(profile_to_unfollow)
+            profile_to_unfollow.followers.remove(request.user.profile)
+            return Response({"detail": f"You have unfollowed {username}"}, status=status.HTTP_200_OK)
+        
+        except Profile.DoesNotExist:
+            return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+        
+class UserFollowersListView(generics.ListAPIView):
+    serializer_class = ProfileSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        username = self.kwargs['username']
+        try:
+            profile = Profile.objects.get(username=username)
+            return profile.followers.all()
+        except Profile.DoesNotExist:
+            return Profile.objects.none()
+
+class UserFollowingListView(generics.ListAPIView):
+    serializer_class = ProfileSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        username = self.kwargs['username']
+        try:
+            profile = Profile.objects.get(username=username)
+            return profile.following.all()
+        except Profile.DoesNotExist:
+            return Profile.objects.none()

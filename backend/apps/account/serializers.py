@@ -48,6 +48,10 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
   
 class ProfileSerializer(serializers.ModelSerializer):
+    
+    followers_count = serializers.SerializerMethodField()
+    following_count = serializers.SerializerMethodField()
+    is_following = serializers.SerializerMethodField()
     user = UserSerializer(read_only=True)
     class Meta:
         model = Profile
@@ -61,7 +65,23 @@ class ProfileSerializer(serializers.ModelSerializer):
             "level",
             "bio",
             "image",
+            'followers_count',
+            'following_count',
+            'is_following',
+            'visibility',  
         ]
+        
+    def get_followers_count(self, obj):
+        return obj.followers.count()
+
+    def get_following_count(self, obj):
+        return obj.following.count()
+    
+    def get_is_following(self, obj):
+        request = self.context.get('request')
+        if request and request.user.is_authenticated:
+            return obj.followers.filter(id=request.user.profile.id).exists()
+        return False
         
 class UpdateEmailSerializer(serializers.ModelSerializer):
     new_email = serializers.EmailField(write_only=True)

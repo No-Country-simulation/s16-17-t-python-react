@@ -10,6 +10,8 @@ class Account(AbstractBaseUser):
     one_time_password = models.CharField(max_length=64, default="")
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
+    is_admin = models.BooleanField(default=False)
     
     objects = UserManager()
 
@@ -21,6 +23,12 @@ class Account(AbstractBaseUser):
     
     def profile(self):
         profile = Profile.objects.get(user = self)
+        
+    def has_perm(self, perm, obj=None):
+       return self.is_admin
+
+    def has_module_perms(self, app_label):
+       return self.is_admin
  
         
 class OneTimePassword(models.Model):
@@ -32,6 +40,12 @@ class OneTimePassword(models.Model):
 
 
 class Profile(models.Model):
+    # Choose for visibility
+    VISIBILITY_CHOICES = [
+        ('public', 'Public'),
+        ('followers', 'Followers Only'),
+    ]
+    
     user = models.OneToOneField(Account, on_delete = models.CASCADE)
     username = models.CharField(max_length =50)
     first_name = models.CharField(max_length =50)
@@ -42,6 +56,10 @@ class Profile(models.Model):
     bio = models.CharField(max_length = 1000)
     image = models.ImageField(default="default.jpg", upload_to="user_images")
     verified = models.BooleanField(default = False)
+    
+    followers = models.ManyToManyField('self', symmetrical=False, related_name='followed_by', blank=True)
+    following = models.ManyToManyField('self', symmetrical=False, related_name='follows', blank=True)
+    visibility = models.CharField(max_length =10, choices=VISIBILITY_CHOICES, default='public')
 
     def __str__(self):
         return self.first_name + " " + self.last_name
