@@ -4,7 +4,14 @@ import string
 
 # app imports
 from .models import Account, Profile
-from .serializers import MyTokenObtainPairSerializer, RegisterSerializer, ProfileSerializer
+from .serializers import (MyTokenObtainPairSerializer, 
+                          RegisterSerializer, 
+                          ProfileSerializer, 
+                          UpdateEmailSerializer, 
+                          UpdatePasswordSerializer
+                          )
+
+
 from .utils import send_verify_registration_email
 
 # rest_framework imports
@@ -52,6 +59,31 @@ class ProfileView(generics.RetrieveUpdateAPIView):
         return Profile.objects.get(user=self.request.user)
 
 
+class UpdateEmailView(generics.UpdateAPIView):
+    queryset = Account.objects.all()
+    serializer_class = UpdateEmailSerializer
+    permission_classes = [IsAuthenticated]
+    
+    def get_object(self):
+        return self.request.user
+    
+class UpdatePasswordView(generics.UpdateAPIView):
+    serializer_class = UpdatePasswordSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user
+
+    def update(self, request, *args, **kwargs):
+        user = self.get_object()
+        serializer = self.get_serializer(data=request.data, context={'request': request})
+        if serializer.is_valid():
+            serializer.update(user, serializer.validated_data)
+            return Response({"detail": "Password updated successfully"}, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
 class VerifyEmailView(APIView):
     '''Verify the email address of an account'''
     def get(self, request):
@@ -93,3 +125,54 @@ class VerifyEmailView(APIView):
                 },
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
+
+# Following functions
+
+class FollowUserView(generics.GenericAPIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, username):
+        try:
+            profile_to_follow = Profile.objects.get(username=username)
+            request.user.profile.following.add(profile_to_follow)
+            profile_to_follow.followers.add(request.user.profile)
+            return Response({"detail": f"You are now following {username}"}, status=status.HTTP_200_OK)
+        except Profile.DoesNotExist:
+            return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+
+class UnfollowUserView(generics.GenericAPIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, username):
+        try:
+            profile_to_unfollow = Profile.objects.get(username=username)
+            request.user.profile.following.remove(profile_to_unfollow)
+            profile_to_unfollow.followers.remove(request.user.profile)
+            return Response({"detail": f"You have unfollowed {username}"}, status=status.HTTP_200_OK)
+        
+        except Profile.DoesNotExist:
+            return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+        
+class UserFollowersListView(generics.ListAPIView):
+    serializer_class = ProfileSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        username = self.kwargs['username']
+        try:
+            profile = Profile.objects.get(username=username)
+            return profile.followers.all()
+        except Profile.DoesNotExist:
+            return Profile.objects.none()
+
+class UserFollowingListView(generics.ListAPIView):
+    serializer_class = ProfileSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        username = self.kwargs['username']
+        try:
+            profile = Profile.objects.get(username=username)
+            return profile.following.all()
+        except Profile.DoesNotExist:
+            return Profile.objects.none()
