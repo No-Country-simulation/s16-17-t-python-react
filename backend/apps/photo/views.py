@@ -21,7 +21,7 @@ class PhotoViewSet(viewsets.ModelViewSet):
     pagination_class = PaginationPhoto
 
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
-    search_fields = ['photo_name']
+    search_fields = ['photo_name','location']
     OrderingFilter = ['created_at', 'taken_at']
 
 
