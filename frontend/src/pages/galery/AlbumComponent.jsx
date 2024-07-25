@@ -2,17 +2,27 @@ import React from 'react'
 import datos from './galery.json'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-const Galery = () => {
+
+
+
+
+
+export  const AlbumComponent = () => {
     return (
 
-        <section className='grid grid-cols-1 gap-2 w-full  md:grid-cols-2 md:gap-[1rem] md:justify-center p-3 md:grid-rows-2 md:w-full md:max-w-[658px] md:mx-auto'>
+        <section className='grid grid-cols-1 gap-2 w-full  md:grid-cols-2 md:gap-[1rem] md:justify-center p-3 md:grid-rows-2 md:w-full md:max-w-[658px] md:mx-auto lg:max-w-[1042px]'>
 
             {
                 datos.map(e => (
 
+                    <div className="w-[19rem]  lg:w-[30rem] mx-auto h-full hover:scale-105  transition-all .5s ease-in-out border rounded-lg shadow-lg p-6 flex flex-col gap-3" key={e.id}>
+                        <div className='grid grid-cols-2 grid-rows-2 gap-[.5rem]' >
 
-                    <div className="w-[19rem] mx-auto h-full hover:scale-105  transition-all .5s ease-in-out border rounded-lg shadow-lg p-6 flex flex-col gap-1" key={e.id}>
-                        <img className="h-auto w-[90%]" src={e?.imagen || "Cargando.."}></img>
+                            <img className="h-auto w-[100%] rounded-lg" src={e?.imagen || "Cargando.."}></img>
+                            <img className="h-auto w-[100%] rounded-lg" src={e?.imagen1} alt="" />
+                            <img className="h-auto w-[100%] rounded-lg" src={e?.imagen3} alt="" />
+                            <img className="h-auto w-[100%] rounded-lg" src={e?.imagen2} alt="" />
+                        </div>
                         <h3 className=" text-[1rem]">{e.title}</h3>
                         <div className='flex flex-row justify-between gap-5' >
 
@@ -25,16 +35,13 @@ const Galery = () => {
                                 {e.likes}
                             </div>
                         </div>
-
                     </div>
-
                 ))
             }
-            
         </section>
 
     )
 }
-export default Galery
+
 
 

@@ -2,7 +2,12 @@
 
 import { Box, Tab } from '@mui/material'
 import { TabContext, TabList, TabPanel } from '@mui/lab'
+
 import { useState } from 'react'
+import { AlbumComponent } from '../../pages/galery/AlbumComponent'
+
+
+
 
 export const TabsPanel = () => {
 	const [value, setValue] = useState('1')
@@ -32,10 +37,15 @@ export const TabsPanel = () => {
 						</TabList>
 					</Box>
 					{/* Aqui se deben importar y colocar los componentes que se mostrarán dentro de las tabs */}
-					<TabPanel value="1">Galeria</TabPanel>
+					<TabPanel value="1">
+
+						<AlbumComponent />
+						{/* <CreateAlbum/> */}
+					</TabPanel>
 					<TabPanel value="2">Eventos</TabPanel>
 				</TabContext>
 			</Box>
+
 		</>
 	)
 }

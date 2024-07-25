@@ -245,15 +245,7 @@ export const RegisterComponente = () => {
 			</section>
 			<div className={div_section_form}>
 				<form onSubmit={() => User()} className={section_form}>
-					{/* <TextField
-						required
-						id="outlined-required-name"
-						label="Nombre completo"
-						value={name}
-						onChange={(e) => setName(e.target.value)}
-						fullWidth
-						margin="normal"
-					/> */}
+				
 					<TextField
 						required
 						id="outlined-required-email"
@@ -263,15 +255,7 @@ export const RegisterComponente = () => {
 						fullWidth
 						margin="normal"
 					/>
-					{/* <TextField
-						required
-						id="outlined-required-username"
-						label="Nombre de usuario"
-						value={username}
-						onChange={(e) => setUsername(e.target.value)}
-						fullWidth
-						margin="normal"
-					/> */}
+				
 					<div className={form_password}>
 						<FormControl
 							className={formstyles}
