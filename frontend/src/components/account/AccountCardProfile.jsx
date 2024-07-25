@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable arrow-body-style */
 
 import MoreVertIcon from '@mui/icons-material/MoreVert'
@@ -8,8 +9,12 @@ import { Box, Chip, Stack, Typography } from '@mui/material'
 import { AccountPhotoProfile } from '../../components/account/AccountPhotoProfile'
 import { ProfileStats } from './ProfileStats'
 import { NavLink } from 'react-router-dom'
+import useUserStore from '../../store/store'
 
 export const AccountCardProfile = () => {
+	const { user } = useUserStore()
+
+	console.log(user)
 	return (
 		<>
 			<Box
@@ -33,12 +38,12 @@ export const AccountCardProfile = () => {
 							component="p"
 							sx={{ color: '#FFF', fontSize: '2rem' }}
 						>
-							Santiago Martinez
+							{`${user?.first_name} ${user?.last_name}`}
 						</Typography>
 					</Box>
 					<Box>
 						<Chip
-							label="Profesional"
+							label={user?.level}
 							variant="outlined"
 							sx={{
 								border: '2px solid #A2D95A',
@@ -62,10 +67,7 @@ export const AccountCardProfile = () => {
 					</Box>
 					<Box>
 						<Typography sx={{ color: '#FFF', textAlign: 'center' }}>
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Iste tempora eaque, unde quae quam magnam
-							molestias voluptate aliquid aperiam a. Dolor, atque.
-							Sit, qui in reiciendis velit autem nam asperiores!
+							{user?.bio}
 						</Typography>
 					</Box>
 					<Box sx={{ display: 'flex', gap: '1.5rem', color: '#fff' }}>
@@ -73,14 +75,15 @@ export const AccountCardProfile = () => {
 						<InstagramIcon sx={{ fontSize: '2rem' }} />
 					</Box>
 				</Stack>
-				<NavLink to="/account/edit">
-					<Box sx={{ display: 'flex', gap: '10px', mt: '3rem' }}>
+
+				<Box sx={{ mt: '3rem' }}>
+					<NavLink to="/account/edit" className="flex gap-1">
 						<Typography sx={{ color: '#FFF' }}>
 							Editar datos personales
 						</Typography>
 						<DriveFileRenameOutlineIcon className="text-[#FFF]" />
-					</Box>
-				</NavLink>
+					</NavLink>
+				</Box>
 			</Box>
 		</>
 	)

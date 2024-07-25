@@ -5,7 +5,10 @@ import { errorToast, successToast } from '../utils/toast'
 const useUserStore = create((set) => ({
 	user: null,
 	setUser: (user) => set({ user }),
-	clearUser: () => set({ user: null }),
+	clearUser: () => {
+		localStorage.removeItem('token')
+		set({ user: null })
+	},
 	fetchUserProfile: async () => {
 		try {
 			const response = await fetch(

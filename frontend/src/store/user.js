@@ -30,8 +30,6 @@ export const useUserStoreTemp = create(() => ({
 			description: 'Pronto será redirigido.',
 		})
 
-		console.log(body)
-
 		const MILLISECONDS_TO_REDIRECT = 2000
 		setTimeout(() => {
 			navigate('/')

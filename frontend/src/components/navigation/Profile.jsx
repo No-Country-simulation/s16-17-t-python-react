@@ -19,6 +19,7 @@ import { NavLink } from 'react-router-dom'
 export const Profile = () => {
 	const { clearUser, user } = useUserStore()
 	const [anchorEl, setAnchorEl] = React.useState(null)
+	const avatarImage = user?.image || '/src/assets/img/profile_default.png'
 	const open = Boolean(anchorEl)
 	const handleClick = (event) => {
 		setAnchorEl(event.currentTarget)
@@ -48,7 +49,7 @@ export const Profile = () => {
 						<Avatar
 							sx={{ width: 32, height: 32 }}
 							alt="Profile"
-							src="/src/assets/img/profile_default.png"
+							src={avatarImage}
 						/>
 					</IconButton>
 				</Tooltip>
@@ -90,11 +91,8 @@ export const Profile = () => {
 			>
 				<NavLink to="/account">
 					<MenuItem>
-						<Avatar
-							alt="Account"
-							src="/src/assets/img/profile_default.png"
-						/>{' '}
-						{!user.username === '' ? user.username : 'invitado'}
+						<Avatar alt="Account" src={avatarImage} />{' '}
+						{user.username !== '' ? user.username : 'invitado'}
 					</MenuItem>
 				</NavLink>
 

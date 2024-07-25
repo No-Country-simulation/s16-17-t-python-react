@@ -1,1 +1,1 @@
-export * from "./AlbumComponent"
+export * from './AlbumComponent'

@@ -1,52 +1,52 @@
 [
-    {
-        "id": 1,
-        "title": "Album 1",
-        "likes": 1,
-        "imagen": "https://picsum.photos/700/300",
-        "imagen1": "https://picsum.photos/seed/picsum/700/300",
-        "imagen2": "https://picsum.photos/700/300",
-        "imagen3": "https://picsum.photos/seed/picsum/700/300",
-        "ubicacion": "San Jose, Costa Rica"
-    },
-    {
-        "id": 2,
-        "title": "Album 2",
-        "likes": 45,
-        "imagen1": "https://picsum.photos/seed/picsum/700/300",
-        "imagen": "https://picsum.photos/700/300",
-        "imagen2": "https://picsum.photos/700/300",
-        "imagen3": "https://picsum.photos/seed/picsum/700/300",
-        "ubicacion": "San Juan Argentina"
-    },
-    {
-        "id": 3,
-        "title": "Album 3",
-        "likes": 7,
-        "imagen": "https://picsum.photos/700/300",
-        "imagen1": "https://picsum.photos/seed/picsum/700/300",
-        "imagen2": "https://picsum.photos/700/300",
-        "imagen3": "https://picsum.photos/seed/picsum/700/300",
-        "ubicacion": "Guadalajara Mexico"
-    },
-    {
-        "id": 4,
-        "title": "Album 4",
-        "likes": 23,
-        "imagen": "https://picsum.photos/700/300",
-        "imagen1": "https://picsum.photos/seed/picsum/700/300",
-        "imagen2": "https://picsum.photos/700/300",
-        "imagen3": "https://picsum.photos/seed/picsum/700/300",
-        "ubicacion": "Arequipa Peru"
-    },
-    {
-        "id": 5,
-        "title": "Album 5",
-        "likes": 43,
-        "imagen": "https://picsum.photos/700/300",
-        "imagen1": "https://picsum.photos/seed/picsum/700/300",
-        "imagen2": "https://picsum.photos/700/300",
-        "imagen3": "https://picsum.photos/seed/picsum/700/300",
-        "ubicacion": "Valparaiso Chile"
-    }
+	{
+		"id": 1,
+		"title": "Album 1",
+		"likes": 1,
+		"imagen": "https://picsum.photos/700/300",
+		"imagen1": "https://picsum.photos/seed/picsum/700/300",
+		"imagen2": "https://picsum.photos/700/300",
+		"imagen3": "https://picsum.photos/seed/picsum/700/300",
+		"ubicacion": "San Jose, Costa Rica"
+	},
+	{
+		"id": 2,
+		"title": "Album 2",
+		"likes": 45,
+		"imagen1": "https://picsum.photos/seed/picsum/700/300",
+		"imagen": "https://picsum.photos/700/300",
+		"imagen2": "https://picsum.photos/700/300",
+		"imagen3": "https://picsum.photos/seed/picsum/700/300",
+		"ubicacion": "San Juan Argentina"
+	},
+	{
+		"id": 3,
+		"title": "Album 3",
+		"likes": 7,
+		"imagen": "https://picsum.photos/700/300",
+		"imagen1": "https://picsum.photos/seed/picsum/700/300",
+		"imagen2": "https://picsum.photos/700/300",
+		"imagen3": "https://picsum.photos/seed/picsum/700/300",
+		"ubicacion": "Guadalajara Mexico"
+	},
+	{
+		"id": 4,
+		"title": "Album 4",
+		"likes": 23,
+		"imagen": "https://picsum.photos/700/300",
+		"imagen1": "https://picsum.photos/seed/picsum/700/300",
+		"imagen2": "https://picsum.photos/700/300",
+		"imagen3": "https://picsum.photos/seed/picsum/700/300",
+		"ubicacion": "Arequipa Peru"
+	},
+	{
+		"id": 5,
+		"title": "Album 5",
+		"likes": 43,
+		"imagen": "https://picsum.photos/700/300",
+		"imagen1": "https://picsum.photos/seed/picsum/700/300",
+		"imagen2": "https://picsum.photos/700/300",
+		"imagen3": "https://picsum.photos/seed/picsum/700/300",
+		"ubicacion": "Valparaiso Chile"
+	}
 ]
