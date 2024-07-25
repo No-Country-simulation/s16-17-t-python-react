@@ -7,6 +7,6 @@ class Lens(models.Model):
     brand = models.CharField(max_length=50)
     aperture = models.CharField(max_length=100)
     focal_length = models.CharField(max_length=50)
-    account_id = models.ForeignKey(Account , on_delete=models.CASCADE)
+    account_id = models.ForeignKey(Account , on_delete=models.CASCADE, default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

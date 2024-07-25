@@ -2,10 +2,12 @@ from django.db import models
 
 # Create your models here.
 from django.contrib.auth.models import User # Model User default a reeplazar por el modelo de la app account
+from django.conf import settings
+
 
 class Event(models.Model):
     event_id = models.AutoField(primary_key=True)
-    account = models.ForeignKey(User, on_delete=models.CASCADE)
+    account = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     event_name = models.CharField(max_length=100)
     event_description = models.TextField()
     event_location = models.CharField(max_length=255)
@@ -29,7 +31,7 @@ class Event(models.Model):
 class EventHistory(models.Model):
     event_history_id = models.AutoField(primary_key=True)
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
-    account = models.ForeignKey(User, on_delete=models.CASCADE)
+    account = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     attended = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
