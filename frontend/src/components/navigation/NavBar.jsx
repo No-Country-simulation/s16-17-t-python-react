@@ -1,6 +1,7 @@
 /* eslint-disable arrow-body-style */
 
 import * as React from 'react'
+import { useEffect } from 'react'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
@@ -18,7 +19,8 @@ export const NavBar = () => {
 	const [anchorElNav, setAnchorElNav] = React.useState(null)
 	const [anchorElUser, setAnchorElUser] = React.useState(null)
 
-	const { user, setUser } = useUserStore() /* Confirmacion de uso */
+	const fetchUserProfile = useUserStore((state) => state.fetchUserProfile)
+	const user = useUserStore((state) => state.user) /* Confirmacion de uso */
 
 	const handleCloseNavMenu = () => {
 		setAnchorElNav(null)
@@ -27,6 +29,10 @@ export const NavBar = () => {
 	const handleCloseUserMenu = () => {
 		setAnchorElUser(null)
 	}
+
+	useEffect(() => {
+		fetchUserProfile()
+	}, [fetchUserProfile])
 
 	return (
 		<AppBar position="fixed" sx={{ backgroundColor: '#fff' }}>

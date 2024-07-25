@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { create } from 'zustand'
 import { errorToast, successToast } from '../utils/toast'
 
@@ -28,6 +29,8 @@ export const useUserStoreTemp = create(() => ({
 			title: 'Inicio de sesión exitoso.',
 			description: 'Pronto será redirigido.',
 		})
+
+		console.log(body)
 
 		const MILLISECONDS_TO_REDIRECT = 2000
 		setTimeout(() => {

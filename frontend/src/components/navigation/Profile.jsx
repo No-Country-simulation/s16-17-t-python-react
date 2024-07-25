@@ -8,11 +8,12 @@ import MenuItem from '@mui/material/MenuItem'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import Divider from '@mui/material/Divider'
 import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
 import Tooltip from '@mui/material/Tooltip'
-import Settings from '@mui/icons-material/Settings'
+import MailOutlineIcon from '@mui/icons-material/MailOutline'
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'
 import Logout from '@mui/icons-material/Logout'
 import useUserStore from '../../store/store'
+import { Badge, Typography } from '@mui/material'
 import { NavLink } from 'react-router-dom'
 
 export const Profile = () => {
@@ -25,6 +26,7 @@ export const Profile = () => {
 	const handleClose = () => {
 		setAnchorEl(null)
 	}
+
 	return (
 		<React.Fragment>
 			<Box
@@ -34,7 +36,7 @@ export const Profile = () => {
 					textAlign: 'center',
 				}}
 			>
-				<Tooltip title="Configuración de Perfil">
+				<Tooltip title="Perfil">
 					<IconButton
 						onClick={handleClick}
 						size="small"
@@ -92,17 +94,26 @@ export const Profile = () => {
 							alt="Account"
 							src="/src/assets/img/profile_default.png"
 						/>{' '}
-						Perfil
+						{!user.username === '' ? user.username : 'invitado'}
 					</MenuItem>
 				</NavLink>
 
-				<Typography className="px-2">usuario@example.com</Typography>
+				<MenuItem sx={{ fontSize: '14px' }}>
+					<ListItemIcon>
+						<MailOutlineIcon fontSize="small" />
+					</ListItemIcon>
+					<Typography variant="inherit" noWrap>
+						{user && user.user.email ? user.user.email : 'Invitado'}
+					</Typography>
+				</MenuItem>
 				<Divider />
 				<MenuItem onClick={handleClose}>
 					<ListItemIcon>
-						<Settings fontSize="small" />
+						<Badge color="success" variant="dot">
+							<NotificationsNoneIcon fontSize="small" />
+						</Badge>
 					</ListItemIcon>
-					Configuración
+					Notificaciones
 				</MenuItem>
 				<MenuItem onClick={clearUser}>
 					<ListItemIcon>

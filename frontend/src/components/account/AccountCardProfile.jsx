@@ -7,6 +7,7 @@ import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutli
 import { Box, Chip, Stack, Typography } from '@mui/material'
 import { AccountPhotoProfile } from '../../components/account/AccountPhotoProfile'
 import { ProfileStats } from './ProfileStats'
+import { NavLink } from 'react-router-dom'
 
 export const AccountCardProfile = () => {
 	return (
@@ -23,11 +24,8 @@ export const AccountCardProfile = () => {
 					maxWidth: '448px',
 				}}
 			>
-				<MoreVertIcon
-					sx={{ color: '#FBFCFF', alignSelf: 'flex-end' }}
-				/>
 				<Stack spacing={2} alignItems="center" sx={{ mb: '2rem' }}>
-					<Box>
+					<Box position="relative">
 						<AccountPhotoProfile />
 					</Box>
 					<Box>
@@ -75,12 +73,14 @@ export const AccountCardProfile = () => {
 						<InstagramIcon sx={{ fontSize: '2rem' }} />
 					</Box>
 				</Stack>
-				<Box sx={{ display: 'flex', gap: '10px', mt: '3rem' }}>
-					<Typography sx={{ color: '#FFF' }}>
-						Editar datos personales
-					</Typography>
-					<DriveFileRenameOutlineIcon className="text-[#FFF]" />
-				</Box>
+				<NavLink to="/account/edit">
+					<Box sx={{ display: 'flex', gap: '10px', mt: '3rem' }}>
+						<Typography sx={{ color: '#FFF' }}>
+							Editar datos personales
+						</Typography>
+						<DriveFileRenameOutlineIcon className="text-[#FFF]" />
+					</Box>
+				</NavLink>
 			</Box>
 		</>
 	)
