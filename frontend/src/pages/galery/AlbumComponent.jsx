@@ -1,15 +1,19 @@
 /* eslint-disable arrow-body-style */
-import React from 'react'
+import { useState } from 'react'
 import datos from './galery.json'
 import Fab from '@mui/material/Fab'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline'
-import { Box } from '@mui/material'
+import { Modal } from '@mui/material'
+import { CreateAlbum } from './CreateAlbum'
 
 export const AlbumComponent = () => {
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 	return (
-		<section className="grid grid-cols-1 gap-2 w-full  md:grid-cols-2 md:gap-[1rem] md:justify-center p-3 md:grid-rows-2 md:w-full md:max-w-[658px] md:mx-auto lg:max-w-[1042px]">
+		<section className="grid grid-cols-1 gap-2 w-full md:grid-cols-2 md:gap-[1rem] md:justify-center p-3 md:grid-rows-2 md:w-full md:max-w-[658px] md:mx-auto lg:max-w-[1042px]">
 			{datos.map((e) => (
 				<div
 					className="w-[19rem]  lg:w-[30rem] mx-auto h-full hover:scale-105  transition-all .5s ease-in-out border rounded-lg shadow-lg p-6 flex flex-col gap-3"
@@ -51,6 +55,7 @@ export const AlbumComponent = () => {
 			))}
 			<Fab
 				variant="extended"
+                onClick={handleOpen}
 				sx={{
 					position: 'fixed',
 					bottom: 16,
@@ -62,6 +67,15 @@ export const AlbumComponent = () => {
 				<DriveFileRenameOutlineIcon className="text-[#6E9E30] mr-1" />
 				Crear
 			</Fab>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+                sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}
+            >
+                <CreateAlbum />
+            </Modal>
 		</section>
 	)
 }

@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 // import { useParams } from "react-router-dom"
-import { useState } from 'react'
+import { useState, forwardRef } from 'react'
 import { CreateAlbumStore } from './store'
 import style from './style.module.css'
 import {
@@ -13,7 +13,7 @@ import {
 } from '@mui/material'
 const { form_create_album } = style
 import { Toaster, toast } from 'sonner'
-export const CreateAlbum = () => {
+export const CreateAlbum = forwardRef((props, ref) => {
 	// const {TitleAlbum } = CreateAlbumStore()
 	const [dataTitle, setDatatitle] = useState('')
 
@@ -43,8 +43,8 @@ export const CreateAlbum = () => {
 
 	const { button_register, form_create_album } = style
 	return (
-		<>
-			<form onSubmit={SubmitAlbum}>
+		<div ref={ref} {...props}>
+			<form onSubmit={SubmitAlbum} className='bg-white'>
 				<FormControl fullWidth margin="normal">
 					<InputLabel
 						className={form_create_album}
@@ -81,6 +81,6 @@ export const CreateAlbum = () => {
 					</Button>
 				</FormControl>
 			</form>
-		</>
+		</div>
 	)
-}
+});
