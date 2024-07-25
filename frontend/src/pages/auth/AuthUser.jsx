@@ -1,3 +1,4 @@
+/* eslint-disable no-magic-numbers */
 import { useEffect, useState } from 'react'
 import estilos from './style.module.css'
 import { useNavigate } from 'react-router-dom'

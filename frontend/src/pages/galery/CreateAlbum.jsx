@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // import { useParams } from "react-router-dom"
 import { useState } from 'react'
 import { CreateAlbumStore } from './store'
