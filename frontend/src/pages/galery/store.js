@@ -4,7 +4,13 @@ import {create} from 'zustand'
 const headerTypeJson = { 'Content-Type': 'application/json' }
 
 export const CreateAlbumStore = create((set)=> {
-    TitleAlbum: null;
+    store_TitleAlbum: "";
+    store_dataComent: "";
+    store_dataCheckbox: false;
+    store_OptionsCamera: "";
+    store_OptionsObjective: "";
+    likes: null;
+    
     postTitleAlbum: async (endpoint,data)=> {
         try {
             const req = await fetch(endpoint, {
