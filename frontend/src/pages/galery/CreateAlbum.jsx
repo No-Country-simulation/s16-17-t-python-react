@@ -44,7 +44,7 @@ export const CreateAlbum = forwardRef((props, ref) => {
 	const { button_register, form_create_album } = style
 	return (
 		<div ref={ref} {...props}>
-			<form onSubmit={SubmitAlbum} className='bg-white'>
+			<form onSubmit={SubmitAlbum} className="bg-white">
 				<FormControl fullWidth margin="normal">
 					<InputLabel
 						className={form_create_album}
@@ -83,4 +83,4 @@ export const CreateAlbum = forwardRef((props, ref) => {
 			</form>
 		</div>
 	)
-});
+})

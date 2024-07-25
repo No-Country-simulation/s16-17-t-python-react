@@ -9,9 +9,9 @@ import { Modal } from '@mui/material'
 import { CreateAlbum } from './CreateAlbum'
 
 export const AlbumComponent = () => {
-    const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+	const [open, setOpen] = useState(false)
+	const handleOpen = () => setOpen(true)
+	const handleClose = () => setOpen(false)
 	return (
 		<section className="grid grid-cols-1 gap-2 w-full md:grid-cols-2 md:gap-[1rem] md:justify-center p-3 md:grid-rows-2 md:w-full md:max-w-[658px] md:mx-auto lg:max-w-[1042px]">
 			{datos.map((e) => (
@@ -55,7 +55,7 @@ export const AlbumComponent = () => {
 			))}
 			<Fab
 				variant="extended"
-                onClick={handleOpen}
+				onClick={handleOpen}
 				sx={{
 					position: 'fixed',
 					bottom: 16,
@@ -67,15 +67,19 @@ export const AlbumComponent = () => {
 				<DriveFileRenameOutlineIcon className="text-[#6E9E30] mr-1" />
 				Crear
 			</Fab>
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-                sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}
-            >
-                <CreateAlbum />
-            </Modal>
+			<Modal
+				open={open}
+				onClose={handleClose}
+				aria-labelledby="modal-modal-title"
+				aria-describedby="modal-modal-description"
+				sx={{
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+				}}
+			>
+				<CreateAlbum />
+			</Modal>
 		</section>
 	)
 }
