@@ -31,6 +31,7 @@ export const TabsPanel = () => {
 						>
 							<Tab label="Galeria" value="1" />
 							<Tab label="Eventos" value="2" />
+							<Tab label="Cámaras" value="3" />
 						</TabList>
 					</Box>
 					{/* Aqui se deben importar y colocar los componentes que se mostrarán dentro de las tabs */}
@@ -39,6 +40,7 @@ export const TabsPanel = () => {
 						{/* <CreateAlbum/> */}
 					</TabPanel>
 					<TabPanel value="2">Eventos</TabPanel>
+					<TabPanel value="3">Cámaras</TabPanel>
 				</TabContext>
 			</Box>
 		</>

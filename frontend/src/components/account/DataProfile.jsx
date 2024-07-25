@@ -5,6 +5,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import {
 	Button,
+	Divider,
 	TextField,
 	ToggleButton,
 	ToggleButtonGroup,
@@ -87,7 +88,7 @@ export const DataProfile = () => {
 
 	return (
 		<form
-			className="w-[100%] flex flex-col justify-center items-center lg:flex-row lg:items-start lg:gap-32"
+			className="w-[100%] flex flex-col justify-center items-center lg:flex-row lg:items-start lg:gap-6"
 			onSubmit={handleSubmit}
 		>
 			<div className="w-[90%] flex flex-col gap-[23px] mt-6 md:w-[50%] lg:w-[35%] lg:mr-4">
@@ -133,7 +134,12 @@ export const DataProfile = () => {
 					onChange={handleChange}
 				/>
 			</div>
-			<div className="mt-6 mb-6 w-[90%] flex flex-col gap-[23px] md:w-[50%] lg:w-[35%]">
+			<Divider
+				orientation="vertical"
+				flexItem
+				sx={{ display: { lg: 'block', sm: 'none' } }}
+			/>
+			<div className="mt-6 mb-6 w-[90%] flex flex-col gap-[23px] md:w-[50%] lg:w-[35%] lg:ml-4">
 				<div className="mb-3">
 					<h2 className="text-[#313031] text-[20px]">Sobre mi</h2>
 					<p className="text-[#49454F] text-[12px] mb-2">

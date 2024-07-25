@@ -15,26 +15,44 @@ export const ProfileStats = () => {
 				maxWidth: '281px',
 			}}
 		>
-			<Grid container justifyContent="space-between" alignItems="center">
+			<Grid
+				container
+				justifyContent="space-between"
+				alignItems="center"
+				sx={{}}
+			>
 				<Grid item xs={4} textAlign="center">
-					<Typography variant="h5" sx={{ color: '#A2D95A' }}>
+					<Typography
+						variant="h5"
+						sx={{ color: '#A2D95A', fontSize: '12px' }}
+					>
 						0
 					</Typography>
-					<Typography sx={{ color: '#A2D95A' }}>Galerias</Typography>
-				</Grid>
-				<Grid item xs={4} textAlign="center">
-					<Typography variant="h5" sx={{ color: '#A2D95A' }}>
-						4.8
-					</Typography>
-					<Typography sx={{ color: '#A2D95A' }}>
-						Valoración
+					<Typography sx={{ color: '#A2D95A', fontSize: '12px' }}>
+						Galerias
 					</Typography>
 				</Grid>
 				<Grid item xs={4} textAlign="center">
-					<Typography variant="h5" sx={{ color: '#A2D95A' }}>
+					<Typography
+						variant="h5"
+						sx={{ color: '#A2D95A', fontSize: '12px' }}
+					>
 						0
 					</Typography>
-					<Typography sx={{ color: '#A2D95A' }}>Eventos</Typography>
+					<Typography sx={{ color: '#A2D95A', fontSize: '12px' }}>
+						Seguidores
+					</Typography>
+				</Grid>
+				<Grid item xs={4} textAlign="center">
+					<Typography
+						variant="h5"
+						sx={{ color: '#A2D95A', fontSize: '12px' }}
+					>
+						0
+					</Typography>
+					<Typography sx={{ color: '#A2D95A', fontSize: '12px' }}>
+						Eventos
+					</Typography>
 				</Grid>
 			</Grid>
 		</Box>

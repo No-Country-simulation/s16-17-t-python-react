@@ -8,6 +8,7 @@ import Toolbar from '@mui/material/Toolbar'
 import Container from '@mui/material/Container'
 import Button from '@mui/material/Button'
 import logo from '../../assets/img/logo_green.svg'
+import logoMobile from '../../assets/img/logo_mobile.svg'
 import { NavLink } from 'react-router-dom'
 import { Profile, SearchBar, GuestProfile, SideBar } from '../navigation'
 import { Stack } from '@mui/material'
@@ -64,8 +65,8 @@ export const NavBar = () => {
 							className="flex md:hidden mr-1 flex-nowrap flex-grow"
 						>
 							<img
-								src={logo}
-								alt=""
+								src={logoMobile}
+								alt="logo_mobile"
 								className="mr-2 flex md:hidden"
 							/>
 						</NavLink>

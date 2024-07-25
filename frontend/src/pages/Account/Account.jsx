@@ -10,7 +10,16 @@ export const Account = () => {
 	return (
 		<>
 			<NavBar />
-			<Container sx={{ backgroundColor: '#FBFCFF', mt: '2.5rem' }}>
+			<Container
+				sx={{
+					backgroundColor: '#FBFCFF',
+					mt: '2.5rem',
+					display: 'flex',
+					flexDirection: { md: 'row', xs: 'column' },
+					alignItems: 'center',
+					width: '100%',
+				}}
+			>
 				<AccountCardProfile />
 				<TabsPanel />
 			</Container>

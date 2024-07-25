@@ -6,9 +6,11 @@ import List from '@mui/material/List'
 import Divider from '@mui/material/Divider'
 import ListItem from '@mui/material/ListItem'
 import ListItemButton from '@mui/material/ListItemButton'
+import logo from '../../assets/img/logo_green.svg'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
 import { IconButton } from '@mui/material'
+import { NavLink } from 'react-router-dom'
 
 export const SideBar = () => {
 	const [open, setOpen] = React.useState(false)
@@ -24,11 +26,16 @@ export const SideBar = () => {
 			onClick={toggleDrawer(false)}
 		>
 			<List>
+				<ListItem>
+					<NavLink to="/">
+						<img src={logo} alt="Logo" />
+					</NavLink>
+				</ListItem>
+
 				{['Descubrir', 'Nosotros', 'Servicios', 'Contacto'].map(
 					(text, index) => (
 						<ListItem key={text} disablePadding>
 							<ListItemButton>
-								<ListItemIcon></ListItemIcon>
 								<ListItemText primary={text} />
 							</ListItemButton>
 						</ListItem>

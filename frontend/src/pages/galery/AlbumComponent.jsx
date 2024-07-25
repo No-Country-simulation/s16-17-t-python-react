@@ -2,7 +2,9 @@
 import { useState } from 'react'
 import datos from './galery.json'
 import Fab from '@mui/material/Fab'
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import Checkbox from '@mui/material/Checkbox'
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder'
+import Favorite from '@mui/icons-material/Favorite'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline'
 import { Modal } from '@mui/material'
@@ -16,7 +18,11 @@ export const AlbumComponent = () => {
 		<section className="grid grid-cols-1 gap-2 w-full md:grid-cols-2 md:gap-[1rem] md:justify-center p-3 md:grid-rows-2 md:w-full md:max-w-[658px] md:mx-auto lg:max-w-[1042px]">
 			{datos.map((e) => (
 				<div
-					className="w-[19rem]  lg:w-[30rem] mx-auto h-full hover:scale-105  transition-all .5s ease-in-out border rounded-lg shadow-lg p-6 flex flex-col gap-3"
+					className="w-[19rem] lg:w-[30rem] 
+                    mx-auto h-full hover:scale-105  
+                    transition-all .5s ease-in-out border 
+                    rounded-lg shadow-lg p-6 
+                    flex flex-col gap-3 cursor-pointer"
 					key={e.id}
 				>
 					<div className="grid grid-cols-2 grid-rows-2 gap-[.5rem]">
@@ -47,7 +53,12 @@ export const AlbumComponent = () => {
 							{e.ubicacion}
 						</div>
 						<div className="text-xs text-right">
-							<FavoriteBorderIcon className="bg-red cursor-pointer hover:text-[#f13a3a]" />
+							{' '}
+							{/* codigo refactorizado para la funcion de like */}
+							<Checkbox
+								icon={<FavoriteBorder />}
+								checkedIcon={<Favorite sx={{ color: 'red' }} />}
+							/>
 							{e.likes}
 						</div>
 					</div>
@@ -62,6 +73,8 @@ export const AlbumComponent = () => {
 					right: 16,
 					backgroundColor: '#fff',
 					color: '#6E9E30',
+					width: { xs: '156px', sm: '164px' },
+					fontSize: { xs: '12px' },
 				}}
 			>
 				<DriveFileRenameOutlineIcon className="text-[#6E9E30] mr-1" />
