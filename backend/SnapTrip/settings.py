@@ -46,9 +46,9 @@ INSTALLED_APPS = [
     'drf_spectacular',
     
     # SnapTrip apps
-    #'apps.account',
-    #'apps.camera',
-    #'apps.lens',
+    'apps.account',
+    'apps.camera',
+    'apps.lens',
     'apps.events',
     'apps.album',
     
