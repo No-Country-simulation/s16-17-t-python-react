@@ -4,6 +4,7 @@ import { Container } from '@mui/material'
 import { NavBar } from '../../components'
 import { AccountCardProfile } from '../../components/account/AccountCardProfile'
 import { TabsPanel } from '../../components/tabs/TabsPanel'
+// import { CreateAlbum } from '../galery/CreateAlbum'
 
 export const Account = () => {
 	return (
