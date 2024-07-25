@@ -149,27 +149,28 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
 
 REST_FRAMEWORK = {
-<<<<<<< HEAD
+    
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     ),
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    
+    'DEFAULT_SCHEMA_CLASS': ('drf_spectacular.openapi.AutoSchema'),
+    
+    'DEFAULT_PERMISSION_CLASSES':
+        
+        ('rest_framework.permissions.IsAuthenticatedOrReadOnly')
     
 }
 
 AUTH_USER_MODEL = 'account.Account'
-=======
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
-    ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-    ],
-}
-#AUTH_USER_MODEL = 'account.Account'
->>>>>>> origin/album_backend
+
+
+
+
+
 
 # JWTAuthentication
 SIMPLE_JWT = {
