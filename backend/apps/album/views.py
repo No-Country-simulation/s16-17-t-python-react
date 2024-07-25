@@ -1,31 +1,52 @@
-from rest_framework import viewsets, permissions
+from rest_framework import status, permissions
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from django.http import Http404
 from .models import Album
 from .serializers import AlbumSerializer
 
-class IsOwnerOrReadOnly(permissions.BasePermission):
-    """
-    Custom permission to only allow owners of an object to edit or delete it.
-    """
+class AlbumListCreateAPIView(APIView):
+    #permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
-    def has_object_permission(self, request, view, obj):
-        # Read permissions are allowed to any request,
-        # so we'll always allow GET, HEAD or OPTIONS requests.
-        if request.method in permissions.SAFE_METHODS:
-            return True
+    def get(self, request):
+        albums = Album.objects.all()
+        serializer = AlbumSerializer(albums, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
-        # Write permissions are only allowed to the owner of the album.
-        return obj.account == request.user
+    def post(self, request):
+        serializer = AlbumSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(account=request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class AlbumViewSet(viewsets.ModelViewSet):
-    queryset = Album.objects.all()
-    serializer_class = AlbumSerializer
+class AlbumDetailAPIView(APIView):
+    #permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
-    def get_permissions(self):
-        if self.action in ['list', 'retrieve']:
-            permission_classes = [permissions.AllowAny]
-        else:
-            permission_classes = [permissions.IsAuthenticated, IsOwnerOrReadOnly]
-        return [permission() for permission in permission_classes]
+    def get_object(self, pk):
+        try:
+            return Album.objects.get(pk=pk)
+        except Album.DoesNotExist:
+            raise Http404
 
-    def perform_create(self, serializer):
-        serializer.save(account=self.request.user)
+    def get(self, request, pk):
+        album = self.get_object(pk)
+        serializer = AlbumSerializer(album)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def put(self, request, pk):
+        album = self.get_object(pk)
+        if album.account != request.user:
+            return Response({'detail': 'You do not have permission to edit this album.'}, status=status.HTTP_403_FORBIDDEN)
+        serializer = AlbumSerializer(album, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD)
+    
+    def delete(self, request, pk):
+        album = self.get_object(pk)
+        if album.account != request.user:
+            return Response({'detail': 'You do not have permission to delete this album.'}, status=status.HTTP_403_FORBIDDEN)
+        album.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

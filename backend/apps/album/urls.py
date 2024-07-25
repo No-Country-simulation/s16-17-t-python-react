@@ -1,10 +1,7 @@
-from rest_framework.routers import DefaultRouter
-from django.urls import path, include
-from .views import AlbumViewSet
-
-router = DefaultRouter()
-router.register(r'albums', AlbumViewSet)
+from django.urls import path
+from .views import AlbumListCreateAPIView, AlbumDetailAPIView
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('albums/', AlbumListCreateAPIView.as_view(), name='album-list-create'),
+    path('albums/<int:pk>/', AlbumDetailAPIView.as_view(), name='album-detail'),
 ]
