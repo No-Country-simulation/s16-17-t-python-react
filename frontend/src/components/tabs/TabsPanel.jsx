@@ -5,6 +5,7 @@ import { TabContext, TabList, TabPanel } from '@mui/lab'
 
 import { useState } from 'react'
 import { AlbumComponent } from '../../pages/galery/AlbumComponent'
+import { CreateAlbum } from '../../pages/galery/CreateAlbum'
 
 
 
@@ -37,10 +38,10 @@ export const TabsPanel = () => {
 						</TabList>
 					</Box>
 					{/* Aqui se deben importar y colocar los componentes que se mostrarán dentro de las tabs */}
-					<TabPanel value="1">
+					<TabPanel value="1" sx={{ padding: "24px 0"}}>
 
-						<AlbumComponent />
-						{/* <CreateAlbum/> */}
+						{/* <AlbumComponent /> */}
+						<CreateAlbum/>
 					</TabPanel>
 					<TabPanel value="2">Eventos</TabPanel>
 				</TabContext>
