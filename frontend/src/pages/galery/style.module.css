@@ -1,3 +1,12 @@
 .form_create_album:focus {
 	background: #6e9e30 !important;
 }
+.button_register {
+	background-color: #6e9e30 !important;
+	width: 3rem !important;
+	height: 3rem !important;
+	border-radius: 50% !important;
+}
+.checkbox_styles:checked {
+	background-color: #6e9e30 !important;
+}
