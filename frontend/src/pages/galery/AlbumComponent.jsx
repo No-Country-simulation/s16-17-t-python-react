@@ -1,3 +1,4 @@
+/* eslint-disable no-magic-numbers */
 /* eslint-disable arrow-body-style */
 import { useState } from 'react'
 import datos from './galery.json'
@@ -12,11 +13,26 @@ import { CreateAlbum } from './CreateAlbum'
 
 export const AlbumComponent = () => {
 	const [open, setOpen] = useState(false)
+	const [albums, setAlbums] = useState(datos)
 	const handleOpen = () => setOpen(true)
 	const handleClose = () => setOpen(false)
+
+	const handleLikeChange = (id) => {
+		setAlbums((prevAlbums) =>
+			prevAlbums.map((album) =>
+				album.id === id ?
+					{
+						...album,
+						liked: !album.liked,
+						likes: album.liked ? album.likes - 1 : album.likes + 1,
+					}
+				:	album
+			)
+		)
+	}
 	return (
-		<section className="grid grid-cols-1 gap-2 w-full md:grid-cols-2 md:gap-[1rem] md:justify-center p-3 md:grid-rows-2 md:w-full md:max-w-[658px] md:mx-auto lg:max-w-[1042px]">
-			{datos.map((e) => (
+		<section className="grid grid-cols-1 gap-6 w-full md:grid-cols-2 md:gap-[1rem] md:justify-center p-3 md:grid-rows-2 md:w-full md:max-w-[658px] md:mx-auto lg:max-w-[1042px]">
+			{albums.map((e) => (
 				<div
 					className="w-[19rem] lg:w-[30rem] 
                     mx-auto h-full hover:scale-105  
@@ -29,7 +45,7 @@ export const AlbumComponent = () => {
 						<img
 							className="h-auto w-[100%] rounded-lg"
 							src={e?.imagen || 'Cargando..'}
-						></img>
+						/>
 						<img
 							className="h-auto w-[100%] rounded-lg"
 							src={e?.imagen1}
@@ -58,6 +74,7 @@ export const AlbumComponent = () => {
 							<Checkbox
 								icon={<FavoriteBorder />}
 								checkedIcon={<Favorite sx={{ color: 'red' }} />}
+								onChange={() => handleLikeChange(e.id)}
 							/>
 							{e.likes}
 						</div>

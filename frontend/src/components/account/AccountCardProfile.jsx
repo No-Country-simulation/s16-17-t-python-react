@@ -13,6 +13,10 @@ import useUserStore from '../../store/store'
 
 export const AccountCardProfile = () => {
 	const { user } = useUserStore()
+	const name =
+		!user?.first_name && !user?.last_name ?
+			'Invitado'
+		:	`${user?.first_name} ${user?.last_name}`
 
 	console.log(user)
 	return (
@@ -38,7 +42,7 @@ export const AccountCardProfile = () => {
 							component="p"
 							sx={{ color: '#FFF', fontSize: '2rem' }}
 						>
-							{`${user?.first_name} ${user?.last_name}`}
+							{name}
 						</Typography>
 					</Box>
 					<Box>
@@ -58,15 +62,22 @@ export const AccountCardProfile = () => {
 				<Stack spacing={2} alignItems="center">
 					<Box
 						sx={{
-							width: '100%',
+							width: '249px',
 							display: 'flex',
 							justifyContent: 'center',
+							maxWidth: '281px',
 						}}
 					>
 						<ProfileStats />
 					</Box>
 					<Box>
-						<Typography sx={{ color: '#FFF', textAlign: 'center' }}>
+						<Typography
+							sx={{
+								color: '#FFF',
+								textAlign: 'center',
+								fontSize: '14px',
+							}}
+						>
 							{user?.bio}
 						</Typography>
 					</Box>

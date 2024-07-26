@@ -14,6 +14,7 @@ export const useUserStoreTemp = create(() => ({
 				body: JSON.stringify(data),
 			}
 		)
+		console.log(data)
 		const STATUS_OK = 200
 		if (response.status !== STATUS_OK) {
 			errorToast({

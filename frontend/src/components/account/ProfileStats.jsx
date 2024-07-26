@@ -1,6 +1,7 @@
 /* eslint-disable arrow-body-style */
 
 import { Box, Grid, Typography } from '@mui/material'
+import datos from '../../pages/galery/galery.json'
 
 export const ProfileStats = () => {
 	return (
@@ -12,45 +13,39 @@ export const ProfileStats = () => {
 				display: 'flex',
 				justifyContent: 'space-between',
 				width: '100%',
-				maxWidth: '281px',
 			}}
 		>
-			<Grid
-				container
-				justifyContent="space-between"
-				alignItems="center"
-				sx={{}}
-			>
+			<Grid container justifyContent="space-between" alignItems="center">
 				<Grid item xs={4} textAlign="center">
 					<Typography
 						variant="h5"
-						sx={{ color: '#A2D95A', fontSize: '12px' }}
+						sx={{ color: '#A2D95A', fontSize: '14px' }}
 					>
-						0
+						{datos.length}
 					</Typography>
-					<Typography sx={{ color: '#A2D95A', fontSize: '12px' }}>
+					<Typography sx={{ color: '#A2D95A', fontSize: '14px' }}>
 						Galerias
 					</Typography>
 				</Grid>
 				<Grid item xs={4} textAlign="center">
 					<Typography
 						variant="h5"
-						sx={{ color: '#A2D95A', fontSize: '12px' }}
+						sx={{ color: '#A2D95A', fontSize: '14px' }}
 					>
 						0
 					</Typography>
-					<Typography sx={{ color: '#A2D95A', fontSize: '12px' }}>
+					<Typography sx={{ color: '#A2D95A', fontSize: '14px' }}>
 						Seguidores
 					</Typography>
 				</Grid>
 				<Grid item xs={4} textAlign="center">
 					<Typography
 						variant="h5"
-						sx={{ color: '#A2D95A', fontSize: '12px' }}
+						sx={{ color: '#A2D95A', fontSize: '14px' }}
 					>
 						0
 					</Typography>
-					<Typography sx={{ color: '#A2D95A', fontSize: '12px' }}>
+					<Typography sx={{ color: '#A2D95A', fontSize: '14px' }}>
 						Eventos
 					</Typography>
 				</Grid>
