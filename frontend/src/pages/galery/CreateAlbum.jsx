@@ -1,22 +1,22 @@
 /* eslint-disable no-console */
 // import { useParams } from "react-router-dom"
-import { useState } from "react"
 import { CreateAlbumStore } from "./store"
-import { Toaster, toast } from 'sonner'
 import style from "./style.module.css"
 import { useState, forwardRef } from 'react'
 import {
     Button,
+    Fab,
     FormControl,
     IconButton,
     InputAdornment,
     InputLabel,
     OutlinedInput
 } from "@mui/material"
-
+import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline'
 import { Toaster, toast } from 'sonner'
 import Checkbox from '@mui/material/Checkbox';
 import data from './DefineAlbum.json'
+
 
 export const CreateAlbum = forwardRef((props, ref) => {
     const [dataTitle, setDatatitle] = useState("")
@@ -24,7 +24,7 @@ export const CreateAlbum = forwardRef((props, ref) => {
     const [OptionsCamera, setOptionsCamera] = useState("")
     const [OptionsObjective, setOptionsObjective] = useState("")
     const [checkbox, ser_checkbox] = useState(false)
-   
+
 
     const InputAlbumSubmit = (e) => {
         console.log({ album: e })
@@ -38,7 +38,7 @@ export const CreateAlbum = forwardRef((props, ref) => {
     //     store_OptionsObjective
     // } = CreateAlbumStore()
 
-    
+
 
     const SubmitAlbum = (e) => {
         const MIN_ALBUM_LENGTH = 140
@@ -63,7 +63,8 @@ export const CreateAlbum = forwardRef((props, ref) => {
 
     return (
         <div ref={ref} {...props}>
-            <form onSubmit={SubmitAlbum} >
+            <form onSubmit={SubmitAlbum}
+                className="bg-[#fff] p-[1rem] rounded-md" >
                 <FormControl
                     fullWidth
                     margin="normal"
@@ -130,7 +131,7 @@ export const CreateAlbum = forwardRef((props, ref) => {
                         <b>Definí tu album</b>
                         <article>
                             <div className="grid grid-cols-2 justify-center max-w-[1100px] mx-auto">
-                                {
+                                {/* {
                                     data.CheckboxOP.map(e => (
                                         <div key={e.id} className="flex items-center gap-2">
                                             <Checkbox value={paisaje} onChange={(e) => setpaisaje(e.target.checked)}
@@ -146,11 +147,11 @@ export const CreateAlbum = forwardRef((props, ref) => {
                                         sx={{ ":checked": { caretShapeolor: "#6E9E30 !important", padding: "5px" } }}
                                         className={checkbox_styles} />
                                     <p>Paisaje</p>
-                                </div>
+                                </div> */}
                             </div>
                         </article>
                     </section>
-                    <Button
+                    {/* <Button
                         variant="contained"
                         color="primary"
                         type="submit"
@@ -158,7 +159,22 @@ export const CreateAlbum = forwardRef((props, ref) => {
                         fullWidth
                     >
                         Crear
-                    </Button>
+                    </Button> */}
+                    <Fab
+                        variant="extended"
+                        // onClick={handleOpen}
+                        type="submit"
+                        sx={{
+                            backgroundColor: '#fff',
+                            color: '#6E9E30',
+                            // height: {},
+                            width: { xs: '156px', sm: '164px' },
+                            fontSize: { xs: '12px' },
+                        }}
+                    >
+                        <DriveFileRenameOutlineIcon className="text-[#6E9E30] mr-1" />
+                        Crear Album
+                    </Fab>
                 </FormControl>
             </form>
         </div>
