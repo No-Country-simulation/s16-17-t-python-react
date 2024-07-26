@@ -1,94 +1,93 @@
 {
-    "define_objevtive":[
-        {
-            "id": 0,
-            "objective": "10x"
-        },
-        {
-            "id": 1,
-            "objective": "8x"
-        },
-        {
-            "id": 2,
-            "objective": "6x"
-        },
-        {
-            "id": 3,
-            "objective": "4x"
-        }
-    ],
-    "define_camera":[
-        {
-            "id": 0,
-            "camera": "Canon EOS 6D"
-        },
-        {
-            "id": 1,
-            "camera": "Canon EOS 7D"
-        },
-        {
-            "id": 2,
-            "camera": "Canon EOS 5D Mark IV"
-        },
-        {
-            "id": 3,
-            "camera": "Canon EOS 5D Mark III"
-        },
-        {
-            "id": 4,
-            "camera": "Canon EOS 5D Mark II"
-        },
-        {
-            "id": 5,
-            "camera": "Canon EOS 5D"
-        }
-    ],
+	"define_objevtive": [
+		{
+			"id": 0,
+			"objective": "10x"
+		},
+		{
+			"id": 1,
+			"objective": "8x"
+		},
+		{
+			"id": 2,
+			"objective": "6x"
+		},
+		{
+			"id": 3,
+			"objective": "4x"
+		}
+	],
+	"define_camera": [
+		{
+			"id": 0,
+			"camera": "Canon EOS 6D"
+		},
+		{
+			"id": 1,
+			"camera": "Canon EOS 7D"
+		},
+		{
+			"id": 2,
+			"camera": "Canon EOS 5D Mark IV"
+		},
+		{
+			"id": 3,
+			"camera": "Canon EOS 5D Mark III"
+		},
+		{
+			"id": 4,
+			"camera": "Canon EOS 5D Mark II"
+		},
+		{
+			"id": 5,
+			"camera": "Canon EOS 5D"
+		}
+	],
 	"CheckboxOP": [
 		{
 			"id": 0,
-            "selected": false,
+			"selected": false,
 			"op": "Paisaje"
 		},
 		{
 			"id": 1,
-            "selected": false,
+			"selected": false,
 			"op": "Naturaleza"
 		},
 		{
 			"id": 2,
-            "selected": false,
+			"selected": false,
 			"op": "Street"
 		},
 		{
 			"id": 3,
-            "selected": false,
+			"selected": false,
 			"op": "Nocturno"
 		},
 		{
 			"id": 4,
-            "selected": false,
+			"selected": false,
 			"op": "Aereo"
 		},
 		{
 			"id": 5,
-            "selected": false,
+			"selected": false,
 			"op": "Retrato"
 		},
 		{
 			"id": 6,
-            "selected": false,
+			"selected": false,
 			"op": "Personas"
 		},
 		{
 			"id": 7,
-            "selected": false,
+			"selected": false,
 			"op": "Cultura"
 		},
 		{
 			"id": 8,
-            "selected": false,
+			"selected": false,
 			"op": "Otros"
 		}
 	]
-
 }
