@@ -6,7 +6,7 @@ from .models import Album
 from .serializers import AlbumSerializer
 
 class AlbumListCreateAPIView(APIView):
-    #permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get(self, request):
         albums = Album.objects.all()
