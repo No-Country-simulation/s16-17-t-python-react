@@ -1,29 +1,28 @@
-html{
+html {
 	scrollbar-width: thin;
 }
 .loader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .spinner {
-    width: 140px;
-    height: 78px;
-    position: relative;
-    animation: rotation 0.75s linear infinite;
-    border-radius: 100em;
-  }
-  
-  .path {
-    stroke-dasharray: 100;
-    stroke-dashoffset: 20;
-    stroke-linecap: round;
-  }
-  
-  @keyframes rotation {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.spinner {
+	width: 140px;
+	height: 78px;
+	position: relative;
+	animation: rotation 0.75s linear infinite;
+	border-radius: 100em;
+}
+
+.path {
+	stroke-dasharray: 100;
+	stroke-dashoffset: 20;
+	stroke-linecap: round;
+}
+
+@keyframes rotation {
+	to {
+		transform: rotate(360deg);
+	}
+}

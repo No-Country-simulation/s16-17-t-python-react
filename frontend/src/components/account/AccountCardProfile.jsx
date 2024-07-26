@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable arrow-body-style */
 
 import MoreVertIcon from '@mui/icons-material/MoreVert'
@@ -7,8 +8,17 @@ import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutli
 import { Box, Chip, Stack, Typography } from '@mui/material'
 import { AccountPhotoProfile } from '../../components/account/AccountPhotoProfile'
 import { ProfileStats } from './ProfileStats'
+import { NavLink } from 'react-router-dom'
+import useUserStore from '../../store/store'
 
 export const AccountCardProfile = () => {
+	const { user } = useUserStore()
+	const name =
+		!user?.first_name && !user?.last_name ?
+			'Invitado'
+		:	`${user?.first_name} ${user?.last_name}`
+
+	console.log(user)
 	return (
 		<>
 			<Box
@@ -23,11 +33,8 @@ export const AccountCardProfile = () => {
 					maxWidth: '448px',
 				}}
 			>
-				<MoreVertIcon
-					sx={{ color: '#FBFCFF', alignSelf: 'flex-end' }}
-				/>
 				<Stack spacing={2} alignItems="center" sx={{ mb: '2rem' }}>
-					<Box>
+					<Box position="relative">
 						<AccountPhotoProfile />
 					</Box>
 					<Box>
@@ -35,12 +42,12 @@ export const AccountCardProfile = () => {
 							component="p"
 							sx={{ color: '#FFF', fontSize: '2rem' }}
 						>
-							Santiago Martinez
+							{name}
 						</Typography>
 					</Box>
 					<Box>
 						<Chip
-							label="Profesional"
+							label={user?.level}
 							variant="outlined"
 							sx={{
 								border: '2px solid #A2D95A',
@@ -55,19 +62,23 @@ export const AccountCardProfile = () => {
 				<Stack spacing={2} alignItems="center">
 					<Box
 						sx={{
-							width: '100%',
+							width: '249px',
 							display: 'flex',
 							justifyContent: 'center',
+							maxWidth: '281px',
 						}}
 					>
 						<ProfileStats />
 					</Box>
 					<Box>
-						<Typography sx={{ color: '#FFF', textAlign: 'center' }}>
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Iste tempora eaque, unde quae quam magnam
-							molestias voluptate aliquid aperiam a. Dolor, atque.
-							Sit, qui in reiciendis velit autem nam asperiores!
+						<Typography
+							sx={{
+								color: '#FFF',
+								textAlign: 'center',
+								fontSize: '14px',
+							}}
+						>
+							{user?.bio}
 						</Typography>
 					</Box>
 					<Box sx={{ display: 'flex', gap: '1.5rem', color: '#fff' }}>
@@ -75,11 +86,14 @@ export const AccountCardProfile = () => {
 						<InstagramIcon sx={{ fontSize: '2rem' }} />
 					</Box>
 				</Stack>
-				<Box sx={{ display: 'flex', gap: '10px', mt: '3rem' }}>
-					<Typography sx={{ color: '#FFF' }}>
-						Editar datos personales
-					</Typography>
-					<DriveFileRenameOutlineIcon className="text-[#FFF]" />
+
+				<Box sx={{ mt: '3rem' }}>
+					<NavLink to="/account/edit" className="flex gap-1">
+						<Typography sx={{ color: '#FFF' }}>
+							Editar datos personales
+						</Typography>
+						<DriveFileRenameOutlineIcon className="text-[#FFF]" />
+					</NavLink>
 				</Box>
 			</Box>
 		</>

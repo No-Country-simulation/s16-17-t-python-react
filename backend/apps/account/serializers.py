@@ -48,6 +48,10 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
   
 class ProfileSerializer(serializers.ModelSerializer):
+    
+    followers_count = serializers.SerializerMethodField()
+    following_count = serializers.SerializerMethodField()
+    is_following = serializers.SerializerMethodField()
     user = UserSerializer(read_only=True)
     class Meta:
         model = Profile
@@ -61,5 +65,66 @@ class ProfileSerializer(serializers.ModelSerializer):
             "level",
             "bio",
             "image",
+            'followers_count',
+            'following_count',
+            'is_following',
+            'visibility',  
         ]
         
+    def get_followers_count(self, obj):
+        return obj.followers.count()
+
+    def get_following_count(self, obj):
+        return obj.following.count()
+    
+    def get_is_following(self, obj):
+        request = self.context.get('request')
+        if request and request.user.is_authenticated:
+            return obj.followers.filter(id=request.user.profile.id).exists()
+        return False
+        
+class UpdateEmailSerializer(serializers.ModelSerializer):
+    new_email = serializers.EmailField(write_only=True)
+    
+    class Meta:
+        model = Account
+        fields = ["new_email"]
+        
+    def validate_new_email(self, value):
+        if Account.objects.filter(email=value).exists():
+            raise serializers.ValidationError("El email ya está en uso.")
+        return value
+    
+    def update(self, instance, validated_data):
+        instance.email = validated_data["new_email"]
+        instance.save()
+        return instance
+    
+
+class UpdatePasswordSerializer(serializers.ModelSerializer):
+    current_password = serializers.CharField(write_only=True)
+    new_password = serializers.CharField(write_only=True, validators=[validate_password])
+    confirm_new_password = serializers.CharField(write_only=True)
+
+    class Meta:
+        model = Account
+        fields = ['current_password', 'new_password', 'confirm_new_password']
+
+    def validate(self, attrs):
+        user = self.context['request'].user
+
+        # Verificar que la contraseña actual es correcta
+        if not user.check_password(attrs['current_password']):
+            raise serializers.ValidationError({"current_password": "Current password is not correct"})
+
+        # Verificar que la nueva contraseña y la confirmación coinciden
+        if attrs['new_password'] != attrs['confirm_new_password']:
+            raise serializers.ValidationError({"confirm_new_password": "New passwords do not match"})
+
+        return attrs
+
+    def update(self, instance, validated_data):
+        instance.set_password(validated_data['new_password'])
+        instance.save()
+        return instance
+

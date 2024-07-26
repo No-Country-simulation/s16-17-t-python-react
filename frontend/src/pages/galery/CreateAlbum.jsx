@@ -1,7 +1,10 @@
+/* eslint-disable no-console */
 // import { useParams } from "react-router-dom"
 import { useState } from "react"
 import { CreateAlbumStore } from "./store"
+import { Toaster, toast } from 'sonner'
 import style from "./style.module.css"
+import { useState, forwardRef } from 'react'
 import {
     Button,
     FormControl,
@@ -9,27 +12,19 @@ import {
     InputAdornment,
     InputLabel,
     OutlinedInput
-
 } from "@mui/material"
+
 import { Toaster, toast } from 'sonner'
 import Checkbox from '@mui/material/Checkbox';
 import data from './DefineAlbum.json'
 
-export const CreateAlbum = () => {
+export const CreateAlbum = forwardRef((props, ref) => {
     const [dataTitle, setDatatitle] = useState("")
     const [dataComent, setdataComent] = useState("")
     const [OptionsCamera, setOptionsCamera] = useState("")
     const [OptionsObjective, setOptionsObjective] = useState("")
     const [checkbox, ser_checkbox] = useState(false)
-    const [paisaje, set_paisaje] = useState(false)
-    const [naturaleza, set_naturaleza] = useState(false)
-    const [street, set_street] = useState(false)
-    const [nocturno, set_nocturno] = useState(false)
-    const [aereo, set_aereo] = useState(false)
-    const [retrato, set_retrato] = useState(false)
-    const [personas, set_personas] = useState(false)
-    const [cultura, set_cultura] = useState(false)
-    const [otros, set_otros] = useState(false)
+   
 
     const InputAlbumSubmit = (e) => {
         console.log({ album: e })
@@ -43,7 +38,7 @@ export const CreateAlbum = () => {
     //     store_OptionsObjective
     // } = CreateAlbumStore()
 
-    // const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+    
 
     const SubmitAlbum = (e) => {
         const MIN_ALBUM_LENGTH = 140
@@ -54,15 +49,6 @@ export const CreateAlbum = () => {
             coment: dataComent,
             camera: OptionsCamera,
             objective: OptionsObjective,
-            // checkbox1: ,
-            // checkbox2: ,
-            // checkbox3: ,
-            // checkbox4: ,
-            // checkbox5: ,
-            // checkbox6: ,
-            // checkbox7: ,
-            // checkbox8: ,
-            // checkbox9: ,
 
         })
         if (dataTitle.length >= MIN_ALBUM_LENGTH) {
@@ -76,7 +62,7 @@ export const CreateAlbum = () => {
     const { button_register, form_create_album, checkbox_styles } = style
 
     return (
-        <>
+        <div ref={ref} {...props}>
             <form onSubmit={SubmitAlbum} >
                 <FormControl
                     fullWidth
@@ -175,8 +161,10 @@ export const CreateAlbum = () => {
                     </Button>
                 </FormControl>
             </form>
-        </>
+        </div>
     )
-}
+})
+
+
 
 

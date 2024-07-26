@@ -1,10 +1,10 @@
 .div_section_form {
-		width: 100%;
-		@media screen and (width > 900px) {
-			max-width: 500px;
-	
-			margin: auto;
-		}
+	width: 100%;
+	@media screen and (width > 900px) {
+		max-width: 500px;
+
+		margin: auto;
+	}
 }
 .section_form {
 	margin: 0 1rem;
@@ -56,7 +56,7 @@
 	height: 19vh;
 	@media screen and (width > 900px) {
 		height: 19vh;
-		
+
 		display: grid;
 		place-content: center;
 	}

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { create } from 'zustand'
 
 const headerTypeJson = { 'Content-Type': 'application/json' }

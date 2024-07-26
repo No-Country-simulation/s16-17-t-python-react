@@ -1,5 +1,7 @@
-import {create} from 'zustand'
-
+/* eslint-disable eqeqeq */
+/* eslint-disable no-console */
+/* eslint-disable no-magic-numbers */
+import { create } from 'zustand'
 
 const headerTypeJson = { 'Content-Type': 'application/json' }
 
