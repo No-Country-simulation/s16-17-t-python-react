@@ -144,72 +144,23 @@ export const CreateAlbum = () => {
                         <b>Definí tu album</b>
                         <article>
                             <div className="grid grid-cols-2 justify-center max-w-[1100px] mx-auto">
-                            {
-                                data.CheckboxOP.map(e => (
-                                <div key={e.id} className="flex items-center gap-2">
-                                    <Checkbox value={paisaje} onChange={(e) => setpaisaje(e.target.checked)}
-                                        sx={{ ":checked": { caretShapeolor: "#6E9E30 !important", padding: "5px" } }}
-                                        className={checkbox_styles} />
-                                    <p>{e.op}</p>
-                                </div>
+                                {
+                                    data.CheckboxOP.map(e => (
+                                        <div key={e.id} className="flex items-center gap-2">
+                                            <Checkbox value={paisaje} onChange={(e) => setpaisaje(e.target.checked)}
+                                                sx={{ ":checked": { caretShapeolor: "#6E9E30 !important", padding: "5px" } }}
+                                                className={checkbox_styles} />
+                                            <p>{e.op}</p>
+                                        </div>
 
-                                ))
-                            }
+                                    ))
+                                }
                                 <div className="flex items-center gap-2">
                                     <Checkbox value={paisaje} onChange={(e) => setpaisaje(e.target.checked)}
                                         sx={{ ":checked": { caretShapeolor: "#6E9E30 !important", padding: "5px" } }}
                                         className={checkbox_styles} />
                                     <p>Paisaje</p>
                                 </div>
-                                {/* <div className="flex items-center gap-2">
-                                    <Checkbox value={dataCheckbox} onChange={(e) => setdataCheckbox(e.target.value)}
-                                        sx={{ ":checked": { caretShapeolor: "#6E9E30 !important", padding: "5px" } }}
-                                        className={checkbox_styles} />
-                                    <p>Naturaleza</p>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <Checkbox value={dataCheckbox} onChange={(e) => setdataCheckbox(e.target.value)}
-                                        sx={{ ":checked": { caretShapeolor: "#6E9E30 !important", padding: "5px" } }}
-                                        className={checkbox_styles} />
-                                    <p>Street</p>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <Checkbox value={dataCheckbox} onChange={(e) => setdataCheckbox(e.target.value)}
-                                        sx={{ ":checked": { caretShapeolor: "#6E9E30 !important", padding: "5px" } }}
-                                        className={checkbox_styles} />
-                                    <p>Nocturno</p>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <Checkbox value={dataCheckbox} onChange={(e) => setdataCheckbox(e.target.value)}
-                                        sx={{ ":checked": { color: "#6E9E30", padding: "5px" } }}
-                                        className={checkbox_styles} />
-                                    <p>Aereo</p>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <Checkbox value={dataCheckbox} onChange={(e) => setdataCheckbox(e.target.value)}
-                                        sx={{ ":checked": { caretShapeolor: "#6E9E30 !important", padding: "5px" } }}
-                                        className={checkbox_styles} />
-                                    <p>Retrato</p>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <Checkbox value={dataCheckbox} onChange={(e) => setdataCheckbox(e.target.value)}
-                                        sx={{ ":checked": { caretShapeolor: "#6E9E30 !important", padding: "5px" } }}
-                                        className={checkbox_styles} />
-                                    <p>Personas</p>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <Checkbox value={dataCheckbox} onChange={(e) => setdataCheckbox(e.target.value)}
-                                        sx={{ ":checked": { caretShapeolor: "#6E9E30 !important", padding: "5px" } }}
-                                        className={checkbox_styles} />
-                                    <p>Cultura</p>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <Checkbox value={dataCheckbox} onChange={(e) => setdataCheckbox(e.target.value)}
-                                        sx={{ ":checked": { caretShapeolor: "#6E9E30 !important", padding: "5px" } }}
-                                        className={checkbox_styles} />
-                                    <p>Otros</p>
-                                </div> */}
-
                             </div>
                         </article>
                     </section>
