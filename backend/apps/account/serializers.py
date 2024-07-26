@@ -25,7 +25,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['verified'] = user.profile.verified
         token['level'] = user.profile.level
         token['location'] = user.profile.location
-        token['birth_date'] = user.profile.birth_date
+        token['birth_date'] = user.profile.birth_date.isoformat()
                 
         return token
     
