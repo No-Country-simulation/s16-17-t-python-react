@@ -1,86 +1,175 @@
 /* eslint-disable no-console */
 // import { useParams } from "react-router-dom"
+import { CreateAlbumStore } from "./store"
+import style from "./style.module.css"
 import { useState, forwardRef } from 'react'
-import { CreateAlbumStore } from './store'
-import style from './style.module.css'
 import {
-	Button,
-	FormControl,
-	IconButton,
-	InputAdornment,
-	InputLabel,
-	OutlinedInput,
-} from '@mui/material'
-const { form_create_album } = style
+    Button,
+    Fab,
+    FormControl,
+    IconButton,
+    InputAdornment,
+    InputLabel,
+    OutlinedInput
+} from "@mui/material"
+import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline'
 import { Toaster, toast } from 'sonner'
+import data from './DefineAlbum.json'
+import { CheckboxComponent } from "./checkbox/checkbox"
+
+
 export const CreateAlbum = forwardRef((props, ref) => {
-	// const {TitleAlbum } = CreateAlbumStore()
-	const [dataTitle, setDatatitle] = useState('')
+    const { checkbox_object, define_camera, define_objevtive } = data
 
-	// console.log(dataTitle)
-	const InputAlbumSubmit = (e) => {
-		console.log({ album: e })
-	}
-	// toast
-	// const hasNonalphas = /\W/.test(password)
+    const [dataTitle, setDatatitle] = useState("")
+    const [dataComent, setdataComent] = useState("")
+    const [OptionsCamera, setOptionsCamera] = useState("")
+    const [OptionsObjective, setOptionsObjective] = useState("")
+    const [checkboxState, set_checkboxState] = useState(checkbox_object)
 
-	const SubmitAlbum = (e) => {
-		const hasUpperCase = /[A-Z]/.test(dataTitle)
-		const hasLowerCase = /[a-z]/.test(dataTitle)
-		const MIN_ALBUM_LENGTH = 140
-		const hasNumbers = /\d/.test(dataTitle)
-		e.preventDefault()
-		console.log({ album: dataTitle })
-		if (dataTitle.length < MIN_ALBUM_LENGTH) {
-			toast.error('ingresa mas de 8 caracteres')
-		} else {
-			toast.success('Cantidad de caracteres correcta')
-		}
-		// if(dataTitle != ){
+    const HandleChangeChecked = (index) => {
+        set_checkboxState(
+            checkboxState.map((data, currentIndex) => {
+                return currentIndex === index ? { ...data, check: !data.selected }
+                    : data
+            })
+        )
+    }
+    // const {
+    //     store_TitleAlbum,
+    //     store_dataComent,
+    //     store_dataCheckbox,
+    //     store_OptionsCamera,
+    //     store_OptionsObjective
+    // } = CreateAlbumStore()
 
-		// }
-	}
 
-	const { button_register, form_create_album } = style
-	return (
-		<div ref={ref} {...props}>
-			<form onSubmit={SubmitAlbum} className="bg-white">
-				<FormControl fullWidth margin="normal">
-					<InputLabel
-						className={form_create_album}
-						htmlFor="outlined-adornment-confirm-password"
-					>
-						Crear Album
-					</InputLabel>
-					<OutlinedInput
-						id="outlined-adornment-confirm-password"
-						value={dataTitle}
-						onChange={(e) => setDatatitle(e.target.value)}
-						endAdornment={
-							<InputAdornment position="end">
-								<IconButton
-									aria-label="toggle confirm password visibility"
-									edge="end"
-								></IconButton>
-							</InputAdornment>
-						}
-						label="Crear"
-					/>
-					<p className="opacity-[50%] p-2">
-						Dale un nombre que represente tu album
-					</p>
-					<Button
-						variant="contained"
-						color="primary"
-						type="submit"
-						// onClick={handleRegister}
-						className={button_register}
-						fullWidth
-					>
-						Crear
-					</Button>
-				</FormControl>
-			</form>
-		</div>
-	)
+
+    const SubmitAlbum = (e) => {
+        const MIN_ALBUM_LENGTH = 140
+        e.preventDefault()
+
+        console.log({
+            album: dataTitle,
+            coment: dataComent,
+            camera: OptionsCamera,
+            objective: OptionsObjective,
+
+        })
+        if (dataTitle.length >= MIN_ALBUM_LENGTH || dataTitle.length < 1) {
+            toast.error(`ingresa mas de ${MIN_ALBUM_LENGTH} caracteres`)
+        } else {
+            toast.success(`Cantidad de caracteres correcta, menor a ${MIN_ALBUM_LENGTH}`)
+
+        }
+    }
+    const { form_create_album } = style
+
+    return (
+        <div ref={ref} {...props}>
+            <form onSubmit={SubmitAlbum}
+                className="bg-[#fff] p-[1rem] rounded-md" >
+                <FormControl
+                    fullWidth
+                    margin="normal"
+                    className="flex gap-3"
+                >
+                    <InputLabel className={form_create_album}
+                        htmlFor="outlined-adornment-confirm-password">
+                        Crear Album
+                    </InputLabel>
+                    <OutlinedInput
+                        id="outlined-adornment-confirm-password"
+                        value={dataTitle}
+                        onChange={(e) => setDatatitle(e.target.value)}
+                        endAdornment={
+                            <InputAdornment position="end">
+                                <IconButton
+                                    aria-label="toggle confirm password visibility"
+                                    edge="end"
+                                >
+                                </IconButton>
+                            </InputAdornment>
+                        }
+                        label="Crear"
+                    />
+                    <p className="opacity-[50%] p-2">Dale un nombre que represente tu album</p>
+                    <textarea className="w-full  border-2 border-[#a5a1a1] placeholder:p-1 p-3 min-h-[10vh]  rounded-md"
+                        value={dataComent}
+                        onChange={(e) => setdataComent(e.target.value)}
+                        placeholder="Esto es el text area"
+                    >
+
+                    </textarea>
+                    <div className="flex flex-col gap-3">
+
+                        <b className="text-2xl">Equipo</b>
+                        Camara
+                        <select
+                            onChange={(e) => setOptionsCamera(e.target.value)}
+                            defaultValue={OptionsCamera}
+                            className="border-2  border-slate-600 p-2 rounded-md cursor-pointer" >
+                            <option className="cursor-pointer" >-Elige una camara-</option>
+                            {
+                                define_camera.map(e => (
+                                    <option key={e.id} className="cursor-pointer" >{e.camera}</option>
+                                ))
+                            }
+                        </select>
+                        Objetivo
+                        <select
+                            onChange={(e) => setOptionsObjective(e.target.value)}
+                            defaultValue={OptionsObjective}
+                            className="border-2  border-slate-600 p-2 rounded-md cursor-pointer" >
+                            <option className="cursor-pointer" >-Elige un objetivo-</option>
+                            {
+                                define_objevtive.map(e => (
+                                    <option key={e.id} className="cursor-pointer" >{e.objective}</option>
+
+                                ))
+                            }
+
+                        </select>
+                    </div>
+                    <section>
+                        <b>Definí tu album</b>
+                        <article>
+                            <div className="grid grid-cols-2 justify-center max-w-[1100px] mx-auto">
+                                {/* checkbox modularizado */}
+                                {
+                                    checkboxState.map((data, index) => (
+                                        <CheckboxComponent index="identificador"
+                                            isChecked={data.selected}
+                                            label={data.op}
+                                            handCheck={()=> HandleChangeChecked(index)}
+                                            // checkboxState={checkboxState}
+                                            // set_checkboxState={set_checkboxState} 
+                                            />
+
+                                    ))
+                                }
+                            </div>
+                        </article>
+                    </section>
+
+                    <Fab
+                        variant="extended"
+                        type="submit"
+                        sx={{
+                            backgroundColor: '#fff',
+                            color: '#6E9E30',
+                            width: { xs: '156px', sm: '164px' },
+                            fontSize: { xs: '12px' },
+                        }}
+                    >
+                        Crear Album
+                    </Fab>
+                </FormControl>
+            </form>
+        </div>
+    )
 })
+
+
+
+

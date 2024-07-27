@@ -37,7 +37,7 @@ export const TabsPanel = () => {
 					{/* Aqui se deben importar y colocar los componentes que se mostrarán dentro de las tabs */}
 					<TabPanel value="1" sx={{ p: '24px 0' }}>
 						<AlbumComponent />
-						{/* <CreateAlbum/> */}
+						
 					</TabPanel>
 					<TabPanel value="2">Eventos</TabPanel>
 					<TabPanel value="3">Cámaras</TabPanel>

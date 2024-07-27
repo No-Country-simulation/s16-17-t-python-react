@@ -14,9 +14,7 @@ export const Account = () => {
 				sx={{
 					backgroundColor: '#FBFCFF',
 					mt: '2.5rem',
-					display: 'flex',
-					flexDirection: { md: 'row', xs: 'column' },
-					alignItems: 'center',
+
 					width: '100%',
 				}}
 			>

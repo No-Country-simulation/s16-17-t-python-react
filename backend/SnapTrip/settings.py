@@ -46,9 +46,9 @@ INSTALLED_APPS = [
     'drf_spectacular',
     
     # SnapTrip apps
-    'apps.account',
-    'apps.camera',
-    'apps.lens',
+    #'apps.account',
+    #'apps.camera',
+    #'apps.lens',
     'apps.events',
     'apps.album',
     
@@ -149,28 +149,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
 
 REST_FRAMEWORK = {
-    
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
-    ),
-    
-    'DEFAULT_SCHEMA_CLASS': ('drf_spectacular.openapi.AutoSchema'),
-    
-    'DEFAULT_PERMISSION_CLASSES':
-        
-        ('rest_framework.permissions.IsAuthenticatedOrReadOnly')
-    
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ],
 }
-
-AUTH_USER_MODEL = 'account.Account'
-
-
-
-
-
+#AUTH_USER_MODEL = 'account.Account'
 
 # JWTAuthentication
 SIMPLE_JWT = {
