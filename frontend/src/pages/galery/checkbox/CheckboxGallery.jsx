@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Checkbox from '@mui/material/Checkbox'
 import style from '../style.module.css'
 const { checkbox_styles } = style
-export const CheckboxComponent = ({ isChecked, label, handCheck, index }) => {
+export const CheckboxGallery = ({ isChecked, label, handCheck, index }) => {
 	const CheckHandler = () => {
 		setchecked_state(!checked_state)
 	}

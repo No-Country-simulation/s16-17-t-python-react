@@ -16,7 +16,7 @@ import {
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline'
 import { Toaster, toast } from 'sonner'
 import data from './DefineAlbum.json'
-import { CheckboxComponent } from './checkbox/checkbox'
+import { CheckboxGallery } from './checkbox/CheckboxGallery'
 
 export const CreateAlbum = forwardRef((props, ref) => {
 	const { checkbox_object, define_camera, define_objevtive } = data
@@ -141,7 +141,7 @@ export const CreateAlbum = forwardRef((props, ref) => {
 							<div className="grid grid-cols-2 justify-center max-w-[1100px] mx-auto">
 								{/* checkbox modularizado */}
 								{checkboxState.map((data, index) => (
-									<CheckboxComponent
+									<CheckboxGallery
 										index="identificador"
 										isChecked={data.selected}
 										label={data.op}
