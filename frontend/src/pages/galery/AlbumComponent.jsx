@@ -8,14 +8,22 @@ import FavoriteBorder from '@mui/icons-material/FavoriteBorder'
 import Favorite from '@mui/icons-material/Favorite'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline'
-import { Modal } from '@mui/material'
+import { Modal, Typography } from '@mui/material'
 import { CreateAlbum } from './CreateAlbum'
+import { GalleryModal } from './ViewGalery/GalleryModal'
 
 export const AlbumComponent = () => {
 	const [open, setOpen] = useState(false)
+	const [galleryOpen, setGalleryOpen] = useState(false)
 	const [albums, setAlbums] = useState(datos)
 	const handleOpen = () => setOpen(true)
 	const handleClose = () => setOpen(false)
+	const handleGalleryOpen = (e) => {
+		if (!e.target.closest('.like-button')) {
+			return setGalleryOpen(true)
+		}
+	}
+	const handleGalleryClose = () => setGalleryOpen(false)
 
 	const handleLikeChange = (id) => {
 		setAlbums((prevAlbums) =>
@@ -40,6 +48,7 @@ export const AlbumComponent = () => {
                     rounded-lg shadow-lg p-6 
                     flex flex-col gap-3 cursor-pointer"
 					key={e.id}
+					onClick={handleGalleryOpen}
 				>
 					<div className="grid grid-cols-2 grid-rows-2 gap-[.5rem]">
 						<img
@@ -74,13 +83,27 @@ export const AlbumComponent = () => {
 							<Checkbox
 								icon={<FavoriteBorder />}
 								checkedIcon={<Favorite sx={{ color: 'red' }} />}
-								onChange={() => handleLikeChange(e.id)}
+								onChange={(event) => handleLikeChange(e.id)}
+								className="like-button"
 							/>
 							{e.likes}
 						</div>
 					</div>
 				</div>
 			))}
+			<Modal
+				open={galleryOpen}
+				onClose={handleGalleryClose}
+				aria-labelledby="modal-modal-title"
+				aria-describedby="modal-modal-description"
+				sx={{
+					display: 'flex',
+					flexDirection: 'column',
+					px: '2rem',
+				}}
+			>
+				<GalleryModal />
+			</Modal>
 			<Fab
 				variant="extended"
 				onClick={handleOpen}

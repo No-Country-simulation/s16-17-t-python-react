@@ -1,0 +1,9 @@
+.swiper-slide {
+	background: none !important;
+}
+
+.swiper-slide img {
+	display: block;
+	object-fit: cover !important;
+	aspect-ratio: 1.1;
+}
