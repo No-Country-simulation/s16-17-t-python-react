@@ -43,7 +43,7 @@
             "camera": "Canon EOS 5D"
         }
     ],
-	"CheckboxOP": [
+	"checkbox_object": [
 		{
 			"id": 0,
             "selected": false,

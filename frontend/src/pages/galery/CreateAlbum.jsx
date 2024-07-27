@@ -14,21 +14,26 @@ import {
 } from "@mui/material"
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline'
 import { Toaster, toast } from 'sonner'
-import Checkbox from '@mui/material/Checkbox';
 import data from './DefineAlbum.json'
+import { CheckboxComponent } from "./checkbox/checkbox"
 
 
 export const CreateAlbum = forwardRef((props, ref) => {
+    const { checkbox_object, define_camera, define_objevtive } = data
+
     const [dataTitle, setDatatitle] = useState("")
     const [dataComent, setdataComent] = useState("")
     const [OptionsCamera, setOptionsCamera] = useState("")
     const [OptionsObjective, setOptionsObjective] = useState("")
-    const [checkbox, ser_checkbox] = useState(false)
+    const [checkboxState, set_checkboxState] = useState(checkbox_object)
 
-
-    const InputAlbumSubmit = (e) => {
-        console.log({ album: e })
-
+    const HandleChangeChecked = (index) => {
+        set_checkboxState(
+            checkboxState.map((data, currentIndex) => {
+                return currentIndex === index ? { ...data, check: !data.selected }
+                    : data
+            })
+        )
     }
     // const {
     //     store_TitleAlbum,
@@ -51,15 +56,14 @@ export const CreateAlbum = forwardRef((props, ref) => {
             objective: OptionsObjective,
 
         })
-        if (dataTitle.length >= MIN_ALBUM_LENGTH) {
+        if (dataTitle.length >= MIN_ALBUM_LENGTH || dataTitle.length < 1) {
             toast.error(`ingresa mas de ${MIN_ALBUM_LENGTH} caracteres`)
         } else {
             toast.success(`Cantidad de caracteres correcta, menor a ${MIN_ALBUM_LENGTH}`)
 
         }
     }
-    const { CheckboxOP, define_camera, define_objevtive } = data
-    const { button_register, form_create_album, checkbox_styles } = style
+    const { form_create_album } = style
 
     return (
         <div ref={ref} {...props}>
@@ -131,48 +135,33 @@ export const CreateAlbum = forwardRef((props, ref) => {
                         <b>Definí tu album</b>
                         <article>
                             <div className="grid grid-cols-2 justify-center max-w-[1100px] mx-auto">
-                                {/* {
-                                    data.CheckboxOP.map(e => (
-                                        <div key={e.id} className="flex items-center gap-2">
-                                            <Checkbox value={paisaje} onChange={(e) => setpaisaje(e.target.checked)}
-                                                sx={{ ":checked": { caretShapeolor: "#6E9E30 !important", padding: "5px" } }}
-                                                className={checkbox_styles} />
-                                            <p>{e.op}</p>
-                                        </div>
+                                {/* checkbox modularizado */}
+                                {
+                                    checkboxState.map((data, index) => (
+                                        <CheckboxComponent index="identificador"
+                                            isChecked={data.selected}
+                                            label={data.op}
+                                            handCheck={()=> HandleChangeChecked(index)}
+                                            // checkboxState={checkboxState}
+                                            // set_checkboxState={set_checkboxState} 
+                                            />
 
                                     ))
                                 }
-                                <div className="flex items-center gap-2">
-                                    <Checkbox value={paisaje} onChange={(e) => setpaisaje(e.target.checked)}
-                                        sx={{ ":checked": { caretShapeolor: "#6E9E30 !important", padding: "5px" } }}
-                                        className={checkbox_styles} />
-                                    <p>Paisaje</p>
-                                </div> */}
                             </div>
                         </article>
                     </section>
-                    {/* <Button
-                        variant="contained"
-                        color="primary"
-                        type="submit"
-                        className={button_register}
-                        fullWidth
-                    >
-                        Crear
-                    </Button> */}
+
                     <Fab
                         variant="extended"
-                        // onClick={handleOpen}
                         type="submit"
                         sx={{
                             backgroundColor: '#fff',
                             color: '#6E9E30',
-                            // height: {},
                             width: { xs: '156px', sm: '164px' },
                             fontSize: { xs: '12px' },
                         }}
                     >
-                        <DriveFileRenameOutlineIcon className="text-[#6E9E30] mr-1" />
                         Crear Album
                     </Fab>
                 </FormControl>
