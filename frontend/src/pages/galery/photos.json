@@ -1,0 +1,56 @@
+[
+	{
+		"id": 1,
+		"imagen": "https://media.istockphoto.com/id/1456620771/es/foto/coloridos-tranv%C3%ADas-tiendas-edificios-gente-san-jos%C3%A9-costa-rica.jpg?s=612x612&w=0&k=20&c=INuGkPP8Oz788ZIEY8GS00o4OVAvb09tbL0HaE8AKI0=",
+		"ubicacion": "San Jose, Costa Rica",
+		"apertura": "f/6.4",
+		"sensibilidad": 250,
+		"velocidad_obturacion": "0,002",
+		"distancia_focal": "23.0 milímetros"
+	},
+	{
+		"id": 2,
+		"imagen": "https://sisanjuan.b-cdn.net/media/k2/items/cache/9032d69f4b59d829e0f8ee59e90ffb6e_L.jpg",
+		"ubicacion": "San Juan Argentina",
+		"apertura": "f/5.6",
+		"sensibilidad": 200,
+		"velocidad_obturacion": "0,004",
+		"distancia_focal": "35.0 milímetros"
+	},
+	{
+		"id": 3,
+		"imagen": "https://media.traveler.es/photos/613768b26936668f30c3e855/master/w_1600%2Cc_limit/159073.jpg",
+		"ubicacion": "Guadalajara Mexico",
+		"apertura": "f/7.1",
+		"sensibilidad": 300,
+		"velocidad_obturacion": "0,003",
+		"distancia_focal": "28.0 milímetros"
+	},
+	{
+		"id": 4,
+		"imagen": "https://res.cloudinary.com/worldpackers/image/upload/c_fill,f_jpg,h_600,q_auto,w_900/v1/guides/article_cover/zl4g4zlkq3m6wvz6v3pl",
+		"ubicacion": "Arequipa Peru",
+		"apertura": "f/8.0",
+		"sensibilidad": 100,
+		"velocidad_obturacion": "0,005",
+		"distancia_focal": "50.0 milímetros"
+	},
+	{
+		"id": 5,
+		"imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/fc/b7/valparaiso.jpg?w=1400&h=1400&s=1",
+		"ubicacion": "Valparaiso Chile",
+		"apertura": "f/2.8",
+		"sensibilidad": 400,
+		"velocidad_obturacion": "0,001",
+		"distancia_focal": "18.0 milímetros"
+	},
+	{
+		"id": 6,
+		"imagen": "https://www.quartierhomesuites.com/blog/wp-content/uploads/2023/10/Cinta-costera-panama-noche-1260x630.png",
+		"ubicacion": "Cinta Costera Panamá",
+		"apertura": "f/11",
+		"sensibilidad": 800,
+		"velocidad_obturacion": "0,006",
+		"distancia_focal": "70.0 milímetros"
+	}
+]
