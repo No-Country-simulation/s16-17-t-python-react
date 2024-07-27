@@ -1,48 +1,48 @@
 {
-    "define_objevtive":[
-        {
-            "id": 0,
-            "objective": "10x"
-        },
-        {
-            "id": 1,
-            "objective": "8x"
-        },
-        {
-            "id": 2,
-            "objective": "6x"
-        },
-        {
-            "id": 3,
-            "objective": "4x"
-        }
-    ],
-    "define_camera":[
-        {
-            "id": 0,
-            "camera": "Canon EOS 6D"
-        },
-        {
-            "id": 1,
-            "camera": "Canon EOS 7D"
-        },
-        {
-            "id": 2,
-            "camera": "Canon EOS 5D Mark IV"
-        },
-        {
-            "id": 3,
-            "camera": "Canon EOS 5D Mark III"
-        },
-        {
-            "id": 4,
-            "camera": "Canon EOS 5D Mark II"
-        },
-        {
-            "id": 5,
-            "camera": "Canon EOS 5D"
-        }
-    ],
+	"define_objevtive": [
+		{
+			"id": 0,
+			"objective": "10x"
+		},
+		{
+			"id": 1,
+			"objective": "8x"
+		},
+		{
+			"id": 2,
+			"objective": "6x"
+		},
+		{
+			"id": 3,
+			"objective": "4x"
+		}
+	],
+	"define_camera": [
+		{
+			"id": 0,
+			"camera": "Canon EOS 6D"
+		},
+		{
+			"id": 1,
+			"camera": "Canon EOS 7D"
+		},
+		{
+			"id": 2,
+			"camera": "Canon EOS 5D Mark IV"
+		},
+		{
+			"id": 3,
+			"camera": "Canon EOS 5D Mark III"
+		},
+		{
+			"id": 4,
+			"camera": "Canon EOS 5D Mark II"
+		},
+		{
+			"id": 5,
+			"camera": "Canon EOS 5D"
+		}
+	],
 	"checkbox_object": [
 		{
 			"id": 0,
