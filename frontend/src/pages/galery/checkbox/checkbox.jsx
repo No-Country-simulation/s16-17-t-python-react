@@ -25,6 +25,7 @@ export const CheckboxComponent = ({ isChecked, label, handCheck, index }) => {
                 <label
                     htmlFor="checkbox"
                 >{label}
+                
                 </label>
             </div>
         </>
