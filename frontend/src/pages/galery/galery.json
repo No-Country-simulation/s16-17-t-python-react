@@ -7,7 +7,9 @@
 		"imagen1": "https://picsum.photos/seed/picsum/700/300",
 		"imagen2": "https://picsum.photos/700/300",
 		"imagen3": "https://picsum.photos/seed/picsum/700/300",
-		"ubicacion": "San Jose, Costa Rica"
+		"ubicacion": "San Jose, Costa Rica",
+		"modeloCamara": "Canon EOS R5",
+		"lente": "Canon RF 24-70mm f/2.8L IS USM"
 	},
 	{
 		"id": 2,
@@ -17,7 +19,9 @@
 		"imagen": "https://picsum.photos/700/300",
 		"imagen2": "https://picsum.photos/700/300",
 		"imagen3": "https://picsum.photos/seed/picsum/700/300",
-		"ubicacion": "San Juan Argentina"
+		"ubicacion": "San Juan Argentina",
+		"modeloCamara": "Nikon Z7 II",
+		"lente": "Nikon Z 70-200mm f/2.8 VR S"
 	},
 	{
 		"id": 3,
@@ -27,7 +31,9 @@
 		"imagen1": "https://picsum.photos/seed/picsum/700/300",
 		"imagen2": "https://picsum.photos/700/300",
 		"imagen3": "https://picsum.photos/seed/picsum/700/300",
-		"ubicacion": "Guadalajara Mexico"
+		"ubicacion": "Guadalajara Mexico",
+		"modeloCamara": "Sony Alpha a7R IV",
+		"lente": "Sony FE 24-70mm f/2.8 GM"
 	},
 	{
 		"id": 4,
@@ -37,7 +43,9 @@
 		"imagen1": "https://picsum.photos/seed/picsum/700/300",
 		"imagen2": "https://picsum.photos/700/300",
 		"imagen3": "https://picsum.photos/seed/picsum/700/300",
-		"ubicacion": "Arequipa Peru"
+		"ubicacion": "Arequipa Peru",
+		"modeloCamara": "Fujifilm X-T4",
+		"lente": "Fujifilm XF 16-55mm f/2.8 R LM WR"
 	},
 	{
 		"id": 5,
@@ -47,7 +55,9 @@
 		"imagen1": "https://picsum.photos/seed/picsum/700/300",
 		"imagen2": "https://picsum.photos/700/300",
 		"imagen3": "https://picsum.photos/seed/picsum/700/300",
-		"ubicacion": "Valparaiso Chile"
+		"ubicacion": "Valparaiso Chile",
+		"modeloCamara": "Panasonic Lumix S1R",
+		"lente": "Panasonic Lumix S Pro 70-200mm f/2.8 O.I.S."
 	},
 	{
 		"id": 6,
@@ -57,6 +67,8 @@
 		"imagen1": "https://picsum.photos/seed/picsum/700/300",
 		"imagen2": "https://picsum.photos/700/300",
 		"imagen3": "https://picsum.photos/seed/picsum/700/300",
-		"ubicacion": "Cinta Costera Panamá"
+		"ubicacion": "Cinta Costera Panamá",
+		"modeloCamara": "Olympus OM-D E-M1 Mark III",
+		"lente": "Olympus M.Zuiko Digital ED 12-100mm f/4 IS PRO"
 	}
 ]

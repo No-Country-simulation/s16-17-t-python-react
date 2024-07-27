@@ -8,6 +8,8 @@ import FavoriteBorder from '@mui/icons-material/FavoriteBorder'
 import Favorite from '@mui/icons-material/Favorite'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline'
+import CameraAltIcon from '@mui/icons-material/CameraAlt'
+import CameraIcon from '@mui/icons-material/Camera'
 import { Modal, Typography } from '@mui/material'
 import { CreateAlbum } from './CreateAlbum'
 import { GalleryModal } from './ViewGalery/GalleryModal'
@@ -72,21 +74,33 @@ export const AlbumComponent = () => {
 						/>
 					</div>
 					<h3 className=" text-[1rem]">{e.title}</h3>
-					<div className="flex flex-row justify-between gap-5">
-						<div className="text-xs flex items-center gap-2">
-							<LocationOnIcon />
-							{e.ubicacion}
+					<div className="flex flex-col justify-between gap-3">
+						<div className="text-xs flex items-center justify-between">
+							<div className="flex gap-1 items-center">
+								<LocationOnIcon />
+								{e.ubicacion}
+							</div>
+							<div className="text-xs">
+								{' '}
+								{/* codigo refactorizado para la funcion de like */}
+								<Checkbox
+									icon={<FavoriteBorder />}
+									checkedIcon={
+										<Favorite sx={{ color: 'red' }} />
+									}
+									onChange={(event) => handleLikeChange(e.id)}
+									className="like-button"
+								/>
+								{e.likes}
+							</div>
 						</div>
-						<div className="text-xs text-right">
-							{' '}
-							{/* codigo refactorizado para la funcion de like */}
-							<Checkbox
-								icon={<FavoriteBorder />}
-								checkedIcon={<Favorite sx={{ color: 'red' }} />}
-								onChange={(event) => handleLikeChange(e.id)}
-								className="like-button"
-							/>
-							{e.likes}
+						<div className="text-xs flex items-center gap-1">
+							<CameraAltIcon />
+							{e.modeloCamara}
+						</div>
+						<div className="text-xs flex items-center gap-1">
+							<CameraIcon />
+							{e.lente}
 						</div>
 					</div>
 				</div>
@@ -98,8 +112,9 @@ export const AlbumComponent = () => {
 				aria-describedby="modal-modal-description"
 				sx={{
 					display: 'flex',
-					flexDirection: 'column',
+					flexDirection: { xs: 'column', md: 'row' },
 					px: '2rem',
+					mt: { xs: '50px', md: 'none' },
 				}}
 			>
 				<GalleryModal />
