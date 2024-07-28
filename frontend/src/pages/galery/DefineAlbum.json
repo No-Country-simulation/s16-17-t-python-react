@@ -43,51 +43,51 @@
 			"camera": "Canon EOS 5D"
 		}
 	],
-	"checkbox_object": [
+	"checkboxOptions": [
 		{
 			"id": 0,
-			"selected": false,
-			"op": "Paisaje"
+			"name": "paisaje",
+			"label": "Paisaje"
 		},
 		{
 			"id": 1,
-			"selected": false,
-			"op": "Naturaleza"
+			"name": "naturaleza",
+			"label": "Naturaleza"
 		},
 		{
 			"id": 2,
-			"selected": false,
-			"op": "Street"
+			"name": "street",
+			"label": "Street"
 		},
 		{
 			"id": 3,
-			"selected": false,
-			"op": "Nocturno"
+			"name": "nocturno",
+			"label": "Nocturno"
 		},
 		{
 			"id": 4,
-			"selected": false,
-			"op": "Aereo"
+			"name": "aereo",
+			"label": "Aereo"
 		},
 		{
 			"id": 5,
-			"selected": false,
-			"op": "Retrato"
+			"name": "retrato",
+			"label": "Retrato"
 		},
 		{
 			"id": 6,
-			"selected": false,
-			"op": "Personas"
+			"name": "personas",
+			"label": "Personas"
 		},
 		{
 			"id": 7,
-			"selected": false,
-			"op": "Cultura"
+			"name": "cultura",
+			"label": "Cultura"
 		},
 		{
 			"id": 8,
-			"selected": false,
-			"op": "Otros"
+			"name": "otros",
+			"label": "Otros"
 		}
 	]
 }
