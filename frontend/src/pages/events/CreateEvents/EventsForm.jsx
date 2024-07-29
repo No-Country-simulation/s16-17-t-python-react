@@ -7,6 +7,9 @@ import { useState } from 'react'
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined'
 import InsertPhotoOutlinedIcon from '@mui/icons-material/InsertPhotoOutlined'
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
+import { EventsTravel } from './EventsTravel'
+import { EventsFav } from './EventsFav'
+import { EventsChecklist } from './EventsChecklist'
 
 export const EventsForm = () => {
 	const [value, setValue] = useState('1')
@@ -24,7 +27,7 @@ export const EventsForm = () => {
 					flexDirection: { xs: 'column' },
 					mt: '60px',
 					alignItems: 'center',
-					gap: '24px',
+					gap: '20px',
 					px: { xs: '1rem' },
 				}}
 			>
@@ -106,9 +109,15 @@ export const EventsForm = () => {
 					</TabList>
 				</Box>
 				{/* Aqui se deben importar y colocar los componentes que se mostrarán dentro de las tabs */}
-				<TabPanel value="1">Itinerario</TabPanel>
-				<TabPanel value="2">Galería</TabPanel>
-				<TabPanel value="3">Checklist</TabPanel>
+				<TabPanel value="1">
+					<EventsTravel />
+				</TabPanel>
+				<TabPanel value="2">
+					<EventsFav />
+				</TabPanel>
+				<TabPanel value="3">
+					<EventsChecklist />
+				</TabPanel>
 			</TabContext>
 		</>
 	)

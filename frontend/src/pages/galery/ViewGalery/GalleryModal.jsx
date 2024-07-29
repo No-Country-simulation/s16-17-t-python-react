@@ -7,6 +7,7 @@ import BookmarkIcon from '@mui/icons-material/Bookmark'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
+import images from '../photos.json'
 
 import { useState, forwardRef } from 'react'
 // Import Swiper React components
@@ -32,18 +33,11 @@ export const GalleryModal = forwardRef((props, ref) => {
 				modules={[EffectFade, Navigation, Pagination]}
 				className="mySwiper"
 			>
-				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-				</SwiperSlide>
-				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-				</SwiperSlide>
-				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-				</SwiperSlide>
-				<SwiperSlide>
-					<img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-				</SwiperSlide>
+				{images.map((img, index) => (
+					<SwiperSlide key={index}>
+						<img src={img.imagen} alt={`Foto ${img.id}`} />
+					</SwiperSlide>
+				))}
 			</Swiper>
 			<Box
 				sx={{
