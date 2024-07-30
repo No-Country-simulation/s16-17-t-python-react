@@ -1,7 +1,34 @@
 /* eslint-disable arrow-body-style */
-import { Box, Fab, Link, TextField, Typography } from '@mui/material'
+import { Box, Fab, Link, styled, TextField, Typography } from '@mui/material'
 
 export const ContactForm = () => {
+
+	const StyledTextField = styled(TextField)`
+        & .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+    border-color: #fff;
+  }
+  & .MuiFormLabel-root {
+    color: #fff;
+  }
+  & .Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #fff;
+  }
+  & .MuiInputBase-input {
+    color: #fff;
+  }
+  & .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #fff;
+  }
+  & .MuiInputLabel-outlined:hover {
+    color: #fff;
+  }
+  & .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input {
+    color: #fff;
+  }
+  & .MuiInputLabel-outlined.Mui-focused {
+    color: #fff;
+  }
+    `;
 	return (
 		<Box
 			sx={{
@@ -17,59 +44,17 @@ export const ContactForm = () => {
 			<Typography sx={{ color: '#fff', fontSize: '1.25rem' }}>
 				Contactanos:
 			</Typography>
-			<TextField
+			<StyledTextField
 				label="Nombre"
 				variant="outlined"
-				sx={{
-					'& .MuiOutlinedInput-notchedOutline': {
-						borderColor: '#fff',
-					},
-					'& .MuiFormLabel-root': {
-						color: '#fff',
-					},
-					'& .Mui-focused .MuiOutlinedInput-notchedOutline': {
-						borderColor: '#fff',
-					},
-					'& .MuiInputBase-input': {
-						color: '#fff',
-					},
-				}}
 			/>
-			<TextField
+			<StyledTextField
 				label="Email"
 				variant="outlined"
-				sx={{
-					'& .MuiOutlinedInput-notchedOutline': {
-						borderColor: '#fff',
-					},
-					'& .MuiFormLabel-root': {
-						color: '#fff',
-					},
-					'& .Mui-focused .MuiOutlinedInput-notchedOutline': {
-						borderColor: '#fff',
-					},
-					'& .MuiInputBase-input': {
-						color: '#fff',
-					},
-				}}
 			/>
-			<TextField
+			<StyledTextField
 				label="Mensaje"
 				variant="outlined"
-				sx={{
-					'& .MuiOutlinedInput-notchedOutline': {
-						borderColor: '#fff',
-					},
-					'& .MuiFormLabel-root': {
-						color: '#fff',
-					},
-					'& .Mui-focused .MuiOutlinedInput-notchedOutline': {
-						borderColor: '#fff',
-					},
-					'& .MuiInputBase-input': {
-						color: '#fff',
-					},
-				}}
 			/>
 			<Fab
 				variant="extended"

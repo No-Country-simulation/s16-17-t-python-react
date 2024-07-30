@@ -1,7 +1,6 @@
 /* eslint-disable no-magic-numbers */
 /* eslint-disable arrow-body-style */
 
-import LocationOnIcon from '@mui/icons-material/LocationOn'
 import {
 	Box,
 	Stack,
@@ -14,14 +13,16 @@ import {
 	Stepper,
 } from '@mui/material'
 import { useState } from 'react'
+import LocationOnIcon from '@mui/icons-material/LocationOn'
+import { StepperCard } from './StepperCard/StepperCard'
 
 export const EventsTravel = () => {
 	const steps = [
 		{
 			label: '',
-			description: `For each ad campaign that you create, you can control how much
-                    you're willing to spend on clicks and conversions, which networks
-                    and geographical locations you want your ads to show on, and more.`,
+			stepCard: (
+				<StepperCard />
+			)
 		},
 		{
 			label: '',
@@ -91,39 +92,12 @@ export const EventsTravel = () => {
 									ml: '50px',
 								}}
 							>
-								<Typography sx={{ fontSize: '12px' }}>
-									{step.description}
-								</Typography>
+								<Box>
+									{step.stepCard}
+								</Box>
 								<Box sx={{ mb: 2 }}>
 									<div>
-										<Button
-											variant="outlined"
-											onClick={handleNext}
-											sx={{
-												mt: 1,
-												mr: 1,
-												backgroundColor: '#d9d9d92b',
-												color: '#fff',
-												borderColor: '#fff',
-											}}
-										>
-											{index === steps.length - 1 ?
-												'Finish'
-											:	'Continue'}
-										</Button>
-										<Button
-											disabled={index === 0}
-											onClick={handleBack}
-											sx={{
-												mt: 1,
-												mr: 1,
-												backgroundColor: '#d9d9d92b',
-												color: '#fff',
-												borderColor: '#fff',
-											}}
-										>
-											Back
-										</Button>
+										
 									</div>
 								</Box>
 							</StepContent>
