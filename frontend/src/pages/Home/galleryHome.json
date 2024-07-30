@@ -1,0 +1,86 @@
+{
+	"sections": {
+		"events": [
+			{
+				"id": 1,
+				"location": "La Pampa, Argentina",
+				"image_url": "https://assets.turismocity.com/cdn-cgi/image/format=auto,width=1400,fit=scale-down/img/1680106609045_argentina_en_fotos_8_hermosos_lugares_para_capturar-3.jpeg",
+				"description": "Safari Nacional"
+			},
+			{
+				"id": 2,
+				"location": "New York, USA",
+				"image_url": "https://imgcap.capturetheatlas.com/wp-content/uploads/2023/02/washington-street-famous-street-nyc.jpg",
+				"description": "Ciudad de los sueños"
+			},
+			{
+				"id": 3,
+				"location": "Bocas Del Toro, Panamá",
+				"image_url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/5d/70/34/cayos-zapatilla-blog.jpg?w=1100&h=-1&s=1",
+				"description": "Islas relajantes"
+			},
+			{
+				"id": 4,
+				"location": "Kyoto, Japan",
+				"image_url": "https://lonelyplanetes.cdnstatics2.com/sites/default/files/styles/max_1300x1300/public/fotos/japon_kioto_fushimiinaritaisha_shutterstockrf_733630336_takashi_images_shutterstock_1.jpg?itok=QG5n-zbj",
+				"description": "Templos y jardines zen"
+			},
+			{
+				"id": 5,
+				"location": "Venice, Italy",
+				"image_url": "https://viajes.nationalgeographic.com.es/medio/2018/02/19/venecia-gondola_c655bbc8.jpg",
+				"description": "La ciudad flotante"
+			}
+		],
+		"featured": [
+			{
+				"id": 1,
+				"user": "Larissa Méndez",
+				"image_url": "https://i0.wp.com/travelandleisure-es.com/wp-content/uploads/2023/12/machu-pichu.jpg?fit=2560%2C1800&ssl=1",
+				"location": "Machu Picchu, Peru",
+				"likes": 26,
+				"favorites": 10
+			},
+			{
+				"id": 2,
+				"user": "Aiko Tanaka",
+				"image_url": "https://blog.sakura.co/wp-content/uploads/2023/01/sakuraco_traditional-japanese-tokyo-lifestyle-thumbnail.png",
+				"location": "Tokyo, Japan",
+				"likes": 42,
+				"favorites": 15
+			},
+			{
+				"id": 3,
+				"user": "Emily Smith",
+				"image_url": "https://media.tacdn.com/media/attractions-splice-spp-674x446/07/38/b9/3c.jpg",
+				"location": "Malibu, California, USA",
+				"likes": 34,
+				"favorites": 20
+			},
+			{
+				"id": 4,
+				"user": "Andres Garcia",
+				"image_url": "https://static1.squarespace.com/static/55ee34aae4b0bf70212ada4c/57d9829837c5819632bc630b/5d8ba8bbe2cddd1562c02ea4/1571049261872/top-seven-places-brazilian-amazon-macaws.jpg?format=1500w",
+				"location": "Amazon Rainforest, Brazil",
+				"likes": 18,
+				"favorites": 7
+			},
+			{
+				"id": 5,
+				"user": "Marie Dupont",
+				"image_url": "https://saharadeserttour.com/wp-content/uploads/2020/12/saharadeserttour_057.jpg",
+				"location": "Sahara Desert, Morocco",
+				"likes": 22,
+				"favorites": 12
+			},
+			{
+				"id": 6,
+				"user": "Liam O'Connor",
+				"image_url": "https://784e26ca.rocketcdn.me/wp-content/uploads/2019/05/238-TrI%E2%80%93MAIN.jpg",
+				"location": "Swiss Alps, Switzerland",
+				"likes": 30,
+				"favorites": 8
+			}
+		]
+	}
+}

@@ -1,5 +1,12 @@
 import React from 'react'
-import { Login, RegisterComponente, AuthUser, AlbumForm } from './pages'
+import {
+	Login,
+	RegisterComponente,
+	AuthUser,
+	AlbumForm,
+	EventsForm,
+	Home,
+} from './pages'
 import { NavBar } from './components'
 import { EditAccountPage } from './pages/Account/EditAccountPage'
 import { Account } from './pages/Account/Account'
@@ -7,7 +14,7 @@ import { Account } from './pages/Account/Account'
 export const routes = [
 	{
 		path: '/',
-		element: <NavBar />,
+		element: <Home />,
 	},
 	{
 		path: '/login',
@@ -28,5 +35,9 @@ export const routes = [
 	{
 		path: '/create/photo',
 		element: <AlbumForm />,
+	},
+	{
+		path: '/create/events',
+		element: <EventsForm />,
 	},
 ]

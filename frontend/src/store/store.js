@@ -29,7 +29,7 @@ const useUserStore = create((set) => ({
 			const data = await response.json()
 			set({ user: data })
 		} catch (error) {
-			console.error('Error:', error)
+			console.log('Error: Data not found')
 		}
 	},
 	editUserProfile: async (updatedData) => {

@@ -52,25 +52,10 @@ export const AlbumComponent = () => {
 					key={e.id}
 					onClick={handleGalleryOpen}
 				>
-					<div className="grid grid-cols-2 grid-rows-2 gap-[.5rem]">
+					<div className="grid">
 						<img
 							className="h-auto w-[100%] rounded-lg"
 							src={e?.imagen || 'Cargando..'}
-						/>
-						<img
-							className="h-auto w-[100%] rounded-lg"
-							src={e?.imagen1}
-							alt=""
-						/>
-						<img
-							className="h-auto w-[100%] rounded-lg"
-							src={e?.imagen3}
-							alt=""
-						/>
-						<img
-							className="h-auto w-[100%] rounded-lg"
-							src={e?.imagen2}
-							alt=""
 						/>
 					</div>
 					<h3 className=" text-[1rem]">{e.title}</h3>
