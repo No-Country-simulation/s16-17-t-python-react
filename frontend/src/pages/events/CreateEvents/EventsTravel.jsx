@@ -20,9 +20,7 @@ export const EventsTravel = () => {
 	const steps = [
 		{
 			label: '',
-			stepCard: (
-				<StepperCard />
-			)
+			stepCard: <StepperCard />,
 		},
 		{
 			label: '',
@@ -92,13 +90,9 @@ export const EventsTravel = () => {
 									ml: '50px',
 								}}
 							>
-								<Box>
-									{step.stepCard}
-								</Box>
+								<Box>{step.stepCard}</Box>
 								<Box sx={{ mb: 2 }}>
-									<div>
-										
-									</div>
+									<div></div>
 								</Box>
 							</StepContent>
 						</Step>

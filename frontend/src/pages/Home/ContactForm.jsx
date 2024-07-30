@@ -2,33 +2,32 @@
 import { Box, Fab, Link, styled, TextField, Typography } from '@mui/material'
 
 export const ContactForm = () => {
-
 	const StyledTextField = styled(TextField)`
-        & .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
-    border-color: #fff;
-  }
-  & .MuiFormLabel-root {
-    color: #fff;
-  }
-  & .Mui-focused .MuiOutlinedInput-notchedOutline {
-    border-color: #fff;
-  }
-  & .MuiInputBase-input {
-    color: #fff;
-  }
-  & .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
-    border-color: #fff;
-  }
-  & .MuiInputLabel-outlined:hover {
-    color: #fff;
-  }
-  & .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input {
-    color: #fff;
-  }
-  & .MuiInputLabel-outlined.Mui-focused {
-    color: #fff;
-  }
-    `;
+		& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+			border-color: #fff;
+		}
+		& .MuiFormLabel-root {
+			color: #fff;
+		}
+		& .Mui-focused .MuiOutlinedInput-notchedOutline {
+			border-color: #fff;
+		}
+		& .MuiInputBase-input {
+			color: #fff;
+		}
+		& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+			border-color: #fff;
+		}
+		& .MuiInputLabel-outlined:hover {
+			color: #fff;
+		}
+		& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input {
+			color: #fff;
+		}
+		& .MuiInputLabel-outlined.Mui-focused {
+			color: #fff;
+		}
+	`
 	return (
 		<Box
 			sx={{
@@ -44,18 +43,9 @@ export const ContactForm = () => {
 			<Typography sx={{ color: '#fff', fontSize: '1.25rem' }}>
 				Contactanos:
 			</Typography>
-			<StyledTextField
-				label="Nombre"
-				variant="outlined"
-			/>
-			<StyledTextField
-				label="Email"
-				variant="outlined"
-			/>
-			<StyledTextField
-				label="Mensaje"
-				variant="outlined"
-			/>
+			<StyledTextField label="Nombre" variant="outlined" />
+			<StyledTextField label="Email" variant="outlined" />
+			<StyledTextField label="Mensaje" variant="outlined" />
 			<Fab
 				variant="extended"
 				sx={{
