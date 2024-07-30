@@ -71,17 +71,41 @@ export const EventsTravel = () => {
 										</Typography>
 									:	null
 								}
+								sx={{
+									'& .Mui-active': {
+										color: '#0D4937 !important',
+									},
+									'& .Mui-completed': {
+										color: '#0D4937 !important',
+									},
+								}}
 							>
 								{step.label}
 							</StepLabel>
-							<StepContent>
-								<Typography>{step.description}</Typography>
+							<StepContent
+								sx={{
+									backgroundColor: '#0D4937',
+									color: '#fff',
+									borderRadius: '12px',
+									width: '240px',
+									ml: '50px',
+								}}
+							>
+								<Typography sx={{ fontSize: '12px' }}>
+									{step.description}
+								</Typography>
 								<Box sx={{ mb: 2 }}>
 									<div>
 										<Button
-											variant="contained"
+											variant="outlined"
 											onClick={handleNext}
-											sx={{ mt: 1, mr: 1 }}
+											sx={{
+												mt: 1,
+												mr: 1,
+												backgroundColor: '#d9d9d92b',
+												color: '#fff',
+												borderColor: '#fff',
+											}}
 										>
 											{index === steps.length - 1 ?
 												'Finish'
@@ -90,7 +114,13 @@ export const EventsTravel = () => {
 										<Button
 											disabled={index === 0}
 											onClick={handleBack}
-											sx={{ mt: 1, mr: 1 }}
+											sx={{
+												mt: 1,
+												mr: 1,
+												backgroundColor: '#d9d9d92b',
+												color: '#fff',
+												borderColor: '#fff',
+											}}
 										>
 											Back
 										</Button>

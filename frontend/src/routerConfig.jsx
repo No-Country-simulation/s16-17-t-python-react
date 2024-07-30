@@ -5,6 +5,7 @@ import {
 	AuthUser,
 	AlbumForm,
 	EventsForm,
+	Home,
 } from './pages'
 import { NavBar } from './components'
 import { EditAccountPage } from './pages/Account/EditAccountPage'
@@ -13,7 +14,7 @@ import { Account } from './pages/Account/Account'
 export const routes = [
 	{
 		path: '/',
-		element: <NavBar />,
+		element: <Home />,
 	},
 	{
 		path: '/login',
