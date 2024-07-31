@@ -17,7 +17,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import './galleryStyles.css'
 
-import { EffectFade, Navigation, Pagination } from 'swiper/modules'
+import { EffectFade, Navigation } from 'swiper/modules'
 import { NavLink } from 'react-router-dom'
 
 export const GalleryModal = forwardRef((props, ref) => {
@@ -27,10 +27,7 @@ export const GalleryModal = forwardRef((props, ref) => {
 				spaceBetween={30}
 				effect={'fade'}
 				navigation={true}
-				pagination={{
-					clickable: true,
-				}}
-				modules={[EffectFade, Navigation, Pagination]}
+				modules={[EffectFade, Navigation]}
 				className="mySwiper"
 			>
 				{images.map((img, index) => (

@@ -1,0 +1,32 @@
+[
+	{
+		"eventName": "Safari Nacional",
+		"location": "Kruger National Park, Sudáfrica",
+		"date": "2024-09-15"
+	},
+	{
+		"eventName": "Ciudad de los Sueños",
+		"location": "Praga, República Checa",
+		"date": "2024-10-10"
+	},
+	{
+		"eventName": "Islas Relajantes",
+		"location": "Bora Bora, Polinesia Francesa",
+		"date": "2024-11-05"
+	},
+	{
+		"eventName": "Refugio Urbano",
+		"location": "Tokio, Japón",
+		"date": "2024-12-01"
+	},
+	{
+		"eventName": "Colores del Desierto",
+		"location": "Desierto de Atacama, Chile",
+		"date": "2024-09-28"
+	},
+	{
+		"eventName": "Montañas Encantadas",
+		"location": "Interlaken, Suiza",
+		"date": "2024-11-22"
+	}
+]

@@ -14,7 +14,6 @@ export const Account = () => {
 				sx={{
 					backgroundColor: '#FBFCFF',
 					mt: '2.5rem',
-
 					width: '100%',
 				}}
 			>

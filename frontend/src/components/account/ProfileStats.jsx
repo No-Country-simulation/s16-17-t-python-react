@@ -2,6 +2,7 @@
 
 import { Box, Grid, Typography } from '@mui/material'
 import datos from '../../pages/galery/galery.json'
+import events from '../../pages/events/events.json'
 
 export const ProfileStats = () => {
 	return (
@@ -32,7 +33,7 @@ export const ProfileStats = () => {
 						variant="h5"
 						sx={{ color: '#A2D95A', fontSize: '14px' }}
 					>
-						0
+						39
 					</Typography>
 					<Typography sx={{ color: '#A2D95A', fontSize: '14px' }}>
 						Seguidores
@@ -43,7 +44,7 @@ export const ProfileStats = () => {
 						variant="h5"
 						sx={{ color: '#A2D95A', fontSize: '14px' }}
 					>
-						0
+						{events.length}
 					</Typography>
 					<Typography sx={{ color: '#A2D95A', fontSize: '14px' }}>
 						Eventos

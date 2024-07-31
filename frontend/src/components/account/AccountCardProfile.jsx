@@ -15,7 +15,7 @@ export const AccountCardProfile = () => {
 	const { user } = useUserStore()
 	const name =
 		!user?.first_name && !user?.last_name ?
-			'Invitado'
+			'Santiago Martinez'
 		:	`${user?.first_name} ${user?.last_name}`
 
 	console.log(user)
@@ -31,6 +31,7 @@ export const AccountCardProfile = () => {
 					py: '20px',
 					px: '10px',
 					maxWidth: '448px',
+					mt: '70px',
 				}}
 			>
 				<Stack spacing={2} alignItems="center" sx={{ mb: '2rem' }}>
@@ -47,7 +48,7 @@ export const AccountCardProfile = () => {
 					</Box>
 					<Box>
 						<Chip
-							label={user?.level}
+							label={user?.level || 'Amateur'}
 							variant="outlined"
 							sx={{
 								border: '2px solid #A2D95A',
@@ -78,7 +79,8 @@ export const AccountCardProfile = () => {
 								fontSize: '14px',
 							}}
 						>
-							{user?.bio}
+							{user?.bio ||
+								'Hola soy Santiago, fotógrafo apasionado por capturar paisajes y retratos. Cada foto es una oportunidad para mejorar y explorar nuevas técnicas.'}
 						</Typography>
 					</Box>
 					<Box sx={{ display: 'flex', gap: '1.5rem', color: '#fff' }}>

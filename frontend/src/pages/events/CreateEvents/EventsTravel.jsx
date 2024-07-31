@@ -25,15 +25,11 @@ export const EventsTravel = () => {
 		},
 		{
 			label: '',
-			description:
-				'An ad group contains one or more ads which target a shared set of keywords.',
+			stepCard: <StepperCard />,
 		},
 		{
 			label: '',
-			description: `Try out different ad text to see what brings in the most customers,
-                    and learn how to enhance your ads using features like ad extensions.
-                    If you run into any problems with your ads, find out how to tell if
-                    they're running and how to resolve approval issues.`,
+			stepCard: <StepperCard />,
 		},
 	]
 
@@ -90,10 +86,7 @@ export const EventsTravel = () => {
 									ml: '50px',
 								}}
 							>
-								<Box>{step.stepCard}</Box>
-								<Box sx={{ mb: 2 }}>
-									<div></div>
-								</Box>
+								<Box sx={{ mb: 2 }}>{step.stepCard}</Box>
 							</StepContent>
 						</Step>
 					))}
@@ -101,7 +94,7 @@ export const EventsTravel = () => {
 				{activeStep === steps.length && (
 					<Paper square elevation={0} sx={{ p: 3 }}>
 						<Typography>
-							All steps completed - you&apos;re finished
+							Tus viajes han sido creados con éxito
 						</Typography>
 						<Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
 							Reset

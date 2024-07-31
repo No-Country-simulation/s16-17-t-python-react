@@ -19,6 +19,7 @@ export const Events = () => {
 					display: 'flex',
 					flexDirection: { xs: 'column', md: 'row' },
 					gap: '15px',
+					mb: '100px',
 				}}
 			>
 				<IconButton aria-label="filter" sx={{ alignSelf: 'flex-end' }}>

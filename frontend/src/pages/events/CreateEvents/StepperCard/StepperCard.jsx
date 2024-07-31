@@ -50,6 +50,7 @@ export const StepperCard = () => {
 	`
 	const [showSpotForm, setShowSpotForm] = useState(false)
 	const [showTravelForm, setShowTravelForm] = useState(false)
+	const [showSpotDetails, setShowSpotDetails] = useState(false)
 
 	const handleTravelClick = () => {
 		setShowTravelForm(true)
