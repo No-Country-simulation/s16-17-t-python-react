@@ -54,7 +54,7 @@ export const EventsTravel = () => {
 			<Stack spacing={3}>
 				<Box sx={{ display: 'flex' }}>
 					<LocationOnIcon />
-					<Typography>Nueva York City, NY</Typography>
+					<Typography>París, Francia</Typography>
 				</Box>
 				<Typography>Itinerario</Typography>
 			</Stack>

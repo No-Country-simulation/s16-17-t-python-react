@@ -2,19 +2,19 @@
 	"define_objevtive": [
 		{
 			"id": 0,
-			"objective": "10x"
+			"objective": "Canon RF 24-70mm f/2.8L IS USM"
 		},
 		{
 			"id": 1,
-			"objective": "8x"
+			"objective": "Nikon Z 70-200mm f/2.8 VR S"
 		},
 		{
 			"id": 2,
-			"objective": "6x"
+			"objective": "Sony FE 24-70mm f/2.8 GM"
 		},
 		{
 			"id": 3,
-			"objective": "4x"
+			"objective": "Fujifilm XF 16-55mm f/2.8 R LM WR"
 		}
 	],
 	"define_camera": [

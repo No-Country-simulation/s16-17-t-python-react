@@ -52,5 +52,14 @@
 		"ubicacion": "Cinta Costera Panamá",
 		"modeloCamara": "Olympus OM-D E-M1 Mark III",
 		"lente": "Olympus M.Zuiko Digital ED 12-100mm f/4 IS PRO"
+	},
+	{
+		"id": 7,
+		"title": "Album 7",
+		"likes": 0,
+		"imagen": "/src/assets/img/default-image.png",
+		"ubicacion": "",
+		"modeloCamara": "Canon EOS 5D Mark III",
+		"lente": "Canon RF 24-70mm f/2.8L IS USM"
 	}
 ]

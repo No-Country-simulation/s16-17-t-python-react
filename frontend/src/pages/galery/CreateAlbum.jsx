@@ -117,7 +117,7 @@ export const CreateAlbum = forwardRef((props, ref) => {
 								</option>
 							))}
 						</select>
-						Objetivo
+						Lente
 						<select
 							onChange={(e) =>
 								setOptionsObjective(e.target.value)
@@ -126,7 +126,7 @@ export const CreateAlbum = forwardRef((props, ref) => {
 							className="border-2  border-slate-600 p-2 rounded-md cursor-pointer"
 						>
 							<option className="cursor-pointer">
-								-Elige un objetivo-
+								-Elige un lente-
 							</option>
 							{define_objevtive.map((e) => (
 								<option key={e.id} className="cursor-pointer">
@@ -135,11 +135,10 @@ export const CreateAlbum = forwardRef((props, ref) => {
 							))}
 						</select>
 					</div>
-					<section>
+					{/* <section>
 						<b>Definí tu album</b>
 						<article>
 							<div className="grid grid-cols-2 justify-center max-w-[1100px] mx-auto">
-								{/* checkbox modularizado */}
 								{checkboxState.map((data, index) => (
 									<CheckboxGallery
 										index="identificador"
@@ -148,13 +147,11 @@ export const CreateAlbum = forwardRef((props, ref) => {
 										handCheck={() =>
 											HandleChangeChecked(index)
 										}
-										// checkboxState={checkboxState}
-										// set_checkboxState={set_checkboxState}
 									/>
 								))}
 							</div>
 						</article>
-					</section>
+					</section> */}
 
 					<Fab
 						variant="extended"

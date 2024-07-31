@@ -39,7 +39,7 @@ export const GalleryModal = forwardRef((props, ref) => {
 			<Box
 				sx={{
 					backgroundColor: '#FBFCFF',
-					borderRadius: '20px',
+					borderRadius: '0 0 20px 20px',
 					px: '10px',
 					py: '20px',
 					display: 'flex',

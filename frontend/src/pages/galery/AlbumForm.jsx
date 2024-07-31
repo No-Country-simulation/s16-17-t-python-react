@@ -37,7 +37,9 @@ export const AlbumForm = () => {
 							component="p"
 							sx={{ fontSize: '14px', textAlign: 'center' }}
 						>
-							{'Viaje por latinoamerica'}
+							{
+								'Tomada con una Canon EOS R5 al amanecer. Apertura f/2.8, ISO100. La luz dorada realza los colores, capturando cadadetalle con nitidez impresionante y un increíble rango dinámico.'
+							}
 						</Typography>
 						<List>
 							<ListItem sx={{ gap: '20px' }}>
