@@ -1,4 +1,11 @@
-<h1 align="center">SnapTrip</h1>
+
+<div align="center">
+
+![img](https://github.com/user-attachments/assets/0afcb015-205f-40f8-8ecf-c3cd32f545cc)
+
+</div>
+
+
 
 ## <p> 🚀 ¡Bienvenido a Snaptrip! </p>
 <p>SnapTrip es una plataforma innovadora diseñada para planificar ,explorar y compartir experiencias de viajes fotográficos. En SnapTrip, puedes hacer planificaciones donde puedes subir, visualizar imágenes y descripciones detalladas de tus aventuras, inspirarte con destinos fotográficos destacados y conectar con otros entusiastas de la fotografía. Comparte tus experiencias, descubre nuevos lugares y accede a contenido exclusivo sobre destinos y eventos fotográficos.</p>
@@ -159,7 +166,7 @@
 ## 🖥️  Frontend:
   <div align='center'>
 
-[![My Skills](https://skillicons.dev/icons?i=html,css,js,tailwind,react,)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=html,css,js,tailwind,npm,react,figma,)](https://skillicons.dev)
 
   </div>
   
