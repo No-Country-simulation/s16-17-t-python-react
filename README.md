@@ -12,6 +12,20 @@
 
 ## 📑  Funcionalidades Principales
 
+<div align="center">
+
+### FondPage
+  ![image](https://github.com/user-attachments/assets/fc620747-f340-497b-9303-de6fda30d621)
+  ![image](https://github.com/user-attachments/assets/8e035376-f29c-489c-83a8-e904f03637d3)
+
+### Iterario
+  ![image](https://github.com/user-attachments/assets/8b895a39-d27d-47f6-8aad-a9a4656a79be)
+### Albums
+  ![image](https://github.com/user-attachments/assets/c6cb6de8-8fea-4d97-af6d-97c4077190b7)
+  ![image](https://github.com/user-attachments/assets/dfb19306-5279-4bc4-af62-eb136019c002)
+  
+  
+</div>
 
 ## 🤝 Equipo de trabajo:
 <table align='center'>
@@ -166,7 +180,7 @@
 ## 🖥️  Frontend:
   <div align='center'>
 
-[![My Skills](https://skillicons.dev/icons?i=html,css,js,tailwind,npm,react,figma,)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=js,tailwind,npm,react,figma,materialui,nodejs)](https://skillicons.dev)
 
   </div>
   
