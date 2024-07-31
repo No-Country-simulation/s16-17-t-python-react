@@ -8,6 +8,7 @@ import {
 	Button,
 	Fab,
 	FormControl,
+	FormControlLabel,
 	IconButton,
 	InputAdornment,
 	InputLabel,
@@ -19,22 +20,29 @@ import data from './DefineAlbum.json'
 import { CheckboxGallery } from './checkbox/CheckboxGallery'
 
 export const CreateAlbum = forwardRef((props, ref) => {
-	const { checkbox_object, define_camera, define_objevtive } = data
+	const { checkboxOptions, define_camera, define_objevtive } = data
 
 	const [dataTitle, setDatatitle] = useState('')
 	const [dataComent, setdataComent] = useState('')
 	const [OptionsCamera, setOptionsCamera] = useState('')
 	const [OptionsObjective, setOptionsObjective] = useState('')
-	const [checkboxState, set_checkboxState] = useState(checkbox_object)
+	const [checkOptions, setCheckOptions] = useState({
+		paisaje: false,
+		naturaleza: false,
+		street: false,
+		nocturno: false,
+		aereo: false,
+		retrato: false,
+		personas: false,
+		cultura: false,
+		otros: false,
+	})
 
-	const HandleChangeChecked = (index) => {
-		set_checkboxState(
-			checkboxState.map((data, currentIndex) =>
-				currentIndex === index ?
-					{ ...data, check: !data.selected }
-				:	data
-			)
-		)
+	const handleOptions = (e) => {
+		setCheckOptions({
+			...checkOptions,
+			[e.target.name]: e.target.checked,
+		})
 	}
 	// const {
 	//     store_TitleAlbum,
