@@ -12,6 +12,7 @@ import {
 	IconButton,
 	styled,
 } from '@mui/material'
+import useStepStore from '../../../../store/step'
 import TravelExploreIcon from '@mui/icons-material/TravelExplore'
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff'
 import DirectionsBusIcon from '@mui/icons-material/DirectionsBus'
@@ -23,10 +24,10 @@ import CheckIcon from '@mui/icons-material/Check'
 export const StepperCard = () => {
 	const StyledTextField = styled(TextField)`
 		& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
-			border-color: #fff;
+			border-color: #bbc1c7;
 		}
 		& .MuiFormLabel-root {
-			color: #fff;
+			color: #bbc1c7;
 		}
 		& .Mui-focused .MuiOutlinedInput-notchedOutline {
 			border-color: #fff;
@@ -47,19 +48,30 @@ export const StepperCard = () => {
 			color: #fff;
 		}
 	`
-	const [showForm, setShowForm] = useState(false)
+	const [showSpotForm, setShowSpotForm] = useState(false)
+	const [showTravelForm, setShowTravelForm] = useState(false)
 
 	const handleTravelClick = () => {
-		setShowForm(true)
+		setShowTravelForm(true)
 	}
 
 	const closeTravel = () => {
-		setShowForm(false)
+		setShowTravelForm(false)
 	}
+
+	const handleSpotClick = () => {
+		setShowSpotForm(true)
+	}
+
+	const closeSpot = () => {
+		setShowSpotForm(false)
+	}
+
+	const { nextStep } = useStepStore()
 
 	return (
 		<>
-			{!showForm && (
+			{!showTravelForm && !showSpotForm && (
 				<Box
 					sx={{
 						display: 'flex',
@@ -82,11 +94,20 @@ export const StepperCard = () => {
 								/>
 							}
 							onClick={handleTravelClick}
+							sx={{
+								borderColor: '#c9c9c9',
+								color: '#fff',
+								'&:hover': {
+									borderColor: 'transparent',
+									backgroundColor: '#6E9E30',
+								},
+							}}
 						>
 							Viaje
 						</Button>
 						<Button
 							variant="outlined"
+							onClick={handleSpotClick}
 							startIcon={
 								<img
 									src={SpotIcon}
@@ -94,6 +115,14 @@ export const StepperCard = () => {
 									height="20px"
 								/>
 							}
+							sx={{
+								borderColor: '#c9c9c9',
+								color: '#fff',
+								'&:hover': {
+									borderColor: 'transparent',
+									backgroundColor: '#6E9E30',
+								},
+							}}
 						>
 							Spot
 						</Button>
@@ -101,7 +130,7 @@ export const StepperCard = () => {
 				</Box>
 			)}
 
-			{showForm && (
+			{showTravelForm /* Refactorizar código */ && (
 				<Box
 					sx={{
 						display: 'flex',
@@ -167,6 +196,58 @@ export const StepperCard = () => {
 								color: '#6E9E30',
 								backgroundColor: '#EFEFEF',
 							}}
+						>
+							<CheckIcon />
+						</IconButton>
+					</Stack>
+				</Box>
+			)}
+			{showSpotForm && (
+				<Box
+					sx={{
+						display: 'flex',
+						flexDirection: 'column',
+						mt: '10px',
+						gap: '15px',
+					}}
+				>
+					<Typography fontSize="14px">Dia 1</Typography>
+					<Stack spacing={2}>
+						<StyledTextField label="Nombre" variant="outlined" />
+						<StyledTextField label="Lugar" variant="outlined" />
+						<Box
+							sx={{
+								display: 'flex',
+								gap: '10px',
+							}}
+						>
+							<StyledTextField
+								label="Empieza"
+								variant="outlined"
+							/>
+							<StyledTextField
+								label="Termina"
+								variant="outlined"
+							/>
+						</Box>
+						<StyledTextField label="Notas" variant="outlined" />
+					</Stack>
+					<Stack
+						direction="row"
+						sx={{
+							alignSelf: 'flex-end',
+							mt: '15px',
+						}}
+					>
+						<IconButton sx={{ color: '#fff' }} onClick={closeSpot}>
+							<CloseIcon />
+						</IconButton>
+						<IconButton
+							sx={{
+								color: '#6E9E30',
+								backgroundColor: '#EFEFEF',
+							}}
+							onClick={nextStep}
 						>
 							<CheckIcon />
 						</IconButton>

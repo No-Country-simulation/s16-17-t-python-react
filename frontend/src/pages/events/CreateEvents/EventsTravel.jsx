@@ -15,6 +15,7 @@ import {
 import { useState } from 'react'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import { StepperCard } from './StepperCard/StepperCard'
+import useStepStore from '../../../store/step'
 
 export const EventsTravel = () => {
 	const steps = [
@@ -36,7 +37,7 @@ export const EventsTravel = () => {
 		},
 	]
 
-	const [activeStep, setActiveStep] = useState(0)
+	/* const [activeStep, setActiveStep] = useState(0)
 
 	const handleNext = () => {
 		setActiveStep((prevActiveStep) => prevActiveStep + 1)
@@ -48,7 +49,10 @@ export const EventsTravel = () => {
 
 	const handleReset = () => {
 		setActiveStep(0)
-	}
+	} */
+
+	const { activeStep, previousStep, resetStep } = useStepStore()
+
 	return (
 		<>
 			<Stack spacing={3}>
@@ -65,9 +69,7 @@ export const EventsTravel = () => {
 							<StepLabel
 								optional={
 									index === 2 ?
-										<Typography variant="caption">
-											Last step
-										</Typography>
+										<Typography variant="caption"></Typography>
 									:	null
 								}
 								sx={{
@@ -78,9 +80,7 @@ export const EventsTravel = () => {
 										color: '#0D4937 !important',
 									},
 								}}
-							>
-								{step.label}
-							</StepLabel>
+							></StepLabel>
 							<StepContent
 								sx={{
 									backgroundColor: '#0D4937',
