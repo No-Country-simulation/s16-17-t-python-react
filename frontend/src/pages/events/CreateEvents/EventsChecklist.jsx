@@ -7,8 +7,30 @@ import {
 	FormControlLabel,
 	Typography,
 } from '@mui/material'
-
+import eventos from './Event_checklist.json'
+import { useState } from 'react'
+import Button from '@mui/material/Button';
 export const EventsChecklist = () => {
+	const [checkboxes, setCheckboxes] = useState(eventos);
+	const [Checked_items, setChecked_items] = useState([]);
+	const [EditButton, setEditButton] = useState(false)
+
+	const handleCheckboxChange = (id) => {
+		setCheckboxes((prevCheckboxes) =>
+			prevCheckboxes.map((checkbox) =>
+				checkbox.id === id
+					? { ...checkbox, checked: !checkbox.checked }
+					: checkbox
+			)
+		);
+	};
+	const SaveChecked = () => {
+		setChecked_items(checkboxes.filter(e => e.checked === true))
+		console.log(Checked_items)
+	}
+	const EditChecked = () => {
+		setEditButton(true)
+	}
 	return (
 		<>
 			<Typography>Checklist</Typography>
@@ -16,79 +38,51 @@ export const EventsChecklist = () => {
 				sx={{
 					display: 'flex',
 					flexDirection: { xs: 'column' },
+					gap: "1rem",
 					px: '10px',
 				}}
 			>
-				<FormControlLabel
-					value="camara"
-					control={<Checkbox />}
-					label="Cámara"
-					labelPlacement="end"
-				/>
-				<Divider />
-				<FormControlLabel
-					value="objetivo"
-					control={<Checkbox />}
-					label="Objetivo"
-					labelPlacement="end"
-				/>
-				<Divider />
-				<FormControlLabel
-					value="bateria"
-					control={<Checkbox />}
-					label="Baterías de repuesto"
-					labelPlacement="end"
-				/>
-				<Divider />
-				<FormControlLabel
-					value="paños"
-					control={<Checkbox />}
-					label="Paños para limpiar los lentes"
-					labelPlacement="end"
-				/>
-				<Divider />
-				<FormControlLabel
-					value="tarjetas"
-					control={<Checkbox />}
-					label="Tarjetas de memoria"
-					labelPlacement="end"
-				/>
-				<Divider />
-				<FormControlLabel
-					value="tripode"
-					control={<Checkbox />}
-					label="Trípode"
-					labelPlacement="end"
-				/>
-				<Divider />
-				<FormControlLabel
-					value="filtros"
-					control={<Checkbox />}
-					label="Filtros"
-					labelPlacement="end"
-				/>
-				<Divider />
-				<FormControlLabel
-					value="dispositivo"
-					control={<Checkbox />}
-					label="Dispositivos de respaldo"
-					labelPlacement="end"
-				/>
-				<Divider />
-				<FormControlLabel
-					value="bolsas"
-					control={<Checkbox />}
-					label="Bolsas de plástico"
-					labelPlacement="end"
-				/>
-				<Divider />
-				<FormControlLabel
-					value="bitacora"
-					control={<Checkbox />}
-					label="Bitacora"
-					labelPlacement="end"
-				/>
-				<Divider />
+				{
+					Checked_items.length < 1 &&
+					checkboxes.map(e => (
+						<div key={e.id}>
+							<FormControlLabel
+								value={e.value}
+								onChange={() => handleCheckboxChange(e.id)}
+								checked={e.checked}
+								control={<Checkbox />}
+								label={e.label}
+								labelPlacement="end"
+							/>
+							<Divider />
+						</div>
+					))
+				}
+				{
+					Checked_items.length > null && Checked_items.map(e => (
+						<div key={e.id}>
+							<FormControlLabel
+								value={e.value}
+								checked={e.checked}
+								control={<Checkbox />}
+								label={e.label}
+								labelPlacement="end"
+							/>
+							<Divider />
+						</div>
+					))
+
+				}
+				{
+					Checked_items.length < 1 ?
+						<Button disabled className=' rounded-2xl max-w-[100px]' >Editar</Button>
+						:
+						<Button className=' rounded-2xl max-w-[100px]' onClick={EditChecked} 	>Editar</Button>
+				}
+				<div className='flex justify-end'>
+
+					<Button className='hover:text-[#6E9E30] rounded-2xl max-w-[100px]' onClick={SaveChecked} sx={{ backgroundColor: "#6E9E30", color: "#fff" }} color='success'	>Guardar</Button>
+				</div>
 			</Box>
 		</>
 	)

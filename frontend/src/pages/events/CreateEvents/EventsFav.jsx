@@ -3,7 +3,11 @@
 import { Box, IconButton, Typography } from '@mui/material'
 import TuneIcon from '@mui/icons-material/Tune'
 import SearchIcon from '@mui/icons-material/Search'
+import json_galery from '../../galery/galery.json'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
+// la ultima foto está desproporcionada, por eso el slice
+const json_withoutLastIndex = json_galery.slice(0, 5)
 export const EventsFav = () => {
 	return (
 		<>
@@ -31,7 +35,28 @@ export const EventsFav = () => {
 						<TuneIcon />
 					</IconButton>
 				</Box>
-				<Box
+				{
+					<section className="flex flex-wrap justify-center gap-[1rem] mx-auto max-w-[1200px] pt-[2rem] ">
+
+					{
+						json_withoutLastIndex.map(e => (
+							<div key={e.id} className=' bg-[#F2F5FA] rounded-lg cursor-pointer h-[12rem] w-[13rem]  gap-2 p-1 hover:scale-105 transition-all .5s ease-in-out' >
+								<div className='flex justify-center '>
+
+									<img className='h-auto  w-full max-w-[202px] p-1 rounded-[1.2rem] object-cover' src={e.imagen} alt="" />
+								</div>
+								<div className='flex justify-center w-full p-3 gap-[1rem]'>
+									<AccountCircleIcon />
+									<p>Nombre Perfil</p>
+								</div>
+							</div>
+						))
+					}
+
+				</section>
+				}
+				{/* dejo comentando el codigo por si acaso */}
+				{/* <Box
 					sx={{
 						backgroundColor: '#F2F5FA',
 						width: { xs: '189px' },
@@ -44,8 +69,10 @@ export const EventsFav = () => {
 						px: '20px',
 						gap: '20px',
 					}}
-				>
-					<IconButton
+				> */}
+
+					
+					{/* <IconButton
 						sx={{
 							backgroundColor: '#E5E5E9',
 						}}
@@ -65,8 +92,8 @@ export const EventsFav = () => {
 					>
 						Tu galería esta vacia. Aquí aparecerán las álbumes que
 						hayas guardado.
-					</Typography>
-				</Box>
+					</Typography> */}
+				{/* </Box> */}
 			</Box>
 		</>
 	)

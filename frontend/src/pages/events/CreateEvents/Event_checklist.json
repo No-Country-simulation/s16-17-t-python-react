@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "label": "Cámara",
+        "value": "camara",
+        "checked": false
+    },
+    {
+        "id": 2,
+        "label": "Objetivo",
+        "value": "objetivo",
+        "checked": false
+    },
+    {
+        "id": 3,
+        "label": "Bateria",
+        "value": "bateria",
+        "checked": false
+    },
+    {
+        "id": 4,
+        "label": "Paños para limpiar los lentes",
+        "value": "paños",
+        "checked": false
+    },
+    {
+        "id": 5,
+        "label": "Tarjetas de memoria",
+        "value": "tarjetas",
+        "checked": false
+    },
+    {
+        "id": 6,
+        "label": "tripode",
+        "value": "tripode",
+        "checked": false
+    },
+    {
+        "id": 7,
+        "label": "Filtros",
+        "value": "filtros",
+        "checked": false
+    },
+    {
+        "id": 8,
+        "label": "Dispositivo",
+        "value": "dispositivo",
+        "checked": false
+    },
+    {
+        "id": 9,
+        "label": "Bolsas de plástico",
+        "value": "bolsas",
+        "checked": false
+    },
+    {
+        "id": 10,
+        "label": "Bitacora",
+        "value": "bitacora",
+        "checked": false
+    }
+]
