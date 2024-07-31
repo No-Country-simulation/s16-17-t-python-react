@@ -49,7 +49,10 @@ export const Profile = () => {
 						<Avatar
 							sx={{ width: 32, height: 32 }}
 							alt="Profile"
-							src={avatarImage}
+							src={
+								avatarImage ||
+								'/src/assets/img/profile_default.png'
+							}
 						/>
 					</IconButton>
 				</Tooltip>

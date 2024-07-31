@@ -31,14 +31,13 @@ export const AlbumForm = () => {
 								textAlign: 'center',
 							}}
 						>
-							Nombre
+							Album 1
 						</Typography>
 						<Typography
 							component="p"
 							sx={{ fontSize: '14px', textAlign: 'center' }}
 						>
-							El contanos que ya puso en el formulario iría aca
-							rellenando esto.
+							{'Viaje por latinoamerica'}
 						</Typography>
 						<List>
 							<ListItem sx={{ gap: '20px' }}>

@@ -26,6 +26,7 @@ export const EventsForm = () => {
 					display: 'flex',
 					flexDirection: { xs: 'column' },
 					mt: '60px',
+					pt: '20px',
 					alignItems: 'center',
 					gap: '20px',
 					px: { xs: '1rem' },
@@ -38,7 +39,7 @@ export const EventsForm = () => {
 						fontSize: '1.75rem',
 					}}
 				>
-					Nombre
+					Lumières de Paris
 				</Typography>
 				<Typography
 					sx={{
