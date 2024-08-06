@@ -65,7 +65,7 @@ export const AlbumComponent = () => {
 								<LocationOnIcon />
 								{e.ubicacion}
 							</div>
-							<div className="text-xs">
+							<div className="text-xs flex items-center">
 								{' '}
 								{/* codigo refactorizado para la funcion de like */}
 								<Checkbox
@@ -98,7 +98,7 @@ export const AlbumComponent = () => {
 				sx={{
 					display: 'flex',
 					flexDirection: { xs: 'column', md: 'row' },
-					px: '2rem',
+					px: '1rem',
 					mt: { xs: '50px', md: 'none' },
 				}}
 			>

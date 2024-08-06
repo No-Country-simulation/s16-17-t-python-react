@@ -17,7 +17,7 @@ export const Account = () => {
 					width: '100%',
 					display: 'flex',
 					flexDirection: { xs: 'column', md: 'row' },
-					gap: { md: '60px' },
+					gap: { lg: '60px' },
 				}}
 				maxWidth="xl"
 			>
