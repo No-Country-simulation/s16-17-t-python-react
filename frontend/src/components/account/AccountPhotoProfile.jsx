@@ -15,7 +15,7 @@ export const AccountPhotoProfile = () => {
 			anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
 			badgeContent={
 				<div className="bg-bgButton rounded-[12px] w-[40px]  h-[40px] flex justify-center items-center">
-					<Tooltip title="Editar Foto de perfil">
+					<Tooltip title="Cambiar Foto de perfil">
 						<NavLink to="">
 							<DriveFileRenameOutlineIcon className="text-[#FFF]" />
 						</NavLink>

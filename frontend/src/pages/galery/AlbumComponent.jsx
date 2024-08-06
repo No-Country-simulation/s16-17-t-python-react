@@ -41,10 +41,10 @@ export const AlbumComponent = () => {
 		)
 	}
 	return (
-		<section className="grid grid-cols-1 gap-6 w-full md:grid-cols-2 md:gap-[1rem] md:justify-center p-3 md:grid-rows-2 md:w-full md:mx-auto">
+		<section className="grid grid-cols-1 gap-6 w-full md:grid-cols-2 md:gap-[1rem] md:justify-center p-3 md:grid-rows-2 md:w-full md:mx-auto xl:gap-20">
 			{albums.map((e) => (
 				<div
-					className="w-full max-w-[400px]
+					className="w-full 
                     mx-auto h-full hover:scale-105  
                     transition-all .5s ease-in-out border 
                     rounded-lg shadow-lg p-6 

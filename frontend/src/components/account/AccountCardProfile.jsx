@@ -5,7 +5,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline'
-import { Box, Chip, Stack, Typography } from '@mui/material'
+import { Box, Chip, Stack, Tooltip, Typography } from '@mui/material'
 import { AccountPhotoProfile } from '../../components/account/AccountPhotoProfile'
 import { ProfileStats } from './ProfileStats'
 import { NavLink } from 'react-router-dom'
@@ -31,8 +31,9 @@ export const AccountCardProfile = () => {
 					alignItems: 'center',
 					py: '20px',
 					px: '10px',
-					maxWidth: { xs: '448px', md: '337px' },
 					mt: '70px',
+					maxWidth: { xs: '448px', md: '337px' },
+					width: '100%',
 					height: { md: '744px' },
 				}}
 			>
@@ -43,7 +44,7 @@ export const AccountCardProfile = () => {
 					<Box>
 						<Typography
 							component="p"
-							sx={{ color: '#FFF', fontSize: '2rem' }}
+							sx={{ color: '#FFF', fontSize: '1.5rem' }}
 						>
 							{name}
 						</Typography>
@@ -91,13 +92,12 @@ export const AccountCardProfile = () => {
 					</Box>
 				</Stack>
 
-				<Box sx={{ mt: '3rem' }}>
-					<NavLink to="/account/edit" className="flex gap-1">
-						<Typography sx={{ color: '#FFF' }}>
-							Editar datos personales
-						</Typography>
-						<DriveFileRenameOutlineIcon className="text-[#FFF]" />
-					</NavLink>
+				<Box sx={{ mt: '3rem', alignSelf: 'flex-end', mr: '1rem' }}>
+					<Tooltip title="Editar datos personales">
+						<NavLink to="/account/edit" className="flex gap-1 ">
+							<DriveFileRenameOutlineIcon className="text-[#FFF]" />
+						</NavLink>
+					</Tooltip>
 				</Box>
 			</Box>
 		</>
