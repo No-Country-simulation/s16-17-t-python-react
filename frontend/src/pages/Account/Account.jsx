@@ -13,9 +13,13 @@ export const Account = () => {
 			<Container
 				sx={{
 					backgroundColor: '#FBFCFF',
-					mt: '2.5rem',
+					mt: { xs: '2.5rem', md: '5rem' },
 					width: '100%',
+					display: 'flex',
+					flexDirection: { xs: 'column', md: 'row' },
+					gap: { md: '60px' },
 				}}
+				maxWidth="xl"
 			>
 				<AccountCardProfile />
 				<TabsPanel />

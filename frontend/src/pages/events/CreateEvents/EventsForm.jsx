@@ -113,9 +113,9 @@ export const EventsForm = () => {
 				<TabPanel value="1">
 					<EventsTravel />
 				</TabPanel>
-				<TabPanel value="2"  >
+				<TabPanel value="2">
 					{/* aca hacer el renderizado de los tabs */}
-					<EventsFav   />
+					<EventsFav />
 				</TabPanel>
 				<TabPanel value="3">
 					<EventsChecklist />

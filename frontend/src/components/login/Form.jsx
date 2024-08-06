@@ -48,7 +48,7 @@ export const Form = () => {
 
 	return (
 		<>
-			<div className="flex flex-col gap-6 px-4 md:px-44 mt-11">
+			<div className="flex flex-col gap-6 px-4 mt-11 w-full md:max-w-[373px]">
 				{/* Email input */}
 				<CustomTextField
 					label="Email"
@@ -83,24 +83,23 @@ export const Form = () => {
 						onChange={handleChange}
 					/>
 				</FormControl>
+				<div className="self-start">
+					<p className="text-[#807D84] text-xs flex gap-1 mt-2">
+						¿Olvidaste tu contraseña?
+						<span className="text-[#6E9E30]">Recuperar</span>
+					</p>
+				</div>
 			</div>
 
-			<div className="px-4 md:px-44">
-				<p className="text-[#807D84] text-xs flex gap-1 mt-2">
-					¿Olvidaste tu contraseña?
-					<span className="text-[#6E9E30]">Recuperar</span>
-				</p>
-			</div>
-
-			<div className="p-8 md:px-48 flex justify-center">
+			<div className="py-8">
 				<Button
 					disabled={disabled}
 					variant="contained"
-					className="w-full"
 					sx={{
 						bgcolor: '#6E9E30',
 						color: 'white',
 						borderRadius: '20px',
+						width: '336px',
 						':hover': {
 							bgcolor: '#6E9E30',
 						},

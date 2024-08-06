@@ -27,11 +27,13 @@ export const AccountCardProfile = () => {
 					borderRadius: '20px',
 					display: 'flex',
 					flexDirection: 'column',
+					alignSelf: { xs: 'center', md: 'flex-start' },
 					alignItems: 'center',
 					py: '20px',
 					px: '10px',
-					maxWidth: '448px',
+					maxWidth: { xs: '448px', md: '337px' },
 					mt: '70px',
+					height: { md: '744px' },
 				}}
 			>
 				<Stack spacing={2} alignItems="center" sx={{ mb: '2rem' }}>
